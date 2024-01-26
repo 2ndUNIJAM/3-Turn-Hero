@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameStartMenu : MonoBehaviour
 {
@@ -57,8 +58,7 @@ public class GameStartMenu : MonoBehaviour
         {
             if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
             {
-                // 게임 시작 버튼 동작
-                Debug.Log("게임을 시작합니다.");
+                SceneManager.LoadScene("SelectScene");
             }
             else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
             {
@@ -67,8 +67,7 @@ public class GameStartMenu : MonoBehaviour
             }
             else if (QuitButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
             {
-                // 나가기 버튼 동작
-                Debug.Log("게임을 종료합니다.");
+                ExitGame();
             }
         }
     }
@@ -84,5 +83,14 @@ public class GameStartMenu : MonoBehaviour
 
         // 하이라이트 위치 조정
         highlight.transform.position = new Vector3(highlight.transform.position.x, selectedButton.transform.position.y, highlight.transform.position.z);
+    }
+
+    void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
