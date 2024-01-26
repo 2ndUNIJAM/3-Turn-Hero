@@ -9,6 +9,7 @@ public class Monster : Unit
     private const float MOVE_MAX_DISTANCE = 6f;
 
     protected float recognizeDistance;
+    protected float outofDistance;
     protected bool isGotoRight;
     protected bool isChasing;
 
@@ -18,6 +19,15 @@ public class Monster : Unit
     {
         float distance = Vector2.Distance(this.transform.position, PlayerManager.Instance.transform.position);
         if (distance < recognizeDistance)
+            return true;
+        else
+            return false;
+    }
+
+    protected virtual bool CheckOutOfRange()
+    {
+        float distance = Vector2.Distance(this.transform.position, PlayerManager.Instance.transform.position);
+        if (distance > outofDistance)
             return true;
         else
             return false;

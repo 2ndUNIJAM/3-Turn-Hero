@@ -8,7 +8,8 @@ public class TempMonster : Monster
     // Start is called before the first frame update
     void Start()
     {
-        recognizeDistance = 2f;
+        recognizeDistance = 3f;
+        outofDistance = 6f;
 
         patrolCo = StartCoroutine(Patrol());
     }
@@ -18,15 +19,27 @@ public class TempMonster : Monster
         if (isChasing)
         {
             if (patrolCo != null)
-                StopPatrol();
+                StopPatrol(); // 순찰 종료
+
+            // 추적
             GotoPlayer();
+
+            // 범위 벗어나면 순찰 시작
+            if (CheckOutOfRange())
+            {
+                isChasing = false;
+                patrolCo = StartCoroutine(Patrol());
+            }
         }
         else
         {
-            isChasing = RecognizePlayer();
-
+            // 순찰
             if (patrolCo == null)
                 patrolCo = StartCoroutine(Patrol());
+
+            // 플레이어 감지 시 추적 시작
+            if (RecognizePlayer())
+                isChasing = true;
         }
     }
 }
