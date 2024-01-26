@@ -8,19 +8,22 @@ using UnityEngine;
 /// </summary>
 public class DataManager : MonoBehaviour
 {
-    [SerializeField] private GoogleSheetManager googleSheet;
-    public GoogleSheetManager GoogleSheet => googleSheet;
-
-
     [SerializeField]
-    private List<JemSO> jemSOList;
-    public List<JemSO> JemSOList => jemSOList;
+    private Dictionary<string, UnitDataSO> unitDataSODic;
+    public Dictionary<string, UnitDataSO> UnitDataSODic => unitDataSODic;
 
     public void Init()
     {
-        jemSOList = new List<JemSO>();
-        jemSOList.AddRange(GameManager.Resource.LoadAll<JemSO>("SO/JemSO"));
+        unitDataSODic = new Dictionary<string, UnitDataSO>();
 
-        GoogleSheet.Init();
+        var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
+        foreach (var unit in unitDataSOList)
+        {
+            UnitDataSODic.Add(unit.Name, unit);
+        }
+
+        Debug.Log(UnitDataSODic["∞Ì∫Ì∏∞"].Stat.MaxHP);
+        Debug.Log(UnitDataSODic["∞Ò∑Ω"].Stat.MaxHP);
+        Debug.Log(UnitDataSODic["ΩΩ∂Û¿”"].Stat.MaxHP);
     }
 }

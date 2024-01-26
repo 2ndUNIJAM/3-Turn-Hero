@@ -14,26 +14,6 @@ public class GameManagerTest : MonoBehaviour
         StartCoroutine(AutoSave());
     }
 
-    void Update()
-    {
-        // 데이터 수정 예시
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            GameManager.Save.SaveData.gold += 100;
-
-        // 웹 구글 스프레드시트 데이터 불러오기
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GameManager.Data.GoogleSheet.DownloadAllSO();
-        }
-
-        // 게임 데이터 접근 예시
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            JemSO jemSO = GameManager.Data.JemSOList[0];
-            Debug.Log($"'{jemSO.Price}' of '{jemSO.Name}'");
-        }
-    }
-
     IEnumerator AutoSave()
     {
         yield return new WaitForSeconds(AUTOSAVE_TIME);
