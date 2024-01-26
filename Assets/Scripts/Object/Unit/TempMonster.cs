@@ -8,14 +8,24 @@ public class TempMonster : Monster
     // Start is called before the first frame update
     void Start()
     {
-        recognizeDistance = 3f;
-        outofDistance = 6f;
+        recognizeDis = 3f;
+        outofDis = 6f;
+        attackDis = 0.5f;
+        knockBackPower = 1.5f;
+
+        isCanAttack = true;
 
         patrolCo = StartCoroutine(Patrol());
     }
 
     private void FixedUpdate()
     {
+        if (isCanAttack && CheckAttack())
+            Attack();
+
+        if (isAttacking)
+            return; // 공격 중엔 아래 기능을 수행하지 않음
+
         if (isChasing)
         {
             if (patrolCo != null)

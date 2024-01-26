@@ -20,5 +20,5 @@ MonoBehaviour:
     PArmor: 10
     MPower: 5
     MArmor: 5
-    AttackSpeed: 5
-    MoveSpeed: 5
+    AttackSpeed: 2
+    MoveSpeed: 3

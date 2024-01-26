@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Monster : Unit
@@ -8,17 +9,19 @@ public class Monster : Unit
     private const float MOVE_MIN_DISTANCE = 3f;
     private const float MOVE_MAX_DISTANCE = 6f;
 
-    protected float recognizeDistance;
-    protected float outofDistance;
+    protected float recognizeDis;
+    protected float outofDis;
+    protected float attackDis;
     protected bool isGotoRight;
-    protected bool isChasing;
+    protected bool isChasing, isAttacking;
+    protected bool isCanAttack;
 
     protected Coroutine patrolCo;
 
     protected virtual bool RecognizePlayer()
     {
         float distance = Vector2.Distance(this.transform.position, PlayerManager.Instance.transform.position);
-        if (distance < recognizeDistance)
+        if (distance < recognizeDis)
             return true;
         else
             return false;
@@ -27,14 +30,20 @@ public class Monster : Unit
     protected virtual bool CheckOutOfRange()
     {
         float distance = Vector2.Distance(this.transform.position, PlayerManager.Instance.transform.position);
-        if (distance > outofDistance)
+        if (distance > outofDis)
             return true;
         else
             return false;
     }
 
+    protected virtual bool CheckAttack() 
+        => Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
+
     protected virtual void GotoPlayer()
     {
+        if (isDead || isHit)
+            return;
+
         if (isGotoRight)
         {
             Move(Vector3.right, Stat.MoveSpeed);
@@ -75,5 +84,36 @@ public class Monster : Unit
     {
         this.transform.position += dir * moveSpeed * Time.deltaTime;
         this.transform.localScale = (dir.x < 0f) ? new Vector3(-1f, 1f, 1f) : new Vector3(1f, 1f, 1f);
+    }
+
+    protected virtual void Attack()
+    {
+        isCanAttack = false;
+        isAttacking = true;
+        animator.speed = Stat.AttackSpeed;
+        animator.SetBool("isAttack", true);
+        StartCoroutine(EndAttack());
+    }
+
+    protected virtual void CheckAttackDamage()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
+
+        if (hit)
+        {
+            Unit unit = hit.transform.GetComponent<Unit>();
+            unit.ReduceHP(Stat.PPower);
+            Debug.Log(unit.Stat.CurrentHP);
+        }
+    }
+
+    protected virtual IEnumerator EndAttack()
+    {
+        yield return new WaitForSeconds(1f / Stat.AttackSpeed);
+
+        isCanAttack = true;
+        isAttacking = false;
+        animator.speed = 1f;
+        animator.SetBool("isAttack", false);
     }
 }
