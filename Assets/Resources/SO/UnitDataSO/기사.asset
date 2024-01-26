@@ -15,10 +15,10 @@ MonoBehaviour:
   name: "\uAE30\uC0AC"
   stat:
     MaxHP: 50
-    CurrentHP: 30
-    PPower: 0
-    PArmor: 0
-    MPower: 0
-    MArmor: 0
-    AttackSpeed: 0
-    MoveSpeed: 0
+    CurrentHP: 50
+    PPower: 10
+    PArmor: 10
+    MPower: 5
+    MArmor: 5
+    AttackSpeed: 5
+    MoveSpeed: 5

@@ -11,4 +11,5 @@ public class Unit : MonoBehaviour
     public Stat ChangedStat => changedStat;
 
     public Stat Stat => data.Stat + changedStat;
+
 }

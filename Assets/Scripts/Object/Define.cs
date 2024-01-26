@@ -1,22 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
-public interface IMove
-{
-    void Move() { }
-}
-
-public interface IAttack
-{
-    void Attack() { }
-}
-
-public interface Fly
-{
-    void Fly() { }
-}
 
 [Serializable]
 public struct Stat
