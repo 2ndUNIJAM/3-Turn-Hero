@@ -45,7 +45,7 @@ public class GoogleSheetManager : MonoBehaviour
         for (int i = 0; i < rowSize; i++)
         {
             string[] columns = row[i].Split("\t");
-            ParseJemSO(GameManager.Data.JemSOList[i], columns);
+            //ParseJemSO(GameManager.Data.JemSOList[i], columns);
         }
     }
 
