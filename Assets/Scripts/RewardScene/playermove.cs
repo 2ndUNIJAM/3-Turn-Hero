@@ -8,7 +8,13 @@ public class playermove : MonoBehaviour
     [SerializeField] private GameObject Character;
     private bool isMoving = false;
     private float moveDistance = 7.0f;
-    private bool blockKeyboardInput = false; 
+    private bool blockKeyboardInput = false;
+
+    void Start()
+    {
+        // 플레이어의 초기 위치 설정
+        transform.position = new Vector3(0.46f, -2.95f, 0);
+    }
 
     void Update()
     {
@@ -24,7 +30,6 @@ public class playermove : MonoBehaviour
             }
         }
 
-        
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) && !blockKeyboardInput)
         {
             StartCoroutine(CharacterExit());
@@ -35,6 +40,7 @@ public class playermove : MonoBehaviour
     {
         Vector3 targetPosition = transform.position + offset;
         targetPosition.x = Mathf.Clamp(targetPosition.x, -7.0f, 7.0f);
+        targetPosition.y = -2.95f; // y축 고정
         isMoving = true;
         transform.DOMove(targetPosition, 1.0f).OnComplete(() => isMoving = false);
     }
