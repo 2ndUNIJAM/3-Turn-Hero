@@ -7,7 +7,7 @@ public class Player : Unit
     private const float DEFAULT_FAINT_TIME = 0.5f;
 
     public Inventory inven;
-    public Stat upgradedStat; // °­È­(´©Àû) ½ºÅÈ
+    public Stat upgradedStat; // ëˆ„ì (ë³€í™”ëœ) ëŠ¥ë ¥ì¹˜
 
     public new Stat Stat => base.Stat + upgradedStat;
 

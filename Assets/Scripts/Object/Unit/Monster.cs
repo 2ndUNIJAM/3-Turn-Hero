@@ -67,13 +67,13 @@ public class Monster : Unit
             return false;
     }
 
-    protected virtual bool CheckAttack() 
+    protected virtual bool CheckAttack()
         => Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
 
     protected virtual void GotoPlayer()
     {
         if (isDead || isFaint)
-            return; // Á×°Å³ª ±âÀýÀÏ °æ¿ì
+            return; // ï¿½×°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
         if (isGotoRight)
         {

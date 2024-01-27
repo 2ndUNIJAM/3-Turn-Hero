@@ -143,7 +143,7 @@ public class PlayerManager : MonoBehaviour
         foreach (var hit in hits)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
-            unit.ReduceHP(player.Stat.PPower);
+            unit.ReduceHP(player.Stat.ATK);
 
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
             damageUI.Init(unit.gameObject, player.Stat.PPower, unit.UpPos, new Color(1f, 0.4f, 0.4f));
