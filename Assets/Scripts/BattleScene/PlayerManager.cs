@@ -37,12 +37,14 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameManager.Data.player;
+
         collider = gameObject.GetOrAddComponent<BoxCollider2D>();
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
@@ -128,7 +130,9 @@ public class PlayerManager : MonoBehaviour
         {
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(player.Stat.PPower);
-            Debug.Log(unit.Stat.CurrentHP);
+
+            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
+            damageUI.Init(unit.gameObject, player.Stat.PPower, new Color(1f, 0.4f, 0.4f));
         }
     }
 

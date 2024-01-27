@@ -12,18 +12,23 @@ public class DataManager : MonoBehaviour
     private Dictionary<string, UnitDataSO> unitDataSODic;
     public Dictionary<string, UnitDataSO> UnitDataSODic => unitDataSODic;
 
+    public Player player;
+
+    public int stageID;
+
     public void Init()
     {
         unitDataSODic = new Dictionary<string, UnitDataSO>();
+
+        player = new Player();
+        player.Data = GameManager.Resource.Load<UnitDataSO>("SO/플레이어");
+
+        stageID = 0;
 
         var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
         foreach (var unit in unitDataSOList)
         {
             UnitDataSODic.Add(unit.Name, unit);
         }
-
-        Debug.Log(UnitDataSODic["고블린"].Stat.MaxHP);
-        Debug.Log(UnitDataSODic["골렘"].Stat.MaxHP);
-        Debug.Log(UnitDataSODic["슬라임"].Stat.MaxHP);
     }
 }

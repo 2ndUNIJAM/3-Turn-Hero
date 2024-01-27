@@ -6,13 +6,12 @@ public class Unit : MonoBehaviour
 {
     private const float DEAD_FADE_SPEED = 2f;
 
-    [SerializeField] private UnitDataSO data;
-    public UnitDataSO Data => data;
+    public UnitDataSO Data;
 
     [SerializeField] private Stat changedStat;
     public Stat ChangedStat => changedStat;
 
-    public Stat Stat => data.Stat + changedStat;
+    public Stat Stat => Data.Stat + changedStat;
 
     protected float knockBackPower;
     protected bool isHit;
