@@ -41197,7 +41197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3275406358276120557, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -14.82
       objectReference: {fileID: 0}
     - target: {fileID: 3275406358276120557, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41234,22 +41234,6 @@ PrefabInstance:
     - target: {fileID: 3275406358276120557, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587086533407038002, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_GravityScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6636293883058834685, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6636293883058834685, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1541213843
-      objectReference: {fileID: 0}
-    - target: {fileID: 7941334321666152259, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: enemyMask.m_Bits
-      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 8449078223550106626, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
       propertyPath: m_Name

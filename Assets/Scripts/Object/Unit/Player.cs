@@ -18,8 +18,12 @@ public class Player : Unit
 
     public void InitFromDataManager()
     {
-        inven = GameManager.Data.playerInven;
-        upgradedStat = GameManager.Data.playerUpgradeStat;
+        inven = DataManager.playerInven;
+        upgradedStat = DataManager.playerUpgradeStat;
+
+        upgradedStat += inven.weapon.basicStat;
+        upgradedStat += inven.armor.basicStat;
+        upgradedStat += inven.colleague.basicStat;
     }
 
 

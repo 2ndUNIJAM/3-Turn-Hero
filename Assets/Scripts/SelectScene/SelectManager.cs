@@ -111,12 +111,9 @@ public class SelectManager : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
 
-            TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
-            TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
-
             blockKeyboardInput = false;
 
-            SceneManager.LoadScene("BattleScene");
+            GameManager.Scene.GoToScene(Scene.BattleScene, "TestBGM");
         }
         // 선택이 끝나지 않은 경우 다음 선택 시작. 
         else
@@ -154,8 +151,8 @@ public class SelectManager : MonoBehaviour
     // 용사 퇴장하는 코드.
     IEnumerator CharacterExit()
     {
-        Debug.Log("weapon ATK: " + GameManager.Data.playerInven.weapon.basicStat.ATK);
-        Debug.Log("weapon AttackSpeed: " + GameManager.Data.playerInven.weapon.basicStat.AttackSpeed);
+        Debug.Log("weapon ATK: " + DataManager.playerInven.weapon.basicStat.ATK);
+        Debug.Log("weapon AttackSpeed: " + DataManager.playerInven.weapon.basicStat.AttackSpeed);
 
         blockKeyboardInput = true;
 

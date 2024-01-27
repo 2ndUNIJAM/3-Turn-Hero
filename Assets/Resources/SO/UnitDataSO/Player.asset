@@ -16,11 +16,7 @@ MonoBehaviour:
   stat:
     MaxHP: 100
     CurrentHP: 100
-<<<<<<< Updated upstream
     ATK: 10
-=======
-    ATK: 5
->>>>>>> Stashed changes
-    DEF: 5
-    AttackSpeed: 2
+    DEF: 0
+    AttackSpeed: 1
     MoveSpeed: 8
