@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2373228452057203246}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.61, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fb75e6cbe600347a49010a2a81de80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: fa5d70d92a04f6a4e801d17efcdd23e8, type: 2}
+  Data: {fileID: 11400000, guid: fa5d70d92a04f6a4e801d17efcdd23e8, type: 2}
   changedStat:
     MaxHP: 0
     CurrentHP: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3617358221190098296}
   collider: {fileID: 4422382365782014890}
   rigidbody: {fileID: 7964564234233488798}
+  hpBar: {fileID: 0}
 --- !u!95 &1358238285453453660
 Animator:
   serializedVersion: 5

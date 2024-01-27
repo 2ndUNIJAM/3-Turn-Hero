@@ -554,8 +554,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a32dbfb23dca8b4a8ae4b7a38bd2e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  googleSheet: {fileID: 2924204834867259311}
-  jemSOList: []
+  playerInven:
+    weapon: {fileID: 0}
+    armor: {fileID: 0}
+    colleague: {fileID: 0}
+  playerUpgradeStat:
+    MaxHP: 0
+    CurrentHP: 0
+    PPower: 0
+    PArmor: 0
+    AttackSpeed: 0
+    MoveSpeed: 0
+  stageID: 0
 --- !u!1 &5928193461559421786
 GameObject:
   m_ObjectHideFlags: 0

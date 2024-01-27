@@ -12,6 +12,7 @@ public class TempMonster : Monster
         outofDis = 6f;
         attackDis = 0.5f;
         knockBackPower = 1.5f;
+        hpbarHeight = 0.25f;
 
         isCanAttack = true;
 

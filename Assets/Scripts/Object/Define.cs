@@ -72,3 +72,19 @@ public struct Stat
         return result;
     }
 }
+
+[Serializable]
+public struct Inventory
+{
+    public Weapon weapon;
+    public Armor armor;
+    public Colleague colleague;
+}
+
+public enum Scene
+{
+    MainScene,
+    SelectScene,
+    BattleScene,
+    RewardScene,
+}

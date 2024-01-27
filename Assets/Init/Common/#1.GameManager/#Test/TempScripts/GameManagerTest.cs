@@ -26,12 +26,12 @@ public class GameManagerTest : MonoBehaviour
     public void GoToLobby()
     {
         GameManager.Sound.PlaySE("ClickButton");
-        GameManager.Scene.GoToScene(Scene.LobbyScene, "MainBGM");
+        //GameManager.Scene.GoToScene(Scene.LobbyScene, "MainBGM");
     }
 
     public void GoToTest()
     {
         GameManager.Sound.PlaySE("ClickButton");
-        GameManager.Scene.GoToScene(Scene.TestScene, "TestBGM");
+        //GameManager.Scene.GoToScene(Scene.TestScene, "TestBGM");
     }
 }

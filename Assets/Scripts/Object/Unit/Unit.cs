@@ -6,13 +6,11 @@ public class Unit : MonoBehaviour
 {
     private const float DEAD_FADE_SPEED = 2f;
 
-    [SerializeField] private UnitDataSO data;
-    public UnitDataSO Data => data;
+    public UnitDataSO Data;
 
-    [SerializeField] private Stat changedStat;
-    public Stat ChangedStat => changedStat;
+    public Stat ChangedStat; // 배틀 씬에서만 변경되는 스탯
 
-    public Stat Stat => data.Stat + changedStat;
+    public Stat Stat => Data.Stat + ChangedStat;
 
     protected float knockBackPower;
     protected bool isHit;
@@ -51,16 +49,16 @@ public class Unit : MonoBehaviour
     public virtual void AddMaxHP(int hp)
     {
         if (isDead) return;
-        changedStat.MaxHP += hp;
-        changedStat.CurrentHP += hp;
+        ChangedStat.MaxHP += hp;
+        ChangedStat.CurrentHP += hp;
     }
 
-    public virtual void AddHP(int hp) => changedStat.CurrentHP += hp;
+    public virtual void AddHP(int hp) => ChangedStat.CurrentHP += hp;
 
     public virtual void ReduceHP(int damage)
     {
         if (isDead) return;
-        changedStat.CurrentHP -= damage;
+        ChangedStat.CurrentHP -= damage;
         CheckDead();
         StartHitAnim();
     }
@@ -70,7 +68,7 @@ public class Unit : MonoBehaviour
         if (isDead) return;
 
         // 최대 체력 비례 데미지
-        changedStat.CurrentHP -= Mathf.RoundToInt(changedStat.MaxHP * percent);
+        ChangedStat.CurrentHP -= Mathf.RoundToInt(ChangedStat.MaxHP * percent);
         CheckDead();
         StartHitAnim();
     }
