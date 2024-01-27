@@ -156,8 +156,6 @@ public class SelectManager : MonoBehaviour
         Debug.Log("weapon ATK: " + DataManager.playerInven.weapon.basicStat.ATK);
         Debug.Log("weapon AttackSpeed: " + DataManager.playerInven.weapon.basicStat.AttackSpeed);
 
-        Debug.Log(GameManager.Data.playerInven.weapon);
-
         blockKeyboardInput = true;
 
         Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 3.0f);
