@@ -12,6 +12,10 @@ public class DataManager : MonoBehaviour
     private Dictionary<string, UnitDataSO> unitDataSODic;
     public Dictionary<string, UnitDataSO> UnitDataSODic => unitDataSODic;
 
+    public Inventory playerInven;
+
+    public Stat playerUpgradeStat;
+
     public int stageID;
 
     public void Init()

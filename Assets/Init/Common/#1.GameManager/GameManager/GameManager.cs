@@ -54,4 +54,12 @@ public class GameManager : MonoBehaviour
         s_sound.Init();
         s_scene.Init();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Scene.GoToScene(global::Scene.BattleScene, "TestBGM");
+        }
+    }
 }

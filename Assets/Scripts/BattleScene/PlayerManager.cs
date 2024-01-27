@@ -43,6 +43,8 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player.InitFromDataManager();
+
         collider = gameObject.GetOrAddComponent<BoxCollider2D>();
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
