@@ -17,9 +17,12 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private GameObject ItemBox;
     [SerializeField] private GameObject Character;
 
-    // 대사와 함께 나올 스탠딩 cg들을 저장하는 배열. 
-    [SerializeField] private List<String> listTexts;
-    [SerializeField] private List<Sprite> listSprites;
+
+    [SerializeField] private Sprite AttackPanelSprite;
+    [SerializeField] private Sprite DefensePanelSprite;
+    [SerializeField] private Sprite FriendPanelSprite;
+
+    private GameObject ItemBox1, ItemBox2, ItemBox3;
 
 
     //  현재 몇번째 텍스트를 읽고 있는지 저장하기 위한 변수.
@@ -32,9 +35,9 @@ public class SelectManager : MonoBehaviour
 
     public void Start()
     {
-        GameObject ItemBox1 = Instantiate(ItemBox, new Vector3(0, 0, 0), Quaternion.identity);
-        GameObject ItemBox2 = Instantiate(ItemBox, new Vector3(4.0f, 0, 0), Quaternion.identity);
-        GameObject ItemBox3 = Instantiate(ItemBox, new Vector3(8.0f, 0, 0), Quaternion.identity);
+        ItemBox1 = Instantiate(ItemBox, new Vector3(0, 0, 0), Quaternion.identity);
+        ItemBox2 = Instantiate(ItemBox, new Vector3(4.0f, 0, 0), Quaternion.identity);
+        ItemBox3 = Instantiate(ItemBox, new Vector3(8.0f, 0, 0), Quaternion.identity);
 
         ItemBox1.transform.SetParent(SceneGO.transform);
         ItemBox2.transform.SetParent(SceneGO.transform);
@@ -54,11 +57,11 @@ public class SelectManager : MonoBehaviour
 
         yield return new WaitForSeconds(10f);
 
-        blockKeyboardInput = false;
-
         // 이후에 이미지, 텍스트는 꺼준다. 그리고 장비 선택 화면. 
         TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
         TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
+
+        blockKeyboardInput = false;
 
         StartCoroutine(ShowText());
     }
@@ -68,8 +71,15 @@ public class SelectManager : MonoBehaviour
     // 몇 턴 후에 모험이 시작되는지 보여주고~
     IEnumerator ShowText()
     {
+        blockKeyboardInput = true;
+
         TutorialText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
 
+        ItemBox1.GetComponent<UnityEngine.UI.Image>().sprite = AttackPanelSprite;
+        ItemBox2.GetComponent<UnityEngine.UI.Image>().sprite = DefensePanelSprite;
+        ItemBox3.GetComponent<UnityEngine.UI.Image>().sprite = FriendPanelSprite;
+
+        // 선택이 모두 끝난 경우 모험이 시작된다는 텍스트 출력.
         if (count == 0)
         {
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -80,8 +90,10 @@ public class SelectManager : MonoBehaviour
 
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
-        }
 
+            blockKeyboardInput = false;
+        }
+        // 선택이 끝나지 않은 경우 다음 선택 시작. 
         else
         {
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = true;
@@ -93,16 +105,21 @@ public class SelectManager : MonoBehaviour
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
 
+            count--;
+
+            blockKeyboardInput = false;
+
             StartCoroutine(CharacterEntrance());
         }
+
     }
 
     // 그 다음 캐릭터가 입장하는거 보여주고~
     IEnumerator CharacterEntrance()
     {
-        Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
-
         blockKeyboardInput = true;
+
+        Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
 
         Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 5.0f);
 
@@ -128,6 +145,7 @@ public class SelectManager : MonoBehaviour
 
     private void Update()
     {
+        // 오른쪽 버튼을 누르면 용사가 오른쪽으로 이동. 
         if (Input.GetKeyDown(KeyCode.RightArrow) && blockKeyboardInput == false)
         {
             if (characterPositionIndex == 0)
@@ -141,6 +159,8 @@ public class SelectManager : MonoBehaviour
                 characterPositionIndex = 2;
             }
         }
+
+        // 왼쪽 버튼을 누르면 용사가 왼쪽으로 이동. 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && blockKeyboardInput == false)
         {
             if (characterPositionIndex == 2)
@@ -154,13 +174,14 @@ public class SelectManager : MonoBehaviour
                 characterPositionIndex = 0;
             }
         }
-        // 대화를 읽는다.
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) && blockKeyboardInput == false)
+
+        // 스페이스바나 엔터를 누르면 다음 용사가 퇴장하고 다음 선택으로 넘어간다. 
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && blockKeyboardInput == false)
         {
             StartCoroutine(CharacterExit());
-            count--;
         }
 
+        // f1을 누르면 도움말이 나온다. 
         if (Input.GetKeyDown(KeyCode.F1) && blockKeyboardInput == false)
         {
             if (helpCanvasPopup == false)
