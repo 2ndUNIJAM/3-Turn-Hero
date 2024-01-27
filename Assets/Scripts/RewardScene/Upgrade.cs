@@ -25,7 +25,7 @@ public class PlayerUpgrade : Upgrade
         "타격마다 10% 확률로 1타수가 증가하는 능력 획득"
     };
     private static Sprite[] sprites;
-    
+
     public PlayerUpgrade(int _code)
     {
         code = _code;
@@ -42,12 +42,12 @@ public class PlayerUpgrade : Upgrade
     {
         Stat stat = new Stat();
 
-        switch (code) 
+        switch (code)
         {
             case 0: stat.MaxHP += 20; stat.CurrentHP += 20; break;
-            case 1: stat.PPower += 5; break;
-            case 2: stat.PArmor += 5; break;
-            
+            case 1: stat.ATK += 5; break;
+            case 2: stat.DEF += 5; break;
+
         }
 
         return stat;
@@ -66,12 +66,12 @@ public class WeaponUpgrade : Upgrade
         "속성 강화",
         "공격 속도 상승",
         "(SR 무기 한정) 레벨 업"
-     
+
     };
 
     private static Sprite[] sprites;
 
-    
+
     public WeaponUpgrade(int _code)
     {
         code = _code;
@@ -114,7 +114,7 @@ public class ArmorUpgrade : Upgrade
     };
     private static Sprite[] sprites;
 
-    
+
     public ArmorUpgrade(int _code)
     {
         code = _code;
@@ -156,7 +156,7 @@ public class FriendUpgrade : Upgrade
 
     private static Sprite[] sprites;
 
-    
+
     public FriendUpgrade(int _code)
     {
         code = _code;
@@ -183,7 +183,7 @@ public class EctUpgrade : Upgrade
         "전체 체력의 30% 힐"
     };
     private static Sprite[] sprites;
-    
+
     public EctUpgrade(int _code)
     {
         code = _code;

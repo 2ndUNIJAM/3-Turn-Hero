@@ -24,16 +24,16 @@ public class Armor : Equipment
                 switch (value)
                 {
                     case 0:
-                        passiveBonusStat.PArmor = 0;
+                        passiveBonusStat.DEF = 0;
                         break;
                     case 1:
-                        passiveBonusStat.PArmor = 20;
+                        passiveBonusStat.DEF = 20;
                         break;
                     case 2:
-                        passiveBonusStat.PArmor = 25;
+                        passiveBonusStat.DEF = 25;
                         break;
                     case 3:
-                        passiveBonusStat.PArmor = 30;
+                        passiveBonusStat.DEF = 30;
                         break;
                 }
             }
