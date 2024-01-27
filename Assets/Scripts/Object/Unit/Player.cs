@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Unit
 {
     public Inventory inven;
-    public Stat upgradedStat; // °­È­(´©Àû) ½ºÅÈ
+    public Stat upgradedStat; // ëˆ„ì (ë³€í™”ëœ) ëŠ¥ë ¥ì¹˜
 
     public new Stat Stat => base.Stat + upgradedStat;
 
