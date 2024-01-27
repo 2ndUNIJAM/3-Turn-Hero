@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,6 +52,14 @@ public class Unit : MonoBehaviour
     public virtual void ReduceHP(int damage)
     {
         changedStat.CurrentHP -= damage;
+        CheckDead();
+        StartHitAnim();
+    }
+
+    public virtual void ReduceHPPercent(float percent)
+    {
+        // 최대 체력 비례 데미지
+        changedStat.CurrentHP -= Mathf.RoundToInt(changedStat.MaxHP * percent);
         CheckDead();
         StartHitAnim();
     }

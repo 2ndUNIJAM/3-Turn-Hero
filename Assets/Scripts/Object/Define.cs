@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,8 +11,8 @@ public struct Stat
     public int CurrentHP;
     public int PPower;
     public int PArmor;
-    public int MPower;
-    public int MArmor;
+    //public int MPower;
+    //public int MArmor;
     public int AttackSpeed;
     public int MoveSpeed;
 
@@ -20,11 +20,11 @@ public struct Stat
     {
         Stat result = new();
         result.MaxHP = lhs.MaxHP + rhs.MaxHP;
-        result.CurrentHP = lhs.CurrentHP + rhs.CurrentHP;
+        result.CurrentHP = Mathf.Clamp(lhs.CurrentHP + rhs.CurrentHP, 0, result.MaxHP);
         result.PPower = lhs.PPower + rhs.PPower;
         result.PArmor = lhs.PArmor + rhs.PArmor;
-        result.MPower = lhs.MPower + rhs.MPower;
-        result.MArmor = lhs.MArmor + rhs.MArmor;
+        //result.MPower = lhs.MPower + rhs.MPower;
+        //result.MArmor = lhs.MArmor + rhs.MArmor;
         result.AttackSpeed = lhs.AttackSpeed + rhs.AttackSpeed;
         result.MoveSpeed = lhs.MoveSpeed + rhs.MoveSpeed;
 
@@ -34,12 +34,12 @@ public struct Stat
     public static Stat operator -(Stat lhs, Stat rhs)
     {
         Stat result = new();
-        result.MaxHP = lhs.MaxHP - rhs.MaxHP;
-        result.CurrentHP = lhs.CurrentHP - rhs.CurrentHP;
+        result.MaxHP = Mathf.Max(lhs.MaxHP - rhs.MaxHP, 0);
+        result.CurrentHP = Mathf.Clamp(lhs.CurrentHP - rhs.CurrentHP, 0, result.MaxHP);
         result.PPower = lhs.PPower - rhs.PPower;
         result.PArmor = lhs.PArmor - rhs.PArmor;
-        result.MPower = lhs.MPower - rhs.MPower;
-        result.MArmor = lhs.MArmor - rhs.MArmor;
+        //result.MPower = lhs.MPower - rhs.MPower;
+        //result.MArmor = lhs.MArmor - rhs.MArmor;
         result.AttackSpeed = lhs.AttackSpeed - rhs.AttackSpeed;
         result.MoveSpeed = lhs.MoveSpeed - rhs.MoveSpeed;
 
@@ -52,9 +52,23 @@ public struct Stat
         CurrentHP = 0;
         PPower = 0;
         PArmor = 0;
-        MPower = 0;
-        MArmor = 0;
+        //MPower = 0;
+        //MArmor = 0;
         AttackSpeed = 0;
         MoveSpeed = 0;
+    }
+
+    public Stat Clone()
+    {
+        Stat result = new();
+        result.MaxHP = MaxHP;
+        result.CurrentHP = CurrentHP;
+        result.PPower = PPower;
+        result.PArmor = PArmor;
+        //result.MPower = MPower;
+        //result.MArmor = MArmor;
+        result.AttackSpeed = AttackSpeed;
+        result.MoveSpeed = MoveSpeed;
+        return result;
     }
 }
