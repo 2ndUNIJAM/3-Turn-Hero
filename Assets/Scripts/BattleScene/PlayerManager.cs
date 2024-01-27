@@ -22,7 +22,10 @@ public class PlayerManager : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private Animator animator;
 
+    [SerializeField] private Animator weaponAnim;
+
     [SerializeField] private Player player;
+    public Player Player => player;
 
     [SerializeField] private LayerMask obstacleMask, enemyMask;
 
@@ -82,11 +85,16 @@ public class PlayerManager : MonoBehaviour
         {
             Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.MoveSpeed * Time.deltaTime;
             rigidbody.position = movePos;
+            animator.SetBool("isWalk", true);
 
             if (horizontal > 0f)
                 this.transform.localScale = new Vector3(1f, 1f, 1f);
             else
                 this.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
         }
     }
 
@@ -115,24 +123,34 @@ public class PlayerManager : MonoBehaviour
     private void Attack()
     {
         //isCanMove = false;
-        animator.speed = player.Stat.AttackSpeed;
-        animator.SetBool("isAttack", true);
+        weaponAnim.speed = player.Stat.AttackSpeed;
+        weaponAnim.SetBool("isAttack", true);
 
+        Invoke("CheckAttackDamage", 0.25f / player.Stat.AttackSpeed);
         StartCoroutine(EndAttack());
         StartCoroutine(AttackCoolTime());
     }
 
     public void CheckAttackDamage()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
+        int maxCount = 1;
+        int currentCount = 0;
 
-        if (hit)
+        if (true)
+            maxCount = 2;
+
+        foreach (var hit in hits)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(player.Stat.ATK);
 
-            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
-            damageUI.Init(unit.gameObject, player.Stat.ATK, new Color(1f, 0.4f, 0.4f));
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+            damageUI.Init(unit.gameObject, player.Stat.ATK, unit.UpPos, new Color(1f, 0.4f, 0.4f));
+
+            currentCount++;
+            if (currentCount == maxCount)
+                break;
         }
     }
 
@@ -141,8 +159,8 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
 
         isCanMove = true;
-        animator.speed = 1f;
-        animator.SetBool("isAttack", false);
+        weaponAnim.speed = 1f;
+        weaponAnim.SetBool("isAttack", false);
     }
 
     IEnumerator AttackCoolTime()

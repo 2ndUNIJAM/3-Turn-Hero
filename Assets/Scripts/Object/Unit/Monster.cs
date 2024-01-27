@@ -8,6 +8,7 @@ public class Monster : Unit
     private const float TURN_DISTANCE = 1f;
     private const float MOVE_MIN_DISTANCE = 3f;
     private const float MOVE_MAX_DISTANCE = 6f;
+    private const float DEFAULT_FAINT_TIME = 0.5f;
 
     protected float recognizeDis;
     protected float outofDis;
@@ -27,15 +28,21 @@ public class Monster : Unit
         if (Stat.CurrentHP <= 0f)
         {
             hpBar.DestroyHPBar();
+            BattleManager.Instance.Stage.RemoveEnemyUnit(this);
         }
     }
 
     public override void ReduceHP(int damage)
     {
+        if (isDead) return;
+
         base.ReduceHP(damage);
+        StartHitAnim(DEFAULT_FAINT_TIME);
+        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
+
         if (hpBar == null)
         {
-            hpBar = GameManager.Resource.Instantiate("HPBar", BattleManager.Instance.BattleUI.transform).GetComponent<HPBar>();
+            hpBar = BattleManager.Instance.BattleUI.CreateHPBar();
             hpBar.Init(this.gameObject, hpbarHeight);
         }
 
@@ -65,8 +72,8 @@ public class Monster : Unit
 
     protected virtual void GotoPlayer()
     {
-        if (isDead || isHit)
-            return;
+        if (isDead || isFaint)
+            return; // �װų� ������ ���
 
         if (isGotoRight)
         {
@@ -127,10 +134,9 @@ public class Monster : Unit
         {
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(Stat.ATK);
-
-
-            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
-            damageUI.Init(unit.gameObject, Stat.ATK, new Color(1f, 0.4f, 0.4f));
+            
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+            damageUI.Init(unit.gameObject, Stat.ATK, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
         }
     }
 

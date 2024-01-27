@@ -147,10 +147,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041058004, y: -0.99646145}
+  m_Offset: {x: -0.041058004, y: 0.002131343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 4.03125, y: 4.03125}
     newSize: {x: 4.03125, y: 4.03125}
     adaptiveTilingThreshold: 0.5
@@ -158,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87462723, y: 1.977353}
+  m_Size: {x: 0.87462723, y: 1.8754556}
   m_EdgeRadius: 0
 --- !u!114 &7292301860204598410
 MonoBehaviour:
@@ -173,13 +173,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: fa5d70d92a04f6a4e801d17efcdd23e8, type: 2}
-  changedStat:
+  ChangedStat:
     MaxHP: 0
     CurrentHP: 0
     PPower: 0
     PArmor: 0
-    MPower: 0
-    MArmor: 0
     AttackSpeed: 0
     MoveSpeed: 0
   animator: {fileID: 1358238285453453660}

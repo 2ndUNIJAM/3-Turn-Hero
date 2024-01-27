@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7fd371cb06ac7f34d8592d99fa5125c0
+guid: 8002881e6eb5a0443b4dbc0f0fc1ecf9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,106 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uAC80\uBCD1_Attack_0"
+      name: "\uAC80\uBCD1_Idle_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 258
         height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3111cf3072470cf458976467843e45b0
-      internalID: 1184617817
+      spriteID: b6302b951d9914a48a4160f2582e8fbe
+      internalID: 410410931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAC80\uBCD1_Attack_1"
+      name: "\uAC80\uBCD1_Idle_1"
       rect:
         serializedVersion: 2
         x: 258
         y: 0
         width: 258
         height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d1e09af79efc9142bb2a5e62e9568ef
-      internalID: -1520315538
+      spriteID: 1340d1f037aa36d4aa8745f9be9b419d
+      internalID: -48268537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAC80\uBCD1_Attack_2"
+      name: "\uAC80\uBCD1_Idle_2"
       rect:
         serializedVersion: 2
         x: 516
         y: 0
         width: 258
         height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29933e8b401c3c04d87cd706be42cb9c
-      internalID: -1799981004
+      spriteID: b8d984a8badfd4043a58b08120a915c6
+      internalID: -208411767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAC80\uBCD1_Attack_3"
+      name: "\uAC80\uBCD1_Idle_3"
       rect:
         serializedVersion: 2
         x: 774
         y: 0
         width: 258
         height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f69367769da5954429938098b2d035cf
-      internalID: -1931432565
+      spriteID: aa37c642b231f0e4584434e95f42fbc3
+      internalID: 2070101445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uAC80\uBCD1_Attack_4"
+      name: "\uAC80\uBCD1_Idle_4"
       rect:
         serializedVersion: 2
         x: 1032
         y: 0
         width: 258
         height: 258
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f019ede7de1450242bc601795dce55c6
-      internalID: -442259007
+      spriteID: c680cff6a29de564f92b121fbe298688
+      internalID: 226220710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uAC80\uBCD1_Idle_5"
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 0
+        width: 258
+        height: 258
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b31b0e5eecc3c44493433b2854cd23f
+      internalID: 947656703
       vertices: []
       indices: 
       edges: []
@@ -238,11 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uAC80\uBCD1_Attack_0": 1184617817
-      "\uAC80\uBCD1_Attack_1": -1520315538
-      "\uAC80\uBCD1_Attack_2": -1799981004
-      "\uAC80\uBCD1_Attack_3": -1931432565
-      "\uAC80\uBCD1_Attack_4": -442259007
+      "\uAC80\uBCD1_Idle_0": 410410931
+      "\uAC80\uBCD1_Idle_1": -48268537
+      "\uAC80\uBCD1_Idle_2": -208411767
+      "\uAC80\uBCD1_Idle_3": 2070101445
+      "\uAC80\uBCD1_Idle_4": 226220710
+      "\uAC80\uBCD1_Idle_5": 947656703
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\uAE30\uC0AC"
   stat:
-    MaxHP: 50
-    CurrentHP: 50
+    MaxHP: 30
+    CurrentHP: 30
     PPower: 10
     PArmor: 10
-    MPower: 5
-    MArmor: 5
     AttackSpeed: 2
     MoveSpeed: 3

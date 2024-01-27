@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a313422ffaf5a334896002e60ce1dc15
+guid: bf73aba2144dfb54b857f591c09bcd21
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,127 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_0"
+      name: hero_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14e66e6696985a14b9735860995fc538
-      internalID: -2058170726
+      spriteID: 55a1a63b691b5f54ca5f62fc6b140404
+      internalID: -654186627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_1"
+      name: hero_idle_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3591144532ca441aaf8c1445a4cb3d
-      internalID: 1843968860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_2"
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99c5e37aa959f584397ecfc680969684
-      internalID: -8903608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_3"
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 362a0860878265a49ad7decf012ccb07
-      internalID: 1525407490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_4"
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbacda96e52285e47990a1805f943436
-      internalID: 75764999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_5"
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4273d502755ed314289ffd6f5b37b915
-      internalID: 404128084
+      spriteID: 317ed74b540c5cb4682bb1749903d823
+      internalID: -1731072763
       vertices: []
       indices: 
       edges: []
@@ -259,12 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uD751\uAE30\uC0AC_Idle_0": -2058170726
-      "\uD751\uAE30\uC0AC_Idle_1": 1843968860
-      "\uD751\uAE30\uC0AC_Idle_2": -8903608
-      "\uD751\uAE30\uC0AC_Idle_3": 1525407490
-      "\uD751\uAE30\uC0AC_Idle_4": 75764999
-      "\uD751\uAE30\uC0AC_Idle_5": 404128084
+      hero_idle_0: -654186627
+      hero_idle_1: -1731072763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
