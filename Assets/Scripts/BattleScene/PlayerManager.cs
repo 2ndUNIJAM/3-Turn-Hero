@@ -146,7 +146,7 @@ public class PlayerManager : MonoBehaviour
             unit.ReduceHP(player.Stat.ATK);
 
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, player.Stat.PPower, unit.UpPos, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, player.Stat.ATK, unit.UpPos, new Color(1f, 0.4f, 0.4f));
 
             currentCount++;
             if (currentCount == maxCount)

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 265e072741b55d94da7ccfe7eca55f3a
+guid: 150eea36db1e8674e9c93782ba401eae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,211 +123,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_0"
+      name: bat_dash_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445d964d1f6df1e4c99457ef43045aa3
+      internalID: 471580045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_dash_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b86c44325fcb4dd449601d1ef3eefa28
+      internalID: 1544493905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_dash_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f811b7320ad93e3449b75ac00fc402b6
+      internalID: -981758841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_dash_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b656422a8d501114c849c1e1ac1f2bf1
+      internalID: -1829024431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_dash_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e531dce746be542a3af8c4566c2cb9
-      internalID: -1191678310
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_1"
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec745699c0176c844bacdbf56acf321b
-      internalID: -556940952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_2"
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b0773156bf621d418c4795370588a68
-      internalID: -41370812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_3"
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9ab6ba5c5573a646b8de902e0d33ca0
-      internalID: 246631054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_4"
-      rect:
-        serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cd5dc86bcb41db44a350113952e14ca
-      internalID: -2019354506
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_5"
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b773b55ac7a4334f819a74957e79215
-      internalID: 290108425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_6"
-      rect:
-        serializedVersion: 2
-        x: 2400
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9b3d7cd06e0c49459c74821d6bdcdf6
-      internalID: 694486674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_7"
-      rect:
-        serializedVersion: 2
-        x: 2800
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59e42e6838e25c84588472de2a40ee45
-      internalID: -1700189439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_8"
-      rect:
-        serializedVersion: 2
-        x: 3200
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a89ee669a842254b9127330952f96d7
-      internalID: 1804492163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Attack_9"
-      rect:
-        serializedVersion: 2
-        x: 3600
-        y: 0
-        width: 400
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1000b939e58ab5a498be0a1c842059ae
-      internalID: 619639790
+      spriteID: 96525c3163237b24c8f2bdf90e7f9002
+      internalID: 489838191
       vertices: []
       indices: 
       edges: []
@@ -343,16 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uD751\uAE30\uC0AC_Attack_0": -1191678310
-      "\uD751\uAE30\uC0AC_Attack_1": -556940952
-      "\uD751\uAE30\uC0AC_Attack_2": -41370812
-      "\uD751\uAE30\uC0AC_Attack_3": 246631054
-      "\uD751\uAE30\uC0AC_Attack_4": -2019354506
-      "\uD751\uAE30\uC0AC_Attack_5": 290108425
-      "\uD751\uAE30\uC0AC_Attack_6": 694486674
-      "\uD751\uAE30\uC0AC_Attack_7": -1700189439
-      "\uD751\uAE30\uC0AC_Attack_8": 1804492163
-      "\uD751\uAE30\uC0AC_Attack_9": 619639790
+      bat_dash_0: 471580045
+      bat_dash_1: 1544493905
+      bat_dash_2: -981758841
+      bat_dash_3: -1829024431
+      bat_dash_4: 489838191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

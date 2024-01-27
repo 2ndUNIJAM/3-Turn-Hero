@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 044a14c46217073428cdfdc80e833537
+guid: df1e83d48eb0e4b408ed1a716d023409
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,64 +123,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Hit_0"
+      name: bat_explosion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262741a7eb4968b48abc9e463635580c
+      internalID: 210854223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_explosion_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a5abf952039ff45830ff990bc6995f
+      internalID: -213650009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_explosion_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 558e2f9976d051d4498193ed8b162dbe
-      internalID: -327379430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Hit_1"
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62c2695448955944f9e543eee186bb50
-      internalID: -100047545
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Hit_2"
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a6ef9ddc15ad1b4fafcae8fc47d84cb
-      internalID: 2026040983
+      spriteID: 5b0b3ec912231db4abc4b38ca537bd98
+      internalID: 1912770744
       vertices: []
       indices: 
       edges: []
@@ -196,9 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uD751\uAE30\uC0AC_Hit_0": -327379430
-      "\uD751\uAE30\uC0AC_Hit_1": -100047545
-      "\uD751\uAE30\uC0AC_Hit_2": 2026040983
+      bat_explosion_0: 210854223
+      bat_explosion_1: -213650009
+      bat_explosion_2: 1912770744
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

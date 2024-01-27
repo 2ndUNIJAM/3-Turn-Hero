@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a313422ffaf5a334896002e60ce1dc15
+guid: 6e38ca1333f629148a189a8cb21de5ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,127 +123,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_0"
+      name: bat_fly_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ce8d93549d4ab4ab69c005858a6a53
+      internalID: 377467707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1de2955d0e74924eb6404d93d392c1d
+      internalID: -1964544934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726be86c0f5d52843abbed881ae5ecbe
+      internalID: 1859456925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d360d7919feaa4fb75567cfefc7197
+      internalID: 1947619779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ea908d7aef7bb43a11578976dd9544
+      internalID: -203417422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d5537c1a436ad4082d87af20e51995
+      internalID: 2125271639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_fly_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14e66e6696985a14b9735860995fc538
-      internalID: -2058170726
+      spriteID: d44e793eebf2228429d4a275f0b1b3ac
+      internalID: 853402922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_1"
+      name: bat_fly_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd3591144532ca441aaf8c1445a4cb3d
-      internalID: 1843968860
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_2"
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99c5e37aa959f584397ecfc680969684
-      internalID: -8903608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_3"
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 362a0860878265a49ad7decf012ccb07
-      internalID: 1525407490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_4"
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbacda96e52285e47990a1805f943436
-      internalID: 75764999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\uD751\uAE30\uC0AC_Idle_5"
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4273d502755ed314289ffd6f5b37b915
-      internalID: 404128084
+      spriteID: 75005d03089060048aba8c5e1d4aa7bb
+      internalID: -1782484534
       vertices: []
       indices: 
       edges: []
@@ -259,12 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uD751\uAE30\uC0AC_Idle_0": -2058170726
-      "\uD751\uAE30\uC0AC_Idle_1": 1843968860
-      "\uD751\uAE30\uC0AC_Idle_2": -8903608
-      "\uD751\uAE30\uC0AC_Idle_3": 1525407490
-      "\uD751\uAE30\uC0AC_Idle_4": 75764999
-      "\uD751\uAE30\uC0AC_Idle_5": 404128084
+      bat_fly_0: 377467707
+      bat_fly_1: -1964544934
+      bat_fly_2: 1859456925
+      bat_fly_3: 1947619779
+      bat_fly_4: -203417422
+      bat_fly_5: 2125271639
+      bat_fly_6: 853402922
+      bat_fly_7: -1782484534
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

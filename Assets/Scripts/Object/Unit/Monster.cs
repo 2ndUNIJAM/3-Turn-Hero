@@ -133,10 +133,10 @@ public class Monster : Unit
         if (hit)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
-            unit.ReduceHP(Stat.PPower);
+            unit.ReduceHP(Stat.ATK);
             
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, Stat.PPower, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, Stat.ATK, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
         }
     }
 
