@@ -105,4 +105,5 @@ public enum Scene
     SelectScene,
     BattleScene,
     RewardScene,
+    MapSelectScene,
 }
