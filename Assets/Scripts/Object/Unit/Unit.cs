@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +58,7 @@ public class Unit : MonoBehaviour
 
     public virtual void ReduceHPPercent(float percent)
     {
-        // ÃÖ´ë Ã¼·Â ºñ·Ê µ¥¹ÌÁö
+        // ìµœëŒ€ ì²´ë ¥ ë¹„ë¡€ ë°ë¯¸ì§€
         changedStat.CurrentHP -= Mathf.RoundToInt(changedStat.MaxHP * percent);
         CheckDead();
         StartHitAnim();

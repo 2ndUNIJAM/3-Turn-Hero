@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,16 +17,16 @@ public class Equipment : MonoBehaviour
     public float probability;
 
     /// <summary>
-    /// ÀåºñÀÇ ±âº» ´É·ÂÄ¡
+    /// ì¥ë¹„ì˜ ê¸°ë³¸ ëŠ¥ë ¥ì¹˜
     /// </summary>
     public Stat basicStat;
 
     public List<Enhancement> enhancements = new List<Enhancement>();
 
     /// <summary>
-    /// ÀåºñÀÇ ±âº» ´É·ÂÄ¡¿¡ ¸ğµç °­È­ È¿°ú¸¦ ¹İ¿µÇÑ ÃÖÁ¾ ´É·ÂÄ¡
+    /// ì¥ë¹„ì˜ ê¸°ë³¸ ëŠ¥ë ¥ì¹˜ì— ëª¨ë“  ê°•í™” íš¨ê³¼ë¥¼ ë°˜ì˜í•œ ìµœì¢… ëŠ¥ë ¥ì¹˜
     /// </summary>
     public Stat finalStat;
 
-    // ÇÃ·¹ÀÌ¾îÀÇ °ø°İ·Â¿¡¼­ ÀûÀÇ ¹æ¾î·Â »©°í, µ¥¹ÌÁö °æ°¨ °ö¼À °öÇÏ±â
+    // í”Œë ˆì´ì–´ì˜ ê³µê²©ë ¥ì—ì„œ ì ì˜ ë°©ì–´ë ¥ ë¹¼ê³ , ë°ë¯¸ì§€ ê²½ê° ê³±ì…ˆ ê³±í•˜ê¸°
 }

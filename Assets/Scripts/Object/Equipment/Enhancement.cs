@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,16 +10,16 @@ public class Enhancement : MonoBehaviour
     public enum EquipmentType { Weapon, Armor, Colleague, Body }
 
     public EquipmentType type;
-    // ¸ğµç °­È­ÀÇ µîÀå È®·üÀº ¼­ä µ¿ÀÏ.
-    // ´Ù¸¸ SR ¹«±â ÀåÂø ½Ã ÀüÃ¼ÁıÇÕÀÌ º¯È­ÇÏ¹Ç·Î ½ÇÁ¦ È®·üÀº ÀåÂøÇÑ ¹«±â¿¡ µû¶ó ´Ù¸¦ ¼ö ÀÖÀ½.
+    // ëª¨ë“  ê°•í™”ì˜ ë“±ì¥ í™•ë¥ ì€ ì„œë¡£ ë™ì¼.
+    // ë‹¤ë§Œ SR ë¬´ê¸° ì¥ì°© ì‹œ ì „ì²´ì§‘í•©ì´ ë³€í™”í•˜ë¯€ë¡œ ì‹¤ì œ í™•ë¥ ì€ ì¥ì°©í•œ ë¬´ê¸°ì— ë”°ë¼ ë‹¤ë¥¼ ìˆ˜ ìˆìŒ.
 
     /// <summary>
-    /// Æ¯Á¤ ¹«±â¸¦ ÀåÂøÇÒ ¶§¿¡¸¸ ÀÌ °­È­ ¿É¼ÇÀÌ µîÀåÇÏ´Â °æ¿ì true
+    /// íŠ¹ì • ë¬´ê¸°ë¥¼ ì¥ì°©í•  ë•Œì—ë§Œ ì´ ê°•í™” ì˜µì…˜ì´ ë“±ì¥í•˜ëŠ” ê²½ìš° true
     /// </summary>
     public bool hasCondition = false;
 
     /// <summary>
-    /// hasCondition == true ÀÏ ¶§ ¾î¶² Àåºñ ÀÌ¸§(weapon.name ¶Ç´Â armor.name)ÀÎÁö ÀúÀå
+    /// hasCondition == true ì¼ ë•Œ ì–´ë–¤ ì¥ë¹„ ì´ë¦„(weapon.name ë˜ëŠ” armor.name)ì¸ì§€ ì €ì¥
     /// </summary>
     public string condition;
 
