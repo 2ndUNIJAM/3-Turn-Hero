@@ -64,17 +64,17 @@ public class Bat : Monster
     public void Fly()
     {
         float gap_x = Mathf.Abs(PlayerManager.Instance.transform.position.x - transform.position.x);
-        if (gap_x < 2f) gap_x = 2f;
+        gap_x = Mathf.Clamp(gap_x, 2f, 4f);
 
         if (isGotoRight)
         {
-            Move(Vector3.right, gap_x * Stat.MoveSpeed);
+            Move(Vector3.right, gap_x * Stat.GetRealMoveSpeed);
             if (transform.position.x >= PlayerManager.Instance.transform.position.x + TURN_DISTANCE)
                 isGotoRight = false;
         }
         else
         {
-            Move(Vector3.left, gap_x * Stat.MoveSpeed);
+            Move(Vector3.left, gap_x * Stat.GetRealMoveSpeed);
             if (transform.position.x + TURN_DISTANCE <= PlayerManager.Instance.transform.position.x)
                 isGotoRight = true;
         }

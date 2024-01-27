@@ -33,8 +33,6 @@ public class SoundManager : MonoBehaviour
         BGM_audio = gameObject.GetOrAddComponent<AudioSource>();
         BGM_audio.volume = 0f;
         BGM_audio.loop = true;
-
-        PlayBGM("TestBGM", SceneController.FADE_INIT_TIME);
     }
 
 

@@ -60,6 +60,10 @@ public struct Stat
         return result;
     }
 
+    public float GetRealAttackSpeed => Mathf.Clamp(1f + AttackSpeed * 0.2f, 1f, 5f);
+
+    public float GetRealMoveSpeed => Mathf.Clamp(1f + MoveSpeed * 0.2f, 3f, 12f);
+
     public void ClearStat()
     {
         MaxHP = 0;

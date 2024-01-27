@@ -83,7 +83,7 @@ public class PlayerManager : MonoBehaviour
 
         if (horizontal != 0f)
         {
-            Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.MoveSpeed * Time.deltaTime;
+            Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.GetRealMoveSpeed * Time.deltaTime;
             rigidbody.position = movePos;
             animator.SetBool("isWalk", true);
 
@@ -123,10 +123,10 @@ public class PlayerManager : MonoBehaviour
     private void Attack()
     {
         //isCanMove = false;
-        weaponAnim.speed = player.Stat.AttackSpeed;
+        weaponAnim.speed = player.Stat.GetRealAttackSpeed;
         weaponAnim.SetBool("isAttack", true);
 
-        Invoke("CheckAttackDamage", 0.25f / player.Stat.AttackSpeed);
+        Invoke("CheckAttackDamage", 0.25f / player.Stat.GetRealAttackSpeed);
         StartCoroutine(EndAttack());
         StartCoroutine(AttackCoolTime());
     }
@@ -156,7 +156,7 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator EndAttack()
     {
-        yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
+        yield return new WaitForSeconds(1f / player.Stat.GetRealAttackSpeed);
 
         isCanMove = true;
         weaponAnim.speed = 1f;
@@ -166,7 +166,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator AttackCoolTime()
     {
         isCanAttack = false;
-        yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
+        yield return new WaitForSeconds(1f / player.Stat.GetRealAttackSpeed);
         isCanAttack = true;
     }
 }

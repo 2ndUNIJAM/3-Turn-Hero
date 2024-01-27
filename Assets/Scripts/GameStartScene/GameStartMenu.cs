@@ -57,7 +57,7 @@ public class GameStartMenu : MonoBehaviour
         {
             if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
-                SceneManager.LoadScene("SelectScene");
+                GameManager.Scene.GoToScene(Scene.SelectScene, "Town_Loop_BGM");
             }
             else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {

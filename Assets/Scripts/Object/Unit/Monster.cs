@@ -42,13 +42,14 @@ public class Monster : Unit
         StartHitAnim(DEFAULT_FAINT_TIME);
         StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
 
-        if (hpBar == null)
+        if (hpBar == null && Stat.CurrentHP > 0f)
         {
             hpBar = BattleManager.Instance.BattleUI.CreateHPBar();
             hpBar.Init(this.gameObject, hpbarHeight);
         }
 
-        hpBar.SetSlider(Stat.CurrentHP, Stat.MaxHP);
+        if (hpBar != null)
+            hpBar.SetSlider(Stat.CurrentHP, Stat.MaxHP);
     }
 
     protected virtual bool RecognizePlayer()
@@ -79,13 +80,13 @@ public class Monster : Unit
 
         if (isGotoRight)
         {
-            Move(Vector3.right, Stat.MoveSpeed);
+            Move(Vector3.right, Stat.GetRealMoveSpeed);
             if (transform.position.x >= PlayerManager.Instance.transform.position.x + TURN_DISTANCE)
                 isGotoRight = false;
         }
         else
         {
-            Move(Vector3.left, Stat.MoveSpeed);
+            Move(Vector3.left, Stat.GetRealMoveSpeed);
             if (transform.position.x + TURN_DISTANCE <= PlayerManager.Instance.transform.position.x)
                 isGotoRight = true;
         }
@@ -126,15 +127,17 @@ public class Monster : Unit
     {
         isCanAttack = false;
         isAttacking = true;
-        animator.speed = Stat.AttackSpeed;
+        animator.speed = Stat.GetRealAttackSpeed;
         animator.SetBool("isAttack", true);
 
-        Invoke("CheckAttackDamage", 0.5f / Stat.AttackSpeed);
+        Invoke("CheckAttackDamage", 0.5f / Stat.GetRealAttackSpeed);
         StartCoroutine(EndAttack());
     }
 
     protected virtual void CheckAttackDamage()
     {
+        if (isDead) return;
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
 
         if (hit)
@@ -149,7 +152,7 @@ public class Monster : Unit
 
     protected virtual IEnumerator EndAttack()
     {
-        yield return new WaitForSeconds(1f / Stat.AttackSpeed);
+        yield return new WaitForSeconds(1f / Stat.GetRealAttackSpeed);
 
         isCanAttack = true;
         isAttacking = false;
