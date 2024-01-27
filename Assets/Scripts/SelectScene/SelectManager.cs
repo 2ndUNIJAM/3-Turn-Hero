@@ -42,9 +42,9 @@ public class SelectManager : MonoBehaviour
 
     public void Init()
     {
-        ItemBox1 = Instantiate(ItemBox, new Vector3(0, 0, 0), Quaternion.identity);
+        ItemBox1 = Instantiate(ItemBox, new Vector3(-0.3f, 0, 0), Quaternion.identity);
         ItemBox2 = Instantiate(ItemBox, new Vector3(4.0f, 0, 0), Quaternion.identity);
-        ItemBox3 = Instantiate(ItemBox, new Vector3(8.0f, 0, 0), Quaternion.identity);
+        ItemBox3 = Instantiate(ItemBox, new Vector3(8.3f, 0, 0), Quaternion.identity);
 
         ItemBox1.transform.SetParent(SceneGO.transform);
         ItemBox2.transform.SetParent(SceneGO.transform);
@@ -141,9 +141,11 @@ public class SelectManager : MonoBehaviour
 
         Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
 
-        Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 3.0f);
+        Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 3.0f);
 
         yield return new WaitForSeconds(3.0f);
+
+        characterPositionIndex = 0;
 
         blockKeyboardInput = false;
     }
@@ -181,7 +183,7 @@ public class SelectManager : MonoBehaviour
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(4.0f, -3.0f, 0), 0.5f);
+                Character.transform.DOMove(new Vector3(4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 2;
             }
         }
@@ -196,7 +198,7 @@ public class SelectManager : MonoBehaviour
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 0.5f);
+                Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 0;
             }
         }

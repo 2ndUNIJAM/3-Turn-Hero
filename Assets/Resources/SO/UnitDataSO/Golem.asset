@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91263d2e576659842a5160dfb4ee584d, type: 3}
-  m_Name: "\uAE30\uC0AC"
+  m_Name: Golem
   m_EditorClassIdentifier: 
   name: 
   stat:
-    MaxHP: 50
-    CurrentHP: 50
-    ATK: 5
-    DEF: 5
-    AttackSpeed: 2
-    MoveSpeed: 3
+    MaxHP: 100
+    CurrentHP: 100
+    ATK: 10
+    DEF: 0
+    AttackSpeed: 1
+    MoveSpeed: 1
