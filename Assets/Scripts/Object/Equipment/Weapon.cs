@@ -10,6 +10,11 @@ public class Weapon : Equipment
     public Stat passiveBonusStat = new Stat();
     private int _specialWeaponLevel = 0;  // 탐욕의 검, 롱기누스의 창 일 때에만 1 이상 
 
+    public Weapon()
+    {
+
+    }
+
     public int SpecialWeaponLevel
     {
         get

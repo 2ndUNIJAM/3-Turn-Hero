@@ -236,12 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d1be1c858a5e144af79f3bb02786a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: ff52d298c77865f4cb898301c255c001, type: 2}
+  Data: {fileID: 11400000, guid: 7b99034d9f102434a86df6850cfe3193, type: 2}
   ChangedStat:
     MaxHP: 0
     CurrentHP: 0
-    PPower: 0
-    PArmor: 0
+    ATK: 0
+    DEF: 0
     AttackSpeed: 0
     MoveSpeed: 0
   animator: {fileID: 7800937274536920925}
@@ -255,8 +255,8 @@ MonoBehaviour:
   upgradedStat:
     MaxHP: 0
     CurrentHP: 0
-    PPower: 0
-    PArmor: 0
+    ATK: 0
+    DEF: 0
     AttackSpeed: 0
     MoveSpeed: 0
 --- !u!114 &7941334321666152259

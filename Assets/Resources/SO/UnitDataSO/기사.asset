@@ -12,18 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91263d2e576659842a5160dfb4ee584d, type: 3}
   m_Name: "\uAE30\uC0AC"
   m_EditorClassIdentifier: 
-  name: "\uAE30\uC0AC"
+  name: 
   stat:
-<<<<<<< Updated upstream
-    MaxHP: 30
-    CurrentHP: 30
-    PPower: 10
-    PArmor: 10
-=======
-    MaxHP: 50
-    CurrentHP: 50
-    ATK: 5
-    DEF: 5
->>>>>>> Stashed changes
+    MaxHP: 100
+    CurrentHP: 100
+    ATK: 10
+    DEF: 0
     AttackSpeed: 2
     MoveSpeed: 3
