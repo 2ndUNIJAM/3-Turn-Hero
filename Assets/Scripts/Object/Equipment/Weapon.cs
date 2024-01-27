@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Weapon : Equipment
 {
+    public static bool IsCanFaint = true;
 
     public bool canMultiHit = false;    // true이면 한 번의 공격으로 두 명의 적을 타격
     public delegate void ActiveEffect(Unit user, Unit subject);
-    public Stat passiveBonusStat = new Stat();
+    private Stat passiveBonusStat = new Stat();
+    public Stat Stat => basicStat + passiveBonusStat;
     private int _specialWeaponLevel = 0;  // 탐욕의 검, 롱기누스의 창 일 때에만 1 이상 
 
     public int SpecialWeaponLevel
@@ -125,7 +127,8 @@ public class Weapon : Equipment
                 break;
             default: return;
         }
-        StartCoroutine(subject.DottedDamage(damageAmount));
+
+        subject.SetDotDamage(damageAmount);
     }
 
     /// <summary>
@@ -155,10 +158,9 @@ public class Weapon : Equipment
                 timeAmount = 0.5f;
                 break;
         }
-        // TODO 경직 메커니즘 바뀔 때까지 보류
+
+        subject.SetFaint(timeAmount);
     }
-
-
 
     // TODO Wind, Ground 효과는 상태이상으로 인해 변하는 스탯 변수를 따로 만들어 여기에 반영
     public override void passiveElementGroundEffect(int newLevel)

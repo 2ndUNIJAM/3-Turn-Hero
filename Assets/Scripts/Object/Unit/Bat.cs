@@ -37,7 +37,7 @@ public class Bat : Monster
             unit.ReduceHP(realDamage);
 
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, realDamage, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, $"-{realDamage}", PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
 
             ReduceHP(999);
         }
@@ -60,7 +60,6 @@ public class Bat : Monster
         CheckDead();
 
         StartHitAnim(DEFAULT_FAINT_TIME);
-        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
     }
 
     public void Fly()

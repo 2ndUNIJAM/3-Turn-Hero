@@ -6,7 +6,8 @@ public class Armor : Equipment
 {
     public enum ArmorType { Leather, Metal, Elemental }
     public ArmorType armorType;
-    public Stat passiveBonusStat = new Stat();
+    private Stat passiveBonusStat = new Stat();
+    public Stat Stat => basicStat + passiveBonusStat;
     public int multiJump = 1;
 
     private int _specialArmorLevel = 0;

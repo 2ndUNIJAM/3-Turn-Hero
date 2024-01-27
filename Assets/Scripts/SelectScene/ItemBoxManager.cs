@@ -109,6 +109,10 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.weapon.basicStat.AttackSpeed = selectedWeaponData.ATKSpeed;
 
         DataManager.playerInven.weapon.englishName = selectedWeaponData.EngName;
+
+        if (selectedWeaponData.EngName == "HolyLance" || selectedWeaponData.EngName == "GreedSword")
+            DataManager.playerInven.weapon.SpecialWeaponLevel = 1;
+
         DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
         DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
 

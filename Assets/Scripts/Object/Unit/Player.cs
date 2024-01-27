@@ -21,9 +21,8 @@ public class Player : Unit
         inven = DataManager.playerInven;
         upgradedStat = DataManager.playerUpgradeStat;
 
-        upgradedStat += inven.weapon.basicStat;
-        upgradedStat += inven.armor.basicStat;
-        upgradedStat += inven.colleague.basicStat;
+        upgradedStat += inven.weapon.Stat;
+        upgradedStat += inven.armor.Stat;
     }
 
 

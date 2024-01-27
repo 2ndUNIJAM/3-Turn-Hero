@@ -40,7 +40,6 @@ public class Monster : Unit
 
         base.ReduceHP(damage);
         StartHitAnim(DEFAULT_FAINT_TIME);
-        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
 
         if (hpBar == null && Stat.CurrentHP > 0f)
         {
@@ -148,7 +147,7 @@ public class Monster : Unit
             unit.ReduceHP(realDamage);
             
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, realDamage, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, $"-{realDamage}", PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
         }
     }
 
