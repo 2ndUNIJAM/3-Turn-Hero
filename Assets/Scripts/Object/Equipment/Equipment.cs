@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Equipment : MonoBehaviour
 {
-    public string name;
+    public string englishName;
+    public string koreanName;
     public string description;
 
     protected int _elementFireLevel = 0;

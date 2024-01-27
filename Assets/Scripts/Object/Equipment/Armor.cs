@@ -19,7 +19,7 @@ public class Armor : Equipment
         set
         {
             _specialArmorLevel = value;
-            if (name == "AdamantiumArmor")
+            if (englishName == "AdamantiumArmor")
             {
                 switch (value)
                 {
@@ -37,7 +37,7 @@ public class Armor : Equipment
                         break;
                 }
             }
-            else if (name == "SylphArmor")
+            else if (englishName == "SylphArmor")
             {
                 switch (value)
                 {

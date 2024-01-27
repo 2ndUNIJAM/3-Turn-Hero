@@ -18,11 +18,11 @@ public class Weapon : Equipment
         }
         set
         {
-            if (name == "HolyLance")
+            if (englishName == "HolyLance")
             {
                 _specialWeaponLevel = value;
             }
-            else if (name == "GreedSword" && _specialWeaponLevel < value && value <= 4)
+            else if (englishName == "GreedSword" && _specialWeaponLevel < value && value <= 4)
             {
                 List<string> notHaveYet = new List<string>();
                 int haveCount = 0;
@@ -90,7 +90,7 @@ public class Weapon : Equipment
         // 경직 효과는 냉기 레벨이 0이더라도 발동
         effect += ActiveElementIceEffect;
 
-        if (name == "HolyLance")
+        if (englishName == "HolyLance")
         {
             effect += ActiveHolyLanceEffect;
         }
