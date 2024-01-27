@@ -17,11 +17,24 @@ public class Player : Unit
         upgradedStat = GameManager.Data.playerUpgradeStat;
     }
 
+
+    public override void CheckDead()
+    {
+        base.CheckDead();
+
+        if (Stat.CurrentHP <= 0f)
+        {
+            BattleManager.Instance.GameLose();
+            animator.enabled = false;
+        }
+    }
+
     public override void ReduceHP(int damage)
     {
         if (isDead) return;
 
-        base.ReduceHP(damage);
+        ChangedStat.CurrentHP -= damage;
+        CheckDead();
         StartHitAnim(DEFAULT_FAINT_TIME);
     }
 }

@@ -15,8 +15,14 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private Canvas battleUI;
-    public Canvas BattleUI => battleUI;
+    [SerializeField] private BattleUIManager battleUI;
+    public BattleUIManager BattleUI => battleUI;
+
+    [SerializeField] private StageManager stage;
+    public StageManager Stage => stage;
+
+    public bool isWin;
+
 
     private void Awake()
     {
@@ -26,12 +32,25 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        int stageID = GameManager.Data.stageID;
+        stage.SetStage(stageID);
+
+        isWin = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CheckGameWin() => stage.enemyUnits.Count == 0;
+
+    public void GameWin()
     {
-        
+        Debug.Log("Stage Clear!");
+        Stage.ClearWallCol.enabled = false;
     }
+
+    public void GameLose()
+    {
+        Debug.Log("Game Over!");
+        Invoke("GoToMainScene", 1f);
+    }
+
+    private void GoToMainScene() => GameManager.Scene.GoToScene(Scene.MainScene, "TestBGM");
 }

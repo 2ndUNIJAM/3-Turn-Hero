@@ -15,8 +15,6 @@ public class TempMonster : Monster
         hpbarHeight = 0.25f;
 
         isCanAttack = true;
-
-        patrolCo = StartCoroutine(Patrol());
     }
 
     private void FixedUpdate()

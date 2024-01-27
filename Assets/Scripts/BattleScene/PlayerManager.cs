@@ -82,11 +82,16 @@ public class PlayerManager : MonoBehaviour
         {
             Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.MoveSpeed * Time.deltaTime;
             rigidbody.position = movePos;
+            animator.SetBool("isWalk", true);
 
             if (horizontal > 0f)
                 this.transform.localScale = new Vector3(1f, 1f, 1f);
             else
                 this.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            animator.SetBool("isWalk", false);
         }
     }
 
@@ -136,7 +141,7 @@ public class PlayerManager : MonoBehaviour
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(player.Stat.PPower);
 
-            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
             damageUI.Init(unit.gameObject, player.Stat.PPower, new Color(1f, 0.4f, 0.4f));
 
             currentCount++;

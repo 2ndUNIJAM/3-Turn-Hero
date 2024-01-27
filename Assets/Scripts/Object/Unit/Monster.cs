@@ -28,6 +28,7 @@ public class Monster : Unit
         if (Stat.CurrentHP <= 0f)
         {
             hpBar.DestroyHPBar();
+            BattleManager.Instance.Stage.RemoveEnemyUnit(this);
         }
     }
 
@@ -41,7 +42,7 @@ public class Monster : Unit
 
         if (hpBar == null)
         {
-            hpBar = GameManager.Resource.Instantiate("HPBar", BattleManager.Instance.BattleUI.transform).GetComponent<HPBar>();
+            hpBar = BattleManager.Instance.BattleUI.CreateHPBar();
             hpBar.Init(this.gameObject, hpbarHeight);
         }
 
@@ -134,8 +135,7 @@ public class Monster : Unit
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(Stat.PPower);
             
-            
-            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
             damageUI.Init(unit.gameObject, Stat.PPower, new Color(1f, 0.4f, 0.4f));
         }
     }
