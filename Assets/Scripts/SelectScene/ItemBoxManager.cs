@@ -102,29 +102,29 @@ public class ItemBoxManager : MonoBehaviour
 
         WeaponDataSO selectedWeaponData = GameManager.Data.WeaponDataSODic.ElementAt(weaponIndexList[selectedIndex]).Value;
 
-        GameManager.Data.playerInven.weapon = new Weapon();
+        DataManager.playerInven.weapon = new Weapon();
 
-        GameManager.Data.playerInven.weapon.basicStat = new Stat();
-        GameManager.Data.playerInven.weapon.basicStat.ATK = selectedWeaponData.ATK;
-        GameManager.Data.playerInven.weapon.basicStat.AttackSpeed = selectedWeaponData.ATKSpeed;
+        DataManager.playerInven.weapon.basicStat = new Stat();
+        DataManager.playerInven.weapon.basicStat.ATK = selectedWeaponData.ATK;
+        DataManager.playerInven.weapon.basicStat.AttackSpeed = selectedWeaponData.ATKSpeed;
 
-        GameManager.Data.playerInven.weapon.englishName = selectedWeaponData.EngName;
-        GameManager.Data.playerInven.weapon.koreanName = selectedWeaponData.KorName;
-        GameManager.Data.playerInven.weapon.description = selectedWeaponData.Descript;
+        DataManager.playerInven.weapon.englishName = selectedWeaponData.EngName;
+        DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
+        DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
 
         switch (selectedWeaponData.ElementType)
         {
             case ("화염"):
-                GameManager.Data.playerInven.weapon.ElementFireLevel = 1;
+                DataManager.playerInven.weapon.ElementFireLevel = 1;
                 break;
             case ("바람"):
-                GameManager.Data.playerInven.weapon.ElementWindLevel = 1;
+                DataManager.playerInven.weapon.ElementWindLevel = 1;
                 break;
             case ("대지"):
-                GameManager.Data.playerInven.weapon.ElementGroundLevel = 1;
+                DataManager.playerInven.weapon.ElementGroundLevel = 1;
                 break;
             case ("냉기"):
-                GameManager.Data.playerInven.weapon.ElementIceLevel = 1;
+                DataManager.playerInven.weapon.ElementIceLevel = 1;
                 break;
             default: break;
         }
@@ -132,18 +132,18 @@ public class ItemBoxManager : MonoBehaviour
         switch (selectedWeaponData.Rarity)
         {
             case ("N"):
-                GameManager.Data.playerInven.weapon.rarity = Equipment.Rarity.N;
+                DataManager.playerInven.weapon.rarity = Equipment.Rarity.N;
                 break;
             case ("R"):
-                GameManager.Data.playerInven.weapon.rarity = Equipment.Rarity.R;
+                DataManager.playerInven.weapon.rarity = Equipment.Rarity.R;
                 break;
             case ("SR"):
-                GameManager.Data.playerInven.weapon.rarity = Equipment.Rarity.SR;
+                DataManager.playerInven.weapon.rarity = Equipment.Rarity.SR;
                 break;
             default: break;
         }
 
-        GameManager.Data.playerInven.weapon.probability = selectedWeaponData.Possibility;
+        DataManager.playerInven.weapon.probability = selectedWeaponData.Possibility;
     }
 
     public void SetArmorBox(GameObject itemBox1, GameObject itemBox2, GameObject itemBox3)
@@ -213,30 +213,30 @@ public class ItemBoxManager : MonoBehaviour
 
         ArmorDataSO selectedArmorData = GameManager.Data.ArmorDataSODic.ElementAt(armorIndexList[selectedIndex]).Value;
 
-        GameManager.Data.playerInven.armor = new Armor();
+        DataManager.playerInven.armor = new Armor();
 
-        GameManager.Data.playerInven.armor.basicStat = new Stat();
-        GameManager.Data.playerInven.armor.basicStat.DEF = selectedArmorData.DEF;
-        GameManager.Data.playerInven.armor.basicStat.MoveSpeed = selectedArmorData.MoveSpeed;
-        GameManager.Data.playerInven.armor.basicStat.AttackSpeed = selectedArmorData.AttackSpeed;
+        DataManager.playerInven.armor.basicStat = new Stat();
+        DataManager.playerInven.armor.basicStat.DEF = selectedArmorData.DEF;
+        DataManager.playerInven.armor.basicStat.MoveSpeed = selectedArmorData.MoveSpeed;
+        DataManager.playerInven.armor.basicStat.AttackSpeed = selectedArmorData.AttackSpeed;
 
-        GameManager.Data.playerInven.armor.englishName = selectedArmorData.EngName;
-        GameManager.Data.playerInven.armor.koreanName = selectedArmorData.KorName;
-        GameManager.Data.playerInven.armor.description = selectedArmorData.Descript;
+        DataManager.playerInven.armor.englishName = selectedArmorData.EngName;
+        DataManager.playerInven.armor.koreanName = selectedArmorData.KorName;
+        DataManager.playerInven.armor.description = selectedArmorData.Descript;
 
         switch (selectedArmorData.ElementType)
         {
             case ("화염"):
-                GameManager.Data.playerInven.armor.ElementFireLevel = 1;
+                DataManager.playerInven.armor.ElementFireLevel = 1;
                 break;
             case ("바람"):
-                GameManager.Data.playerInven.armor.ElementWindLevel = 1;
+                DataManager.playerInven.armor.ElementWindLevel = 1;
                 break;
             case ("대지"):
-                GameManager.Data.playerInven.armor.ElementGroundLevel = 1;
+                DataManager.playerInven.armor.ElementGroundLevel = 1;
                 break;
             case ("냉기"):
-                GameManager.Data.playerInven.armor.ElementIceLevel = 1;
+                DataManager.playerInven.armor.ElementIceLevel = 1;
                 break;
             default: break;
         }
@@ -244,18 +244,18 @@ public class ItemBoxManager : MonoBehaviour
         switch (selectedArmorData.Rarity)
         {
             case ("N"):
-                GameManager.Data.playerInven.armor.rarity = Equipment.Rarity.N;
+                DataManager.playerInven.armor.rarity = Equipment.Rarity.N;
                 break;
             case ("R"):
-                GameManager.Data.playerInven.armor.rarity = Equipment.Rarity.R;
+                DataManager.playerInven.armor.rarity = Equipment.Rarity.R;
                 break;
             case ("SR"):
-                GameManager.Data.playerInven.armor.rarity = Equipment.Rarity.SR;
+                DataManager.playerInven.armor.rarity = Equipment.Rarity.SR;
                 break;
             default: break;
         }
 
-        GameManager.Data.playerInven.armor.probability = selectedArmorData.Possibility;
+        DataManager.playerInven.armor.probability = selectedArmorData.Possibility;
 
     }
 
@@ -314,16 +314,16 @@ public class ItemBoxManager : MonoBehaviour
 
         ColleagueDataSO selectedColleagueData = GameManager.Data.ColleagueDataSODic.ElementAt(colleagueIndexList[selectedIndex]).Value;
 
-        GameManager.Data.playerInven.colleague = new Colleague();
+        DataManager.playerInven.colleague = new Colleague();
 
-        GameManager.Data.playerInven.colleague.basicStat = new Stat();
+        DataManager.playerInven.colleague.basicStat = new Stat();
 
-        GameManager.Data.playerInven.colleague.englishName = selectedColleagueData.EngName;
-        GameManager.Data.playerInven.colleague.koreanName = selectedColleagueData.KorName;
-        GameManager.Data.playerInven.colleague.description = selectedColleagueData.Descript;
+        DataManager.playerInven.colleague.englishName = selectedColleagueData.EngName;
+        DataManager.playerInven.colleague.koreanName = selectedColleagueData.KorName;
+        DataManager.playerInven.colleague.description = selectedColleagueData.Descript;
 
-        GameManager.Data.playerInven.colleague.count = selectedColleagueData.Count;
+        DataManager.playerInven.colleague.count = selectedColleagueData.Count;
 
-        GameManager.Data.playerInven.colleague.probability = selectedColleagueData.Possibility;
+        DataManager.playerInven.colleague.probability = selectedColleagueData.Possibility;
     }
 }

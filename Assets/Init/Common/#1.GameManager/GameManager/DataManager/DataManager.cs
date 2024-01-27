@@ -30,15 +30,18 @@ public class DataManager : MonoBehaviour
     public List<FriendUpgrade> friendUpgrades;
     public List<EctUpgrade> ectUpgrades;
 
-    public Inventory playerInven;
+    public static Inventory playerInven;
 
-    public Stat playerUpgradeStat;
+    public static Stat playerUpgradeStat;
 
     public int stageID;
 
     public void Init()
     {
         unitDataSODic = new Dictionary<string, UnitDataSO>();
+
+        playerInven = new Inventory();
+        playerUpgradeStat = new Stat();
 
         stageID = 0;
 
