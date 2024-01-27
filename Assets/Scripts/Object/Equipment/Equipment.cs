@@ -7,10 +7,60 @@ public class Equipment : MonoBehaviour
     public string name;
     public string description;
 
-    public int elementFireLevel = 0;
-    public int elementGroundLevel = 0;
-    public int elementWindLevel = 0;
-    public int elementIceLevel = 0;
+    protected int _elementFireLevel = 0;
+    protected int _elementGroundLevel = 0;
+    protected int _elementWindLevel = 0;
+    protected int _elementIceLevel = 0;
+
+    public int ElementFireLevel
+    {
+        get
+        {
+            return _elementFireLevel;
+        }
+        set
+        {
+            _elementFireLevel = value;
+        }
+    }
+
+    public int ElementGroundLevel
+    {
+        get
+        {
+            return _elementGroundLevel;
+        }
+        set
+        {
+            _elementGroundLevel = value;
+            passiveElementGroundEffect(value);
+        }
+    }
+
+    public int ElementWindLevel
+    {
+        get
+        {
+            return _elementWindLevel;
+        }
+        set
+        {
+            _elementWindLevel = value;
+            passiveElementWindEffect(value);
+        }
+    }
+
+    public int ElementIceLevel
+    {
+        get
+        {
+            return _elementIceLevel;
+        }
+        set
+        {
+            _elementIceLevel = value;
+        }
+    }
 
     public enum Rarity { N, R, SR }
     public Rarity rarity;
@@ -29,4 +79,14 @@ public class Equipment : MonoBehaviour
     public Stat finalStat;
 
     // 플레이어의 공격력에서 적의 방어력 빼고, 데미지 경감 곱셈 곱하기
+
+    public virtual void passiveElementGroundEffect(int newLevel)
+    {
+
+    }
+
+    public virtual void passiveElementWindEffect(int newLevel)
+    {
+
+    }
 }
