@@ -44,7 +44,7 @@ public class Movement_Reward : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             GameManager.Scene.GoToScene(Scene.MapSelectScene, "TestBGM");
         }
