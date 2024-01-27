@@ -1,111 +1,102 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Bat : Monster
 {
     private const float TURN_DISTANCE = 1.5f;
+    private const float DEFAULT_FAINT_TIME = 1f;
 
-    private Vector3 rushVec;
+    private bool isJump;
 
     // Start is called before the first frame update
     void Start()
     {
-        recognizeDis = 5f;
+        recognizeDis = 1f;
         outofDis = 8f;
-        attackDis = 0.5f;
         knockBackPower = 3f;
         hpbarHeight = 0.75f;
         upPos = Vector3.up;
 
         isCanAttack = true;
+        isJump = false;
     }
 
     private void FixedUpdate()
     {
-        if (isCanAttack && CheckAttack())
-            Attack();
-
-        if (isAttacking)
+        if (isAttacking || isDead)
             return; // 공격 중엔 아래 기능을 수행하지 않음
 
-        if (isChasing)
+        if (RecognizePlayer())
         {
-            if (patrolCo != null)
-                StopPatrol(); // 순찰 종료
+            Player unit = PlayerManager.Instance.Player;
+            unit.ReduceHP(Stat.ATK);
 
-            // 추적
-            GotoPlayer();
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+            damageUI.Init(unit.gameObject, Stat.ATK, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
 
-            // 범위 벗어나면 순찰 시작
-            if (CheckOutOfRange())
-            {
-                isChasing = false;
-                patrolCo = StartCoroutine(Patrol());
-            }
+            ReduceHP(999);
         }
         else
         {
-            // 순찰
-            if (patrolCo == null)
-                patrolCo = StartCoroutine(Patrol());
-
-            // 플레이어 감지 시 추적 시작
-            if (RecognizePlayer())
-                isChasing = true;
+            Fly();
+            if (!isJump)
+                StartCoroutine("Jump");
         }
+
+        if (rigidbody.velocity.y < -5f)
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, -5f);
     }
 
-    protected override void GotoPlayer()
+    public override void ReduceHP(int damage)
     {
-        if (isDead || isFaint)
-            return; // 죽거나 기절일 경우
+        if (isDead) return;
+
+        ChangedStat.CurrentHP -= damage;
+        CheckDead();
+
+        StartHitAnim(DEFAULT_FAINT_TIME);
+        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
+    }
+
+    public void Fly()
+    {
+        float gap_x = Mathf.Abs(PlayerManager.Instance.transform.position.x - transform.position.x);
+        if (gap_x < 2f) gap_x = 2f;
 
         if (isGotoRight)
         {
-            //Move(Vector3.right, Stat.MoveSpeed);
+            Move(Vector3.right, gap_x * Stat.MoveSpeed);
             if (transform.position.x >= PlayerManager.Instance.transform.position.x + TURN_DISTANCE)
                 isGotoRight = false;
         }
         else
         {
-            //Move(Vector3.left, Stat.MoveSpeed);
+            Move(Vector3.left, gap_x * Stat.MoveSpeed);
             if (transform.position.x + TURN_DISTANCE <= PlayerManager.Instance.transform.position.x)
                 isGotoRight = true;
         }
     }
 
-    protected override bool CheckAttack()
-        => Physics2D.CircleCast(transform.position, attackDis, Vector2.zero, 0f, 128);
-
-    protected override void Attack()
+    IEnumerator Jump()
     {
-        base.Attack();
-
-        StartCoroutine(Rush());
-    }
-
-    IEnumerator Rush()
-    {
-        Vector3 startDir = this.transform.up - this.transform.right;
-        Vector3 gap;
-        rushVec = PlayerManager.Instance.transform.position - this.transform.position;
-
-        float angle = Vector3.SignedAngle(transform.up, rushVec - startDir, -transform.forward);
-        while (angle < 1f)
+        isJump = true;
+        if (PlayerManager.Instance.transform.position.y > this.transform.position.y)
         {
-            gap = startDir + rushVec;
-            //transform.rotation = Quaternion.Euler(Quaternion. + gap);
-            angle = Vector3.SignedAngle(transform.up, rushVec - startDir, -transform.forward);
+            rigidbody.velocity = Vector2.zero;
+            rigidbody.AddForce(Vector2.up * Random.Range(3f, 4f), ForceMode2D.Impulse);
         }
 
-        this.transform.rotation = Quaternion.Euler(rushVec);
+        yield return new WaitForSeconds(0.5f);
 
-        yield return new WaitForSeconds(1f);
+        isJump = false;
+    }
 
-        
-        rigidbody.bodyType = RigidbodyType2D.Kinematic;
-        rigidbody.AddForce(rushVec);
+    private void Move(Vector3 dir, float moveSpeed)
+    {
+        this.transform.position += dir * moveSpeed * Time.deltaTime;
+        this.transform.localScale = (dir.x < 0f) ? new Vector3(-1f, 1f, 1f) : new Vector3(1f, 1f, 1f);
     }
 }

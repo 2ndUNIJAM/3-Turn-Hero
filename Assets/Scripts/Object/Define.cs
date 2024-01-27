@@ -88,7 +88,7 @@ public struct Stat
 }
 
 [Serializable]
-public struct Inventory
+public class Inventory
 {
     public Weapon weapon;
     public Armor armor;

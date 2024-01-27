@@ -183,8 +183,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 532062301
-  m_SortingLayer: 1
+  m_SortingLayerID: 1541213843
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1208270544, guid: 3bbeb1a16f46e3c48b163bcb5ce3bfba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,7 +212,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -278,7 +278,7 @@ MonoBehaviour:
     m_Bits: 64
   enemyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   isJumping: 0
   jumpPower: 10
 --- !u!95 &7800937274536920925

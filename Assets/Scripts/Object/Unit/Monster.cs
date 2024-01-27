@@ -14,6 +14,7 @@ public class Monster : Unit
     protected float outofDis;
     protected float attackDis;
     protected float hpbarHeight;
+    protected float attackTiming;
     protected bool isGotoRight;
     protected bool isChasing, isAttacking;
     protected bool isCanAttack;
@@ -27,7 +28,8 @@ public class Monster : Unit
         base.CheckDead();
         if (Stat.CurrentHP <= 0f)
         {
-            hpBar.DestroyHPBar();
+            if (hpBar != null)
+                hpBar.DestroyHPBar();
             BattleManager.Instance.Stage.RemoveEnemyUnit(this);
         }
     }
@@ -91,7 +93,7 @@ public class Monster : Unit
 
     protected virtual void StopPatrol() => StopCoroutine(patrolCo);
 
-    protected IEnumerator Patrol()
+    protected virtual IEnumerator Patrol()
     {
         float moveDistance = Random.Range(MOVE_MIN_DISTANCE, MOVE_MAX_DISTANCE);
         float moveDir = (RandomManager.GetFlag(0.5f)) ? 1f : -1f;
@@ -106,6 +108,8 @@ public class Monster : Unit
             yield return null;
         }
 
+        animator.SetBool("isWalk", false);
+
         yield return new WaitForSeconds(Random.Range(0.5f, 2f));
 
         patrolCo = StartCoroutine(Patrol());
@@ -113,6 +117,7 @@ public class Monster : Unit
 
     private void Move(Vector3 dir, float moveSpeed)
     {
+        animator.SetBool("isWalk", true);
         this.transform.position += dir * moveSpeed * Time.deltaTime;
         this.transform.localScale = (dir.x < 0f) ? new Vector3(-1f, 1f, 1f) : new Vector3(1f, 1f, 1f);
     }
@@ -123,6 +128,8 @@ public class Monster : Unit
         isAttacking = true;
         animator.speed = Stat.AttackSpeed;
         animator.SetBool("isAttack", true);
+
+        Invoke("CheckAttackDamage", 0.5f / Stat.AttackSpeed);
         StartCoroutine(EndAttack());
     }
 
