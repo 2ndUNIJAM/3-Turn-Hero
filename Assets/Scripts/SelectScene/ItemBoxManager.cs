@@ -18,16 +18,13 @@ public class ItemBoxManager : MonoBehaviour
     List<int> armorIndexList = new List<int>();
     List<int> colleagueIndexList = new List<int>();
 
-    public void Awake()
+    public void Start()
     {
         if (instance == null)
         {
             instance = this;
         }
-    }
 
-    public void Start()
-    {
         getRandomItem = new GetRandomItem();
     }
 

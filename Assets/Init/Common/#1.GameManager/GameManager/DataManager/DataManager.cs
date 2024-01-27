@@ -43,6 +43,7 @@ public class DataManager : MonoBehaviour
         stageID = 0;
 
         var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
+
         foreach (var unit in unitDataSOList)
         {
             UnitDataSODic.Add(unit.Name, unit);
@@ -51,6 +52,7 @@ public class DataManager : MonoBehaviour
         weaponDataSODic = new Dictionary<string, WeaponDataSO>();
 
         var weaponDataSOList = GameManager.Resource.LoadAll<WeaponDataSO>("SO/WeaponDataSO");
+
         foreach (var weapon in weaponDataSOList)
         {
             WeaponDataSODic.Add(weapon.EngName, weapon);
@@ -98,14 +100,5 @@ public class DataManager : MonoBehaviour
         EctUpgrade.Init();
         for (int i = 0; i < EctUpgrade.ectUpgradeNum; i++)
             ectUpgrades.Add(new EctUpgrade(i));
-
-
-        stageID = 0;
-
-        var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
-        foreach (var unit in unitDataSOList)
-        {
-            UnitDataSODic.Add(unit.Name, unit);
-        }
     }
 }

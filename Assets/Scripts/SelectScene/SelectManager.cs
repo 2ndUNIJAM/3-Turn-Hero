@@ -84,6 +84,11 @@ public class SelectManager : MonoBehaviour
 
         TutorialText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
 
+        Debug.Log("ItemBoxManager: " + ItemBoxManager.Instance);
+        Debug.Log("ItemBox1: " + ItemBox1);
+        Debug.Log("ItemBox2: " + ItemBox2);
+        Debug.Log("ItemBox3: " + ItemBox3);
+
         if (count == 3)
         {
             ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
