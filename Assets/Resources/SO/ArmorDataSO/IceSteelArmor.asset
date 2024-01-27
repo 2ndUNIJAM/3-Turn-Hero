@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: IceSteelArmor
   m_EditorClassIdentifier: 
-  name: "\uB0C9\uAE30 \uCCA0\uC81C \uAC11\uC637"
+  engName: IceSteelArmor
+  korName: "\uB0C9\uAE30 \uCCA0\uC81C \uAC11\uC637"
+  descript: "\uB0C9\uAE30\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uCCA0\uC81C \uAC11\uC637\uC774\uB2E4.
+    \uC0B4\uC774 \uB4E4\uB7EC\uBD99\uC9C0 \uC54A\uAC8C \uC870\uC2EC\uD558\uC138\uC694.
+    / \uBC29\uC5B4\uB825: 15, 5%\uC758 \uD655\uB960\uB85C \uC801\uC758 \uACF5\uACA9\uC744
+    \uD68C\uD53C\uD55C\uB2E4."
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: "\uB0C9\uAE30"
   def: 15

@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: LeatherArmor
   m_EditorClassIdentifier: 
-  name: "\uAC00\uC8FD \uAC11\uC637"
+  engName: LeatherArmor
+  korName: "\uAC00\uC8FD \uAC11\uC637"
+  descript: "\uC9C8\uAE34 \uAC00\uC8FD \uAC11\uC637\uC774\uB2E4. \uC774\uAC78\uB85C
+    \uBC29\uC5B4\uAC00 \uB41C\uB2E4\uACE0\uC694? / \uBC29\uC5B4\uB825: 10, \uACF5\uACA9
+    \uC18D\uB3C4\uAC00 \uB2E4\uB978 \uAC11\uC637\uC5D0 \uBE44\uD574 \uAC00\uC7A5
+    \uBE60\uB974\uB2E4."
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: 
   def: 10

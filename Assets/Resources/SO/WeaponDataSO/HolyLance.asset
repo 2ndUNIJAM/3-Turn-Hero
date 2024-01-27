@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2136f454a49d31548aafb2d032eda7dd, type: 3}
   m_Name: HolyLance
   m_EditorClassIdentifier: 
-  name: "\uB871\uAE30\uB204\uC2A4\uC758 \uCC3D"
+  engName: HolyLance
+  korName: "\uB871\uAE30\uB204\uC2A4\uC758 \uCC3D"
+  descript: "\uC545\uC744 \uCC98\uB2E8\uD558\uB294 \uCC3D. \uC815\uC758\uC758 \uC774\uB984\uC73C\uB85C
+    \uB124 \uD53C\uB97C \uD761\uC218\uD558\uACA0\uB2E4. / \uACF5\uACA9\uB825: 20,
+    \uC801\uC744 \uACF5\uACA9\uD560 \uB54C\uB9C8\uB2E4 \uC801 \uC804\uCCB4 \uCCB4\uB825\uC758
+    3%\uB9CC\uD07C \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774 \uD68C\uBCF5\uB41C\uB2E4."
   weaponType: "\uCC3D"
   elementType: 
   atk: 20

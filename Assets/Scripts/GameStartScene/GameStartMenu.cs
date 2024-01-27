@@ -12,8 +12,7 @@ public class GameStartMenu : MonoBehaviour
     [SerializeField] public Button GameStartButton;
     [SerializeField] public Button ContinueButton;
     [SerializeField] public Button QuitButton;
-
-    [SerializeField] public GameObject highlight; // 하이라이트 스프라이트를 나타내는 GameObject
+    [SerializeField] public GameObject highlight;
 
     private int _selectedButtonIndex = 0; // 현재 선택된 버튼의 인덱스
 
@@ -26,7 +25,7 @@ public class GameStartMenu : MonoBehaviour
     private void Update()
     {
         // 키 입력에 따라 포인팅 변경
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             if (_selectedButtonIndex == 0)
             {
@@ -39,7 +38,7 @@ public class GameStartMenu : MonoBehaviour
                 _selectedButtonIndex = 2;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             if (_selectedButtonIndex == 2)
             {
@@ -56,16 +55,16 @@ public class GameStartMenu : MonoBehaviour
         // 엔터 키 입력에 따라 선택된 버튼 동작 수행
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
+            if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
                 SceneManager.LoadScene("SelectScene");
             }
-            else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
+            else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
                 // 이어하기 버튼 동작
                 Debug.Log("이어하기");
             }
-            else if (QuitButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 60)
+            else if (QuitButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
                 ExitGame();
             }
@@ -79,9 +78,8 @@ public class GameStartMenu : MonoBehaviour
         ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 48;
         QuitButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 48;
 
-        selectedButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 60;
+        selectedButton.GetComponentInChildren<TextMeshProUGUI>().fontSize = 56;
 
-        // 하이라이트 위치 조정
         highlight.transform.position = new Vector3(highlight.transform.position.x, selectedButton.transform.position.y, highlight.transform.position.z);
     }
 

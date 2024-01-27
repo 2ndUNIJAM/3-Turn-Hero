@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: SteelArmor
   m_EditorClassIdentifier: 
-  name: "\uCCA0\uC81C \uAC11\uC637"
+  engName: SteelArmor
+  korName: "\uCCA0\uC81C \uAC11\uC637"
+  descript: "\uD2BC\uD2BC\uD55C \uCCA0\uC81C \uAC11\uC637\uC774\uB2E4. \uC6C0\uC9C1\uC774\uAE30
+    \uD798\uB4E4\uC5B4\u2026 / \uBC29\uC5B4\uB825: 20, \uC774\uB3D9 \uC18D\uB3C4\uAC00
+    \uB2E4\uB978 \uAC11\uC637\uC5D0 \uBE44\uD574 \uAC00\uC7A5 \uB290\uB9AC\uB2E4."
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: 
   def: 0

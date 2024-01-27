@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04da8b021e6c940b0f597c265c4d5c, type: 3}
   m_Name: Berserker
   m_EditorClassIdentifier: 
-  name: "\uBC84\uC11C\uCEE4"
+  engName: Berserker
+  korName: "\uBC84\uC11C\uCEE4"
+  descript: "\uADF8\uB140\uB97C \uD654\uB098\uAC8C \uD574\uC120 \uC548\uB429\uB2C8\uB2E4.
+    / \uD50C\uB808\uC774\uC5B4\uC758 \uC804\uCCB4 \uCCB4\uB825\uC758 20%\uB97C \uD76C\uC0DD\uD558\uB294
+    \uB300\uC2E0, 10\uCD08 \uB3D9\uC548 \uACF5\uACA9\uB825\uC744 20 \uC0C1\uC2B9\uC2DC\uD0B5\uB2C8\uB2E4."
   count: 0
   gender: "\uC5EC\uC790"
+  possibility: 0

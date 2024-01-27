@@ -106,24 +106,26 @@ public class SelectManager : MonoBehaviour
         if (count == 0)
         {
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = true;
-            TutorialText.GetComponent<TextMeshProUGUI>().text = "Adventure begins.";
+            TutorialText.GetComponent<TextMeshProUGUI>().text = "모험이 시작됩니다.";
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = true;
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
 
             blockKeyboardInput = false;
+
+            SceneManager.LoadScene("BattleScene");
         }
         // 선택이 끝나지 않은 경우 다음 선택 시작. 
         else
         {
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = true;
-            TutorialText.GetComponent<TextMeshProUGUI>().text = count.ToString() + "turns after, the adventure begins.";
+            TutorialText.GetComponent<TextMeshProUGUI>().text = count.ToString() + "턴 후 모험이 시작됩니다.";
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = true;
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
@@ -142,9 +144,9 @@ public class SelectManager : MonoBehaviour
 
         Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
 
-        Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 5.0f);
+        Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 3.0f);
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
 
         blockKeyboardInput = false;
     }
@@ -157,9 +159,9 @@ public class SelectManager : MonoBehaviour
 
         blockKeyboardInput = true;
 
-        Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 5.0f);
+        Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 3.0f);
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
 
         count--;
 
@@ -177,12 +179,12 @@ public class SelectManager : MonoBehaviour
         {
             if (characterPositionIndex == 0)
             {
-                Character.transform.DOMove(new Vector3(0, -3.0f, 0), 1f);
+                Character.transform.DOMove(new Vector3(0, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(4.0f, -3.0f, 0), 1f);
+                Character.transform.DOMove(new Vector3(4.0f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 2;
             }
         }
@@ -192,12 +194,12 @@ public class SelectManager : MonoBehaviour
         {
             if (characterPositionIndex == 2)
             {
-                Character.transform.DOMove(new Vector3(0.0f, -3.0f, 0), 1f);
+                Character.transform.DOMove(new Vector3(0.0f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 1f);
+                Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 0;
             }
         }
@@ -207,15 +209,15 @@ public class SelectManager : MonoBehaviour
         {
             if (count == 3)
             {
-                ItemBoxManager.Instance.SetWeapon(characterPositionIndex);
+                ItemBoxManager.Instance.SetWeapon(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
             }
             else if (count == 2)
             {
-                ItemBoxManager.Instance.SetArmor(characterPositionIndex);
+                ItemBoxManager.Instance.SetArmor(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
             }
             else if (count == 1)
             {
-                ItemBoxManager.Instance.SetColleague(characterPositionIndex);
+                ItemBoxManager.Instance.SetColleague(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
             }
             StartCoroutine(CharacterExit());
         }

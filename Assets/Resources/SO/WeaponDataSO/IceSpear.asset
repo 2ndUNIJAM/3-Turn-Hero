@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2136f454a49d31548aafb2d032eda7dd, type: 3}
   m_Name: IceSpear
   m_EditorClassIdentifier: 
-  name: "\uB0C9\uAE30 \uCC3D"
+  engName: IceSpear
+  korName: "\uB0C9\uAE30 \uCC3D"
+  descript: "\uB0C9\uAE30\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uCC3D\uC774\uB2E4.
+    \uC190\uC7A1\uC774\uC5D0\uB294 \uC5F4\uC120\uC774 \uC788\uC73C\uB2C8 \uC548\uC2EC\uD558\uC138\uC694.
+    / \uACF5\uACA9\uB825: 20, \uBAAC\uC2A4\uD130\uB97C 1\uD68C \uD0C0\uACA9\uD560
+    \uB54C\uB9C8\uB2E4 \uC801\uC744 3\uCD08\uB3D9\uC548 \uACBD\uC9C1\uC2DC\uD0A8\uB2E4.
+    (\uCFE8\uD0C0\uC784 5\uCD08)"
   weaponType: "\uCC3D"
   elementType: "\uB0C9\uAE30"
   atk: 20
