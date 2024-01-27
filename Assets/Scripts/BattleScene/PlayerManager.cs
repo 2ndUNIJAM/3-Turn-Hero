@@ -124,15 +124,24 @@ public class PlayerManager : MonoBehaviour
 
     public void CheckAttackDamage()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
+        int maxCount = 1;
+        int currentCount = 0;
 
-        if (hit)
+        if (true)
+            maxCount = 2;
+
+        foreach (var hit in hits)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(player.Stat.PPower);
 
             FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
             damageUI.Init(unit.gameObject, player.Stat.PPower, new Color(1f, 0.4f, 0.4f));
+
+            currentCount++;
+            if (currentCount == maxCount)
+                break;
         }
     }
 

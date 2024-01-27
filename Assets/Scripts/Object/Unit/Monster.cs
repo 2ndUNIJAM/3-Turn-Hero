@@ -8,6 +8,7 @@ public class Monster : Unit
     private const float TURN_DISTANCE = 1f;
     private const float MOVE_MIN_DISTANCE = 3f;
     private const float MOVE_MAX_DISTANCE = 6f;
+    private const float DEFAULT_FAINT_TIME = 0.5f;
 
     protected float recognizeDis;
     protected float outofDis;
@@ -32,7 +33,12 @@ public class Monster : Unit
 
     public override void ReduceHP(int damage)
     {
+        if (isDead) return;
+
         base.ReduceHP(damage);
+        StartHitAnim(DEFAULT_FAINT_TIME);
+        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
+
         if (hpBar == null)
         {
             hpBar = GameManager.Resource.Instantiate("HPBar", BattleManager.Instance.BattleUI.transform).GetComponent<HPBar>();
@@ -65,8 +71,8 @@ public class Monster : Unit
 
     protected virtual void GotoPlayer()
     {
-        if (isDead || isHit)
-            return;
+        if (isDead || isFaint)
+            return; // 죽거나 기절일 경우
 
         if (isGotoRight)
         {

@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour
 
     protected float knockBackPower;
     protected bool isHit;
+    protected bool isFaint; // 경직
     protected bool isDead;
 
     // 지속 피해 데미지.
@@ -60,7 +61,6 @@ public class Unit : MonoBehaviour
         if (isDead) return;
         ChangedStat.CurrentHP -= damage;
         CheckDead();
-        StartHitAnim();
     }
 
     public virtual void ReduceHPPercent(float percent)
@@ -70,7 +70,6 @@ public class Unit : MonoBehaviour
         // 최대 체력 비례 데미지
         ChangedStat.CurrentHP -= Mathf.RoundToInt(ChangedStat.MaxHP * percent);
         CheckDead();
-        StartHitAnim();
     }
 
     IEnumerator FadeDeadOut()
@@ -86,21 +85,34 @@ public class Unit : MonoBehaviour
         GameManager.Resource.Destroy(this.gameObject);
     }
 
-    private void StartHitAnim()
+    protected virtual void StartHitAnim(float endTime)
     {
-        rigidbody.AddForce(Vector2.left * Mathf.Sign(transform.localScale.x) * knockBackPower, ForceMode2D.Impulse);
         animator.SetBool("isHit", true);
         isHit = true;
+        Invoke("EndHitAnim", endTime);
     }
 
-    public void EndHitAnim()
+    protected virtual void EndHitAnim()
     {
         if (isDead)
             return;
 
-        rigidbody.velocity = Vector2.zero;
         animator.SetBool("isHit", false);
         isHit = false;
+    }
+
+    protected IEnumerator StartFaint(float faintTime)
+    {
+        isFaint = true;
+
+        // 넉백
+        rigidbody.AddForce(Vector2.left * Mathf.Sign(transform.localScale.x) * knockBackPower, ForceMode2D.Impulse);
+
+        yield return new WaitForSeconds(faintTime);
+        
+        isFaint = false;
+
+        rigidbody.velocity = Vector2.zero;
     }
 
     public IEnumerator DottedDamage(int damage)
