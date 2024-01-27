@@ -16,7 +16,7 @@ MonoBehaviour:
   stat:
     MaxHP: 30
     CurrentHP: 30
-    PPower: 10
-    PArmor: 10
+    ATK: 10
+    DEF: 0
     AttackSpeed: 2
     MoveSpeed: 3

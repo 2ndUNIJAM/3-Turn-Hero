@@ -19,6 +19,12 @@ public class HPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            GameManager.Resource.Destroy(this.gameObject);
+            return;
+        }
+
         if (gameObject.activeSelf)
             this.transform.position = Camera.main.WorldToScreenPoint(target.transform.position + Vector3.up * height);
     }

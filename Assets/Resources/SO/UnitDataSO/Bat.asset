@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91263d2e576659842a5160dfb4ee584d, type: 3}
-  m_Name: "\uACE0\uBE14\uB9B0"
+  m_Name: Bat
   m_EditorClassIdentifier: 
-  name: "\uACE0\uBE14\uB9B0"
+  name: Bat
   stat:
-    MaxHP: 30
-    CurrentHP: 30
-    PPower: 0
-    PArmor: 0
-    MPower: 0
-    MArmor: 0
+    MaxHP: 1
+    CurrentHP: 1
+    ATK: 50
+    DEF: 0
     AttackSpeed: 0
-    MoveSpeed: 0
+    MoveSpeed: 2

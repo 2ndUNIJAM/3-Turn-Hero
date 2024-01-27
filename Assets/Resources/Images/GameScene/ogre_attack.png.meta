@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77bf25fbb496dfb47b1709d63a5ff248
+guid: e5bf4330eb6fe7f4bb45d6bbd5c614b8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ogre_idle_0
+      name: ogre_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.25, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8035bc1802c7ef4291e81f1de01c2ab
+      internalID: 2045231677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_attack_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.25, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c49d39a83c08a4f9c088a4586cb805
+      internalID: 239382845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_attack_2
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +179,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8bdd4c68003e6a4280b56b7cae70655
-      internalID: -2030870868
+      spriteID: 22226a57e36f14340961c364f92a19af
+      internalID: 65569611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ogre_idle_1
+      name: ogre_attack_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.25, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2501773768f1934cb37c0cdaba63ecf
+      internalID: -794635054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_attack_4
       rect:
         serializedVersion: 2
         x: 0
@@ -158,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b903d5cf8ae44fb4e99a75e0cb2c84f4
-      internalID: 560787885
+      spriteID: 334f9411bcb682a409d895a76fdf6f2e
+      internalID: -1350427014
       vertices: []
       indices: 
       edges: []
@@ -175,8 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ogre_idle_0: -2030870868
-      ogre_idle_1: 560787885
+      ogre_attack_0: 2045231677
+      ogre_attack_1: 239382845
+      ogre_attack_2: 65569611
+      ogre_attack_3: -794635054
+      ogre_attack_4: -1350427014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

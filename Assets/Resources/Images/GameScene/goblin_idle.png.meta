@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 77bf25fbb496dfb47b1709d63a5ff248
+guid: c2b1bdbd1eedb8e40826f0cc32dabca3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,43 +123,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ogre_idle_0
+      name: goblin_idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 96
-        height: 96
+        y: 64
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.25, y: 0.35}
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8bdd4c68003e6a4280b56b7cae70655
-      internalID: -2030870868
+      spriteID: adc8a775c817865428569908249f9787
+      internalID: 2024549622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ogre_idle_1
+      name: goblin_idle_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 64
+        height: 64
       alignment: 9
-      pivot: {x: 0.25, y: 0.35}
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b903d5cf8ae44fb4e99a75e0cb2c84f4
-      internalID: 560787885
+      spriteID: 981107b5d65a1bc40b03603e91d640a1
+      internalID: -833651983
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ogre_idle_0: -2030870868
-      ogre_idle_1: 560787885
+      goblin_idle_0: 2024549622
+      goblin_idle_1: -833651983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

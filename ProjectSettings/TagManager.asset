@@ -14,7 +14,7 @@ TagManager:
   - Obstacle
   - Player
   - Monster
-  - 
+  - Bat
   - 
   - 
   - 
@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: Monster_Back
     uniqueID: 532062301
+    locked: 0
+  - name: Player
+    uniqueID: 1541213843
+    locked: 0
+  - name: Monster_Front
+    uniqueID: 3127795755
     locked: 0
