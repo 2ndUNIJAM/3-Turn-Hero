@@ -32,10 +32,12 @@ public class Bat : Monster
         if (RecognizePlayer())
         {
             Player unit = PlayerManager.Instance.Player;
-            unit.ReduceHP(Stat.ATK);
+            int realDamage = unit.Stat.DEF - Stat.DEF;
+            realDamage = Mathf.Clamp(realDamage, 0, realDamage);
+            unit.ReduceHP(realDamage);
 
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, Stat.ATK, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, realDamage, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
 
             ReduceHP(999);
         }
