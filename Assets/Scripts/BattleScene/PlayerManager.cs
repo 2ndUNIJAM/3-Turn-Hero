@@ -129,10 +129,10 @@ public class PlayerManager : MonoBehaviour
         if (hit)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
-            unit.ReduceHP(player.Stat.PPower);
+            unit.ReduceHP(player.Stat.ATK);
 
             FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
-            damageUI.Init(unit.gameObject, player.Stat.PPower, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, player.Stat.ATK, new Color(1f, 0.4f, 0.4f));
         }
     }
 

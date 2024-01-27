@@ -167,20 +167,20 @@ public class Weapon : Equipment
         switch (newLevel)
         {
             case 1:
-                passiveBonusStat.PPower = 5;
+                passiveBonusStat.ATK = 5;
                 break;
             case 2:
-                passiveBonusStat.PPower = 8;
+                passiveBonusStat.ATK = 8;
                 break;
             case 3:
-                passiveBonusStat.PPower = 12;
+                passiveBonusStat.ATK = 12;
                 break;
             case 4:
-                passiveBonusStat.PPower = 15;
+                passiveBonusStat.ATK = 15;
                 break;
             case 0:
             default:
-                passiveBonusStat.PPower = 0;
+                passiveBonusStat.ATK = 0;
                 break;
         }
     }

@@ -11,19 +11,16 @@ using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
 {
+    private SelectManager instance;
+    public SelectManager Instance => instance;
+
     [SerializeField] private GameObject SceneGO;
     [SerializeField] private GameObject TutorialImage;
     [SerializeField] private GameObject TutorialText;
     [SerializeField] private GameObject ItemBox;
     [SerializeField] private GameObject Character;
 
-
-    [SerializeField] private Sprite AttackPanelSprite;
-    [SerializeField] private Sprite DefensePanelSprite;
-    [SerializeField] private Sprite FriendPanelSprite;
-
     private GameObject ItemBox1, ItemBox2, ItemBox3;
-
 
     //  현재 몇번째 텍스트를 읽고 있는지 저장하기 위한 변수.
     private int count = 3;
@@ -33,7 +30,17 @@ public class SelectManager : MonoBehaviour
     private int characterPositionIndex = 0;
     private bool helpCanvasPopup = false;
 
-    public void Start()
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        Init();
+    }
+
+    public void Init()
     {
         ItemBox1 = Instantiate(ItemBox, new Vector3(0, 0, 0), Quaternion.identity);
         ItemBox2 = Instantiate(ItemBox, new Vector3(4.0f, 0, 0), Quaternion.identity);
@@ -46,16 +53,18 @@ public class SelectManager : MonoBehaviour
         StartCoroutine(Tutorial());
     }
 
+    #region 'n턴 후 시작된다'는 다이얼로그, 용사 입장, 퇴장에 관한 코루틴들 다루는 코드. 
+
     // 튜토리얼. 왜 용사가 모험을 시작하는지 보여주고~
     IEnumerator Tutorial()
     {
         blockKeyboardInput = true;
 
-        TutorialImage.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 540.0f, 0), 10f);
+        TutorialImage.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 540.0f, 0), 1f);
 
-        TutorialText.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 1080.0f, 0), 10f);
+        TutorialText.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 1080.0f, 0), 1f);
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
 
         // 이후에 이미지, 텍스트는 꺼준다. 그리고 장비 선택 화면. 
         TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
@@ -75,9 +84,18 @@ public class SelectManager : MonoBehaviour
 
         TutorialText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
 
-        ItemBox1.GetComponent<UnityEngine.UI.Image>().sprite = AttackPanelSprite;
-        ItemBox2.GetComponent<UnityEngine.UI.Image>().sprite = DefensePanelSprite;
-        ItemBox3.GetComponent<UnityEngine.UI.Image>().sprite = FriendPanelSprite;
+        if (count == 3)
+        {
+            ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
+        }
+        else if (count == 2)
+        {
+            ItemBoxManager.Instance.SetArmorBox(ItemBox1, ItemBox2, ItemBox3);
+        }
+        else if (count == 1)
+        {
+            ItemBoxManager.Instance.SetColleagueBox(ItemBox1, ItemBox2, ItemBox3);
+        }
 
         // 선택이 모두 끝난 경우 모험이 시작된다는 텍스트 출력.
         if (count == 0)
@@ -105,8 +123,6 @@ public class SelectManager : MonoBehaviour
             TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
             TutorialText.GetComponent<TextMeshProUGUI>().enabled = false;
 
-            count--;
-
             blockKeyboardInput = false;
 
             StartCoroutine(CharacterEntrance());
@@ -131,17 +147,23 @@ public class SelectManager : MonoBehaviour
     // 용사 퇴장하는 코드.
     IEnumerator CharacterExit()
     {
+        Debug.Log("weapon ATK: " + GameManager.Data.playerInven.weapon.basicStat.ATK);
+        Debug.Log("weapon AttackSpeed: " + GameManager.Data.playerInven.weapon.basicStat.AttackSpeed);
+
         blockKeyboardInput = true;
 
         Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 5.0f);
 
         yield return new WaitForSeconds(5.0f);
 
+        count--;
+
         blockKeyboardInput = false;
 
         StartCoroutine(ShowText());
     }
 
+    #endregion
 
     private void Update()
     {
@@ -178,6 +200,18 @@ public class SelectManager : MonoBehaviour
         // 스페이스바나 엔터를 누르면 다음 용사가 퇴장하고 다음 선택으로 넘어간다. 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && blockKeyboardInput == false)
         {
+            if (count == 3)
+            {
+                ItemBoxManager.Instance.SetWeapon(characterPositionIndex);
+            }
+            else if (count == 2)
+            {
+                ItemBoxManager.Instance.SetArmor(characterPositionIndex);
+            }
+            else if (count == 1)
+            {
+                ItemBoxManager.Instance.SetColleague(characterPositionIndex);
+            }
             StartCoroutine(CharacterExit());
         }
 

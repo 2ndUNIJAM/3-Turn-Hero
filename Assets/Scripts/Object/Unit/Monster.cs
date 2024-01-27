@@ -60,7 +60,7 @@ public class Monster : Unit
             return false;
     }
 
-    protected virtual bool CheckAttack() 
+    protected virtual bool CheckAttack()
         => Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
 
     protected virtual void GotoPlayer()
@@ -126,11 +126,11 @@ public class Monster : Unit
         if (hit)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
-            unit.ReduceHP(Stat.PPower);
-            
-            
+            unit.ReduceHP(Stat.ATK);
+
+
             FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
-            damageUI.Init(unit.gameObject, Stat.PPower, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, Stat.ATK, new Color(1f, 0.4f, 0.4f));
         }
     }
 

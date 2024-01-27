@@ -3,14 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// µ¥ÀÌÅÍ´Â Scriptable Object·Î °ü¸®µË´Ï´Ù.
-/// º¸Åë ÀÐ±â Àü¿ëÀÌ¸ç, °ÔÀÓ ÁøÇà¿¡ ÇÊ¿äÇÑ ¿ä¼ÒµéÀÇ Á¤º¸ÀÔ´Ï´Ù.
+/// ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ Scriptable Objectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½.
+/// ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¿¡ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½Òµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 /// </summary>
 public class DataManager : MonoBehaviour
 {
     [SerializeField]
     private Dictionary<string, UnitDataSO> unitDataSODic;
     public Dictionary<string, UnitDataSO> UnitDataSODic => unitDataSODic;
+
+    [SerializeField]
+    private Dictionary<string, WeaponDataSO> weaponDataSODic;
+    public Dictionary<string, WeaponDataSO> WeaponDataSODic => weaponDataSODic;
+
+    [SerializeField]
+    private Dictionary<string, ArmorDataSO> armorDataSODic;
+    public Dictionary<string, ArmorDataSO> ArmorDataSODic => armorDataSODic;
+
+    [SerializeField]
+    private Dictionary<string, ColleagueDataSO> colleagueDataSODic;
+    public Dictionary<string, ColleagueDataSO> ColleagueDataSODic => colleagueDataSODic;
 
     public List<PlayerUpgrade> playerUpgrades;
     public List<WeaponUpgrade> weaponUpgrades;
@@ -26,6 +38,40 @@ public class DataManager : MonoBehaviour
 
     public void Init()
     {
+        unitDataSODic = new Dictionary<string, UnitDataSO>();
+
+        stageID = 0;
+
+        var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
+        foreach (var unit in unitDataSOList)
+        {
+            UnitDataSODic.Add(unit.Name, unit);
+        }
+
+        weaponDataSODic = new Dictionary<string, WeaponDataSO>();
+
+        var weaponDataSOList = GameManager.Resource.LoadAll<WeaponDataSO>("SO/WeaponDataSO");
+        foreach (var weapon in weaponDataSOList)
+        {
+            WeaponDataSODic.Add(weapon.EngName, weapon);
+        }
+
+        armorDataSODic = new Dictionary<string, ArmorDataSO>();
+
+        var armorDataSOList = GameManager.Resource.LoadAll<ArmorDataSO>("SO/ArmorDataSO");
+        foreach (var armor in armorDataSOList)
+        {
+            ArmorDataSODic.Add(armor.EngName, armor);
+        }
+
+        colleagueDataSODic = new Dictionary<string, ColleagueDataSO>();
+
+        var colleagueDataSOList = GameManager.Resource.LoadAll<ColleagueDataSO>("SO/ColleagueDataSO");
+        foreach (var colleague in colleagueDataSOList)
+        {
+            ColleagueDataSODic.Add(colleague.EngName, colleague);
+        }
+
         unitDataSODic = new Dictionary<string, UnitDataSO>();
 
         playerUpgrades = new List<PlayerUpgrade>();
