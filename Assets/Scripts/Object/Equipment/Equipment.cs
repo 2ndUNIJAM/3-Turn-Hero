@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,10 @@ public class Equipment : MonoBehaviour
     public string name;
     public string description;
 
-    public bool hasElementFire = false;
-    public bool hasElementGround = false;
-    public bool hasElementWind = false;
-    public bool hasElementIce = false;
+    public int elementFireLevel = 0;
+    public int elementGroundLevel = 0;
+    public int elementWindLevel = 0;
+    public int elementIceLevel = 0;
 
     public enum Rarity { N, R, SR }
     public Rarity rarity;
