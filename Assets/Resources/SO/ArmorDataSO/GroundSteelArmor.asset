@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: GroundSteelArmor
   m_EditorClassIdentifier: 
-  name: "\uB300\uC9C0 \uCCA0\uC81C \uAC11\uC637"
+  engName: GroundSteelArmor
+  korName: "\uB300\uC9C0 \uCCA0\uC81C \uAC11\uC637"
+  descript: "\uB300\uC9C0\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uCCA0\uC81C \uAC11\uC637\uC774\uB2E4.
+    \uCE5C\uD658\uACBD \uC18C\uC7AC\uB85C \uB9CC\uB4E0 \uAC11\uC637! / \uBC29\uC5B4\uB825:
+    15, \uBC29\uC5B4\uB825\uC774 5 \uC99D\uAC00\uD55C\uB2E4."
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: "\uB300\uC9C0"
   def: 20

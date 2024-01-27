@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04da8b021e6c940b0f597c265c4d5c, type: 3}
   m_Name: Thief
   m_EditorClassIdentifier: 
-  name: "\uB3C4\uC801"
+  engName: Theif
+  korName: "\uB3C4\uC801"
+  descript: "\uC8FC\uBA38\uB2C8\uB97C \uC870\uC2EC\uD558\uC138\uC694. / 5\uCD08 \uB3D9\uC548
+    \uD50C\uB808\uC774\uC5B4\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C 20 \uC0C1\uC2B9\uC2DC\uD0B5\uB2C8\uB2E4."
   count: 3
   gender: "\uB0A8\uC790"
+  possibility: 0

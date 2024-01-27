@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04da8b021e6c940b0f597c265c4d5c, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  name: "\uAD81\uC218"
+  engName: Archer
+  korName: "\uAD81\uC218"
+  descript: "\uADF8\uC758 \uD65C\uC740 \uBC31\uBC1C\uBC31\uC911\uC785\uB2C8\uB2E4.
+    \u2026\uC544\uB9C8\uB3C4\uC694. / 20\uCD08 \uB3D9\uC548, \uC2A4\uD14C\uC774\uB2C8\uC758
+    \uBB34\uC791\uC704 \uC801\uC5D0\uAC8C 4\uCD08\uC5D0 \uD55C \uBC88\uC529 20 \uB370\uBBF8\uC9C0\uB97C
+    \uAC00\uD558\uB294 \uD65C\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   count: 2
   gender: "\uB0A8\uC790"
+  possibility: 0

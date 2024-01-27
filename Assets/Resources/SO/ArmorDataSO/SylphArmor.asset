@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: SylphArmor
   m_EditorClassIdentifier: 
-  name: "\uC2E4\uD504\uC758 \uAC11\uC637"
+  engName: SylphArmor
+  korName: "\uC2E4\uD504\uC758 \uAC11\uC637"
+  descript: "\uBC14\uB78C\uC758 \uC815\uB839 \uC2E4\uD504\uC758 \uD798\uC774 \uAE43\uB4E0
+    \uAC11\uC637\uC774\uB2E4. \uC8FC\uC758, \uC0AC\uACE0\uAC00 \uB0A0 \uACBD\uC6B0
+    \uC804\uC801\uC73C\uB85C \uBCF8\uC778 \uCC45\uC784\uC785\uB2C8\uB2E4. / 2\uB2E8
+    \uC810\uD504\uAC00 \uAC00\uB2A5\uD574\uC9C4\uB2E4."
   armorType: "\uC815\uB839 \uAC11\uC637"
   elementType: 
   def: 15

@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2136f454a49d31548aafb2d032eda7dd, type: 3}
   m_Name: IceSword
   m_EditorClassIdentifier: 
-  name: "\uB0C9\uAE30 \uAC80"
+  engName: IceSword
+  korName: "\uB0C9\uAE30 \uAC80"
+  descript: "\uB0C9\uAE30\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uAC80\uC774\uB2E4.
+    \uB9E8\uC190\uC73C\uB85C \uB0A0\uC744 \uB9CC\uC9C0\uC9C0 \uC54A\uB3C4\uB85D \uC8FC\uC758.
+    / \uACF5\uACA9\uB825: 10, \uBAAC\uC2A4\uD130\uB97C 1\uD68C \uD0C0\uACA9\uD560
+    \uB54C\uB9C8\uB2E4 \uC801\uC744 3\uCD08\uB3D9\uC548 \uACBD\uC9C1\uC2DC\uD0A8\uB2E4.
+    (\uCFE8\uD0C0\uC784 5\uCD08)"
   weaponType: "\uAC80"
   elementType: "\uB0C9\uAE30"
   atk: 10

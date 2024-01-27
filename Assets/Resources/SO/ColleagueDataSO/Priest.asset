@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04da8b021e6c940b0f597c265c4d5c, type: 3}
   m_Name: Priest
   m_EditorClassIdentifier: 
-  name: "\uC2E0\uAD00"
+  engName: Priest
+  korName: "\uC2E0\uAD00"
+  descript: "\uC2E0\uC131\uD55C \uAE30\uC6B4\uC774 \uC548\uC88B\uC740 \uAE30\uC6B4\uC744
+    \uBB3C\uB9AC\uCE5C\uB2E4. / \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC744
+    \uC804\uCCB4 \uCCB4\uB825\uC758 30%\uB9CC\uD07C\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   count: 3
   gender: "\uC5EC\uC790"
+  possibility: 0
