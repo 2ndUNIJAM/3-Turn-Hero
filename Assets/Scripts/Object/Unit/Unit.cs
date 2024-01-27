@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private Stat changedStat;
     public Stat ChangedStat => changedStat;
 
-    public Stat Stat => data.Stat + changedStat;
+    public Stat Stat => data.Stat + changedStat; // TODO weapon.passiveBonusStat 도 더해 주어야 함
 
     protected float knockBackPower;
     protected bool isHit;
