@@ -56,6 +56,14 @@ public class Unit : MonoBehaviour
         StartHitAnim();
     }
 
+    public virtual void ReduceHPPercent(float percent)
+    {
+        // 최대 체력 비례 데미지
+        changedStat.CurrentHP -= Mathf.RoundToInt(changedStat.MaxHP * percent);
+        CheckDead();
+        StartHitAnim();
+    }
+
     IEnumerator FadeDeadOut()
     {
         while (spriteRenderer.color.a > 0f)
