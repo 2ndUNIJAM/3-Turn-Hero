@@ -136,7 +136,7 @@ public class Monster : Unit
             unit.ReduceHP(Stat.PPower);
             
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, Stat.PPower, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, Stat.PPower, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
         }
     }
 

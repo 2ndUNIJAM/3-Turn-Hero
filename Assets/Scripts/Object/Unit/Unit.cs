@@ -12,6 +12,9 @@ public class Unit : MonoBehaviour
 
     public Stat Stat => Data.Stat + ChangedStat;
 
+    protected Vector3 upPos;
+    public Vector3 UpPos => upPos;
+
     protected float knockBackPower;
     protected bool isHit;
     protected bool isFaint; // 경직

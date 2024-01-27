@@ -11,6 +11,11 @@ public class Player : Unit
 
     public new Stat Stat => base.Stat + upgradedStat;
 
+    private void Start()
+    {
+        upPos = Vector3.up;
+    }
+
     public void InitFromDataManager()
     {
         inven = GameManager.Data.playerInven;

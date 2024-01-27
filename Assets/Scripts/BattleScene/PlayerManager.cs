@@ -22,7 +22,10 @@ public class PlayerManager : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private Animator animator;
 
+    [SerializeField] private Animator weaponAnim;
+
     [SerializeField] private Player player;
+    public Player Player => player;
 
     [SerializeField] private LayerMask obstacleMask, enemyMask;
 
@@ -120,9 +123,10 @@ public class PlayerManager : MonoBehaviour
     private void Attack()
     {
         //isCanMove = false;
-        animator.speed = player.Stat.AttackSpeed;
-        animator.SetBool("isAttack", true);
+        weaponAnim.speed = player.Stat.AttackSpeed;
+        weaponAnim.SetBool("isAttack", true);
 
+        Invoke("CheckAttackDamage", 0.25f / player.Stat.AttackSpeed);
         StartCoroutine(EndAttack());
         StartCoroutine(AttackCoolTime());
     }
@@ -142,7 +146,7 @@ public class PlayerManager : MonoBehaviour
             unit.ReduceHP(player.Stat.PPower);
 
             FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, player.Stat.PPower, new Color(1f, 0.4f, 0.4f));
+            damageUI.Init(unit.gameObject, player.Stat.PPower, unit.UpPos, new Color(1f, 0.4f, 0.4f));
 
             currentCount++;
             if (currentCount == maxCount)
@@ -155,8 +159,8 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
 
         isCanMove = true;
-        animator.speed = 1f;
-        animator.SetBool("isAttack", false);
+        weaponAnim.speed = 1f;
+        weaponAnim.SetBool("isAttack", false);
     }
 
     IEnumerator AttackCoolTime()

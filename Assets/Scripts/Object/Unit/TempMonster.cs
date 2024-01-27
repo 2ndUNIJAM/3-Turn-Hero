@@ -12,7 +12,8 @@ public class TempMonster : Monster
         outofDis = 8f;
         attackDis = 0.5f;
         knockBackPower = 1.5f;
-        hpbarHeight = 0.25f;
+        hpbarHeight = 1f;
+        upPos = Vector3.up * 1.25f;
 
         isCanAttack = true;
     }
