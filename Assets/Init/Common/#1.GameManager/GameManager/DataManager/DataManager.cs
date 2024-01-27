@@ -12,16 +12,11 @@ public class DataManager : MonoBehaviour
     private Dictionary<string, UnitDataSO> unitDataSODic;
     public Dictionary<string, UnitDataSO> UnitDataSODic => unitDataSODic;
 
-    public Player player;
-
     public int stageID;
 
     public void Init()
     {
         unitDataSODic = new Dictionary<string, UnitDataSO>();
-
-        player = new Player();
-        player.Data = GameManager.Resource.Load<UnitDataSO>("SO/플레이어");
 
         stageID = 0;
 

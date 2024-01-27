@@ -58,3 +58,8 @@ public struct Stat
         MoveSpeed = 0;
     }
 }
+
+public struct Inventory
+{
+    
+}

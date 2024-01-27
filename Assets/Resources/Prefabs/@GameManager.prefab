@@ -519,6 +519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2371346730765651441}
   - component: {fileID: 441566259156595315}
+  - component: {fileID: 8854049197679565126}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -554,8 +555,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a32dbfb23dca8b4a8ae4b7a38bd2e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  googleSheet: {fileID: 2924204834867259311}
-  jemSOList: []
+  player: {fileID: 8854049197679565126}
+  stageID: 0
+--- !u!114 &8854049197679565126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919587356690751479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d1be1c858a5e144af79f3bb02786a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: ff52d298c77865f4cb898301c255c001, type: 2}
+  changedStat:
+    MaxHP: 0
+    CurrentHP: 0
+    PPower: 0
+    PArmor: 0
+    MPower: 0
+    MArmor: 0
+    AttackSpeed: 0
+    MoveSpeed: 0
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  collider: {fileID: 0}
+  rigidbody: {fileID: 0}
 --- !u!1 &5928193461559421786
 GameObject:
   m_ObjectHideFlags: 0

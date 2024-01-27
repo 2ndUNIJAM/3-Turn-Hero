@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private Animator animator;
 
-    [SerializeField] private Unit player;
+    [SerializeField] private Player player;
 
     [SerializeField] private LayerMask obstacleMask, enemyMask;
 
@@ -43,8 +43,6 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameManager.Data.player;
-
         collider = gameObject.GetOrAddComponent<BoxCollider2D>();
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
