@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: WindSteelArmor
   m_EditorClassIdentifier: 
-  name: "\uBC14\uB78C \uCCA0\uC81C \uAC11\uC637"
+  engName: WindSteelArmor
+  korName: "\uBC14\uB78C \uCCA0\uC81C \uAC11\uC637"
+  descript: "\uBC14\uB78C\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uCCA0\uC81C \uAC11\uC637\uC774\uB2E4.
+    \uC5EC\uB984\uC5D0\uB3C4 \uC2DC\uC6D0\uD574\uC694. / \uBC29\uC5B4\uB825: 15,
+    \uC774\uB3D9\uC18D\uB3C4\uAC00 5 \uC99D\uAC00\uD55C\uB2E4."
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: "\uBC14\uB78C"
   def: 15

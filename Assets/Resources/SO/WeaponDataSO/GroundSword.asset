@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2136f454a49d31548aafb2d032eda7dd, type: 3}
   m_Name: GroundSword
   m_EditorClassIdentifier: 
-  name: "\uB300\uC9C0 \uAC80"
+  engName: GroundSword
+  korName: "\uB300\uC9C0 \uAC80"
+  descript: "\uB300\uC9C0\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uAC80\uC774\uB2E4.
+    \uC27D\uAC8C \uBD80\uC11C\uC9C0\uC9C0 \uC54A\uC744 \uAC83 \uAC19\uB2E4. / \uACF5\uACA9\uB825:
+    10, \uACF5\uACA9\uB825\uC774 5 \uC99D\uAC00\uD55C\uB2E4."
   weaponType: "\uAC80"
   elementType: "\uB300\uC9C0"
   atk: 15

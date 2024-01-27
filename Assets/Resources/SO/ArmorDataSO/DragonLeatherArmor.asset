@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: DragonLeatherArmor
   m_EditorClassIdentifier: 
-  name: "\uC6A9\uBE44\uB298 \uAC11\uC637"
+  engName: DragonLeatherArmor
+  korName: "\uC6A9\uBE44\uB298 \uAC11\uC637"
+  descript: "\uB4DC\uB798\uACE4\uC758 \uBE44\uB298\uB85C \uB9CC\uB4E0 \uAC11\uC637\uC774\uB2E4.
+    \uC2DC\uB044\uB7EC\uC6B8 \uC218 \uC788\uC73C\uB2C8 \uADC0\uB9C8\uAC1C\uB3C4 \uB364\uC73C\uB85C
+    \uB4DC\uB824\uC694. 5\uCD08\uC5D0 \uD55C \uBC88\uC529, 50%\uC758 \uD655\uB960\uB85C
+    \uC2A4\uD14C\uC774\uC9C0\uC758 \uBAA8\uB4E0 \uBAAC\uC2A4\uD130\uB97C 2\uCD08
+    \uB3D9\uC548 \uACBD\uC9C1\uC2DC\uD0A8\uB2E4. (\uB2E8, \uBCF4\uC2A4 \uBAAC\uC2A4\uD130\uC5D0\uAC90
+    \uD1B5\uD558\uC9C0 \uC54A\uB294\uB2E4.)"
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: 
   def: 10

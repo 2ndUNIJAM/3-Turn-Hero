@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c04da8b021e6c940b0f597c265c4d5c, type: 3}
   m_Name: Bard
   m_EditorClassIdentifier: 
-  name: "\uC74C\uC720\uC2DC\uC778"
+  engName: Bard
+  korName: "\uC74C\uC720\uC2DC\uC778"
+  descript: "\uADF8\uC758 \uB178\uB798\uB294 \uB4E4\uC5B4\uC904\uB9CC \uD569\uB2C8\uB2E4.
+    \uAC00\uC0AC\uB294 \uC870\uAE08 \uC720\uCE58\uD558\uC9C0\uB9CC\uC694. / 10\uCD08
+    \uB3D9\uC548 \uC774\uB3D9\uC18D\uB3C4\uC640 \uACF5\uACA9\uC18D\uB3C4\uAC00 10\uC529
+    \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
   count: 3
   gender: "\uB0A8\uC790"
+  possibility: 0

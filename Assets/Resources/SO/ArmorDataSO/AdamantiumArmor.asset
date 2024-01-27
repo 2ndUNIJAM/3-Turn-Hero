@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c52bed76192e1498f38a3b123fc765, type: 3}
   m_Name: AdamantiumArmor
   m_EditorClassIdentifier: 
-  name: "\uC544\uB2E4\uB9CC\uD2F0\uC6C0 \uAC11\uC637"
+  engName: AdamantiumArmor
+  korName: "\uC544\uB2E4\uB9CC\uD2F0\uC6C0 \uAC11\uC637"
+  descript: "\uC544\uB2E4\uB9CC\uD2F0\uC6C0\uC758 \uC6D0\uC11D\uC73C\uB85C \uB9CC\uB4E0
+    \uAC11\uC637\uC774\uB2E4. \uC774\uAC78\uB85C \uAC11\uC637\uC774 \uC544\uB2C8\uB77C
+    \uBC29\uD328\uB97C \uB9CC\uB4E0 \uC0AC\uB78C\uC774 \uC788\uB2E4\uACE0? / \uCCA0\uC81C
+    \uAC11\uC637\uC758 \uC774\uB3D9\uC18D\uB3C4, \uACF5\uACA9 \uC18D\uB3C4\uC758
+    \uD328\uB110\uD2F0\uAC00 \uC0AC\uB77C\uC9C4\uB2E4."
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: 
   def: 20

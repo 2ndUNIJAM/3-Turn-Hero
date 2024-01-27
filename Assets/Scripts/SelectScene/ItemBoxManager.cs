@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemBoxManager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class ItemBoxManager : MonoBehaviour
     public static ItemBoxManager Instance => instance;
 
     [SerializeField] private List<Sprite> PanelSpriteList;
+    [SerializeField] private Sprite WeaponSprite;
 
     GetRandomItem getRandomItem;
 
@@ -41,9 +44,16 @@ public class ItemBoxManager : MonoBehaviour
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
             int weaponIndex = -1;
 
+            int whilecount = 0;
             do
             {
                 weaponIndex = getRandomItem.GetRandomWeaponIndex();
+                whilecount++;
+                if (whilecount > 100)
+                {
+                    Debug.Log("무한루프");
+                    break;
+                }
             } while (weaponIndexList.Contains(weaponIndex));
 
             weaponIndexList.Add(weaponIndex);
@@ -64,14 +74,32 @@ public class ItemBoxManager : MonoBehaviour
             }
 
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedWeaponData.KorName;
-            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedWeaponData.Descript;
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedWeaponData.Descript.Replace("/", "\n\n");
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+
+            Color currentColor = itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
+            Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color = newColor;
         }
 
     }
 
     // 플레이어가 선택한 무기를 플레이어 인벤토리에 넣는다.
-    public void SetWeapon(int selectedIndex)
+    public void SetWeapon(int selectedIndex, GameObject itemBox1, GameObject itemBox2, GameObject itemBox3)
     {
+        List<GameObject> itemBoxList = new List<GameObject>();
+        itemBoxList.Add(itemBox1);
+        itemBoxList.Add(itemBox2);
+        itemBoxList.Add(itemBox3);
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
+            .Play();
+
         WeaponDataSO selectedWeaponData = GameManager.Data.WeaponDataSODic.ElementAt(weaponIndexList[selectedIndex]).Value;
 
         GameManager.Data.playerInven.weapon = new Weapon();
@@ -130,9 +158,16 @@ public class ItemBoxManager : MonoBehaviour
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
             int armorIndex = -1;
 
+            int whilecount = 0;
             do
             {
                 armorIndex = getRandomItem.GetRandomArmorIndex();
+                whilecount++;
+                if (whilecount > 100)
+                {
+                    Debug.Log("무한루프");
+                    break;
+                }
             } while (armorIndexList.Contains(armorIndex));
 
             armorIndexList.Add(armorIndex);
@@ -152,12 +187,30 @@ public class ItemBoxManager : MonoBehaviour
             }
 
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedArmorData.KorName;
-            itemBoxList[armorIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedArmorData.Descript;
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedArmorData.Descript.Replace("/", "\n\n");
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+
+            Color currentColor = itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
+            Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color = newColor;
         }
     }
 
-    public void SetArmor(int selectedIndex)
+    public void SetArmor(int selectedIndex, GameObject itemBox1, GameObject itemBox2, GameObject itemBox3)
     {
+        List<GameObject> itemBoxList = new List<GameObject>();
+        itemBoxList.Add(itemBox1);
+        itemBoxList.Add(itemBox2);
+        itemBoxList.Add(itemBox3);
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
+            .Play();
+
         ArmorDataSO selectedArmorData = GameManager.Data.ArmorDataSODic.ElementAt(armorIndexList[selectedIndex]).Value;
 
         GameManager.Data.playerInven.armor = new Armor();
@@ -218,8 +271,15 @@ public class ItemBoxManager : MonoBehaviour
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
             int colleagueIndex = -1;
 
+            int whilecount = 0;
             do
             {
+                whilecount++;
+                if (whilecount > 100)
+                {
+                    Debug.Log("무한루프");
+                    break;
+                }
                 colleagueIndex = getRandomItem.GetRandomColleagueIndex();
             } while (colleagueIndexList.Contains(colleagueIndex));
 
@@ -228,12 +288,30 @@ public class ItemBoxManager : MonoBehaviour
             ColleagueDataSO selectedColleagueData = GameManager.Data.ColleagueDataSODic.ElementAt(colleagueIndex).Value;
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = PanelSpriteList[6];
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedColleagueData.KorName;
-            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedColleagueData.Descript;
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedColleagueData.Descript.Replace("/", "\n\n");
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+
+            Color currentColor = itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
+            Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color = newColor;
         }
     }
 
-    public void SetColleague(int selectedIndex)
+    public void SetColleague(int selectedIndex, GameObject itemBox1, GameObject itemBox2, GameObject itemBox3)
     {
+        List<GameObject> itemBoxList = new List<GameObject>();
+        itemBoxList.Add(itemBox1);
+        itemBoxList.Add(itemBox2);
+        itemBoxList.Add(itemBox3);
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
+            .Play();
+
         ColleagueDataSO selectedColleagueData = GameManager.Data.ColleagueDataSODic.ElementAt(colleagueIndexList[selectedIndex]).Value;
 
         GameManager.Data.playerInven.colleague = new Colleague();
