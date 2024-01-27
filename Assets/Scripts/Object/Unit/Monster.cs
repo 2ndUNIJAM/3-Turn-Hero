@@ -12,11 +12,35 @@ public class Monster : Unit
     protected float recognizeDis;
     protected float outofDis;
     protected float attackDis;
+    protected float hpbarHeight;
     protected bool isGotoRight;
     protected bool isChasing, isAttacking;
     protected bool isCanAttack;
 
     protected Coroutine patrolCo;
+
+    [SerializeField] private HPBar hpBar;
+
+    public override void CheckDead()
+    {
+        base.CheckDead();
+        if (Stat.CurrentHP <= 0f)
+        {
+            hpBar.DestroyHPBar();
+        }
+    }
+
+    public override void ReduceHP(int damage)
+    {
+        base.ReduceHP(damage);
+        if (hpBar == null)
+        {
+            hpBar = GameManager.Resource.Instantiate("HPBar", BattleManager.Instance.BattleUI.transform).GetComponent<HPBar>();
+            hpBar.Init(this.gameObject, hpbarHeight);
+        }
+
+        hpBar.SetSlider(Stat.CurrentHP, Stat.MaxHP);
+    }
 
     protected virtual bool RecognizePlayer()
     {
@@ -103,7 +127,10 @@ public class Monster : Unit
         {
             Unit unit = hit.transform.GetComponent<Unit>();
             unit.ReduceHP(Stat.PPower);
-            Debug.Log(unit.Stat.CurrentHP);
+            
+            
+            FloatingDamage damageUI = GameManager.Resource.Instantiate("FloatingDamage", BattleManager.Instance.BattleUI.transform).GetComponent<FloatingDamage>();
+            damageUI.Init(unit.gameObject, Stat.PPower, new Color(1f, 0.4f, 0.4f));
         }
     }
 

@@ -4,12 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public enum Scene
-{
-    TestScene,
-    LobbyScene
-}
-
 public class SceneController : MonoBehaviour
 {
     private const string FADE_ANIM_IN_NAME = "SceneCtrl_FadeIn";
@@ -26,8 +20,10 @@ public class SceneController : MonoBehaviour
 
     // SceneIndex ǥ
     /*****************************************
-    0. TestScene 
-    1. LobbyScene
+    0. MainScene
+    1. SelectScene
+    2. BattleScene
+    3. RewardScene
     *****************************************/
 
 
