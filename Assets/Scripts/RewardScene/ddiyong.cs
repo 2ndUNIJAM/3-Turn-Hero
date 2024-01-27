@@ -21,24 +21,24 @@ public class ddiyong : MonoBehaviour
     IEnumerator InstantiatePrefabsWithDelay()
     {
 
-        Prefab1 = Resources.Load<GameObject>("Prefabs/select1");
-        Vector2 spawnPosition1 = new Vector2(-7f, 0f);
+        Prefab1 = Resources.Load<GameObject>("Prefabs/Select1 Variant");
+        Vector2 spawnPosition1 = new Vector2(-4.62f, -1.52f);
         select1 = Instantiate(Prefab1, spawnPosition1, Quaternion.identity);
 
         
         yield return new WaitForSeconds(0.5f);
 
         
-        Prefab2 = Resources.Load<GameObject>("Prefabs/select2");
-        Vector2 spawnPosition2 = new Vector2(0f, 0f);
+        Prefab2 = Resources.Load<GameObject>("Prefabs/Select2 Variant");
+        Vector2 spawnPosition2 = new Vector2(2.38f, -1.52f);
         select2 = Instantiate(Prefab2, spawnPosition2, Quaternion.identity);
 
         
         yield return new WaitForSeconds(0.5f);
 
         
-        Prefab3 = Resources.Load<GameObject>("Prefabs/select3");
-        Vector2 spawnPosition3 = new Vector2(7f, 0f);
+        Prefab3 = Resources.Load<GameObject>("Prefabs/Select3 Variant");
+        Vector2 spawnPosition3 = new Vector2(9.38f, -1.52f);
         select3 = Instantiate(Prefab3, spawnPosition3, Quaternion.identity);
     }
 }
