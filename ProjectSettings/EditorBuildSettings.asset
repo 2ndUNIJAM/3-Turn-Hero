@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RewardScene.unity
     guid: b10a626062bdab34ea9a013d013dddca
+  - enabled: 1
+    path: Assets/Scenes/MapSelectScene.unity
+    guid: ddd521432a25f754fb4391627f5b1609
   m_configObjects: {}
