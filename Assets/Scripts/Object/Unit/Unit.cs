@@ -9,9 +9,7 @@ public class Unit : MonoBehaviour
     public UnitDataSO Data;
 
     public Stat ChangedStat; // 배틀 씬에서만 변경되는 스탯
-
-    public Stat Stat => Data.Stat + ChangedStat;
-
+    public Stat Stat => Data.Stat + ChangedStat; // TODO weapon.passiveBonusStat 도 더해 주어야 함
     protected float knockBackPower;
     protected bool isHit;
     protected bool isDead;
@@ -112,8 +110,16 @@ public class Unit : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(1f);
+
+            // 상위 효과로 갱신된 경우 기존에 작용하던 낮은 효과의 지속 데미지 제거
+            if (dottedDamageAmount > damage) yield break;
+
             ReduceHP(damage);
-            if (isDead) yield break;
+            if (isDead)
+            {
+                dottedDamageAmount = 0;
+                yield break;
+            }
         }
         dottedDamageAmount = 0;
     }
