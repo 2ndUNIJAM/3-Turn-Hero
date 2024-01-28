@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91263d2e576659842a5160dfb4ee584d, type: 3}
   m_Name: Golem
   m_EditorClassIdentifier: 
-  name: 
+  name: Golem
   stat:
     MaxHP: 100
     CurrentHP: 100

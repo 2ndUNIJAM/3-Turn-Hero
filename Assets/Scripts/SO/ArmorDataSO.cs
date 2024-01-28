@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "ArmorDataSO", menuName = "Scriptable Object/ArmorDataSO")]
 public class ArmorDataSO : ScriptableObject
@@ -15,6 +16,8 @@ public class ArmorDataSO : ScriptableObject
 
     [SerializeField] private string descript;
     public string Descript => descript;
+    [SerializeField] private Image icon;
+    public Image Icon => icon;
 
     [SerializeField] private string armorType;
     public string ArmorType => armorType;

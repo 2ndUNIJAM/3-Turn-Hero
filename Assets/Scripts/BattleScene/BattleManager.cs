@@ -42,7 +42,8 @@ public class BattleManager : MonoBehaviour
 
     public void GameWin()
     {
-        Debug.Log("Stage Clear!");
+        Debug.Log("Stage  Clear!");
+        PlayerManager.Instance.Player.upgradedStat.CurrentHP = PlayerManager.Instance.Player.upgradedStat.CurrentHP - PlayerManager.Instance.Player.upgradedStat.MaxHP;
         Stage.ClearWallCol.enabled = false;
     }
 
