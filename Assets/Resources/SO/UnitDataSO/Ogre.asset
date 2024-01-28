@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ogre
   stat:
-    MaxHP: 40
-    CurrentHP: 40
+    MaxHP: 200
+    CurrentHP: 200
     ATK: 20
     DEF: 10
     AttackSpeed: 1

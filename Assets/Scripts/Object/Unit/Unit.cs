@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour   
 {
     private const float DEAD_FADE_SPEED = 2f;
 
@@ -57,13 +57,22 @@ public class Unit : MonoBehaviour
         ChangedStat.CurrentHP += hp;
     }
 
-    public virtual void AddHP(int hp) => ChangedStat.CurrentHP += hp;
+    public virtual void AddHP(int hp)
+    {
+        ChangedStat.CurrentHP += hp;
+
+        FloatingDamage HealUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+        HealUI.Init(gameObject, $"+{hp}", UpPos, new Color(0.4f, 1f, 0.4f));
+    }
 
     public virtual void ReduceHP(int damage)
     {
         if (isDead) return;
         ChangedStat.CurrentHP -= damage;
         CheckDead();
+
+        FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+        damageUI.Init(gameObject, $"-{damage}", UpPos, new Color(1f, 0.4f, 0.4f));
     }
 
     public virtual void ReduceHPPercent(float percent)
@@ -97,16 +106,22 @@ public class Unit : MonoBehaviour
 
     protected virtual void EndHitAnim()
     {
-        if (isDead)
+        if (isDead || isFaint)
             return;
 
         animator.SetBool("isHit", false);
         isHit = false;
     }
 
+
+    public void SetFaint(float faintTime) => StartCoroutine(StartFaint(faintTime));
+
     protected IEnumerator StartFaint(float faintTime)
     {
         isFaint = true;
+
+        Weapon.IsCanFaint = false;
+        animator.SetBool("isHit", true);
 
         // 넉백
         rigidbody.AddForce(Vector2.left * Mathf.Sign(transform.localScale.x) * knockBackPower, ForceMode2D.Impulse);
@@ -115,10 +130,10 @@ public class Unit : MonoBehaviour
 
         isFaint = false;
 
-        if (rigidbody.bodyType != RigidbodyType2D.Static)
-        {
-            rigidbody.velocity = Vector2.zero;
-        }
+        Weapon.IsCanFaint = true;
+        animator.SetBool("isHit", false);
+
+        rigidbody.velocity = Vector2.zero;
     }
 
     public void ApplyDottedDamage(int damage)
@@ -140,6 +155,10 @@ public class Unit : MonoBehaviour
             if (dottedDamageAmount > damage) yield break;
 
             ReduceHP(damage);
+
+            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+            damageUI.Init(gameObject, $"-{damage}", UpPos, Color.yellow);
+
             if (isDead)
             {
                 dottedDamageAmount = 0;
