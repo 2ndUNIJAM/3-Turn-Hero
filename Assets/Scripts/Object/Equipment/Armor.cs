@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class Armor : Equipment
@@ -180,5 +181,30 @@ public class Armor : Equipment
                 passiveBonusStat.MoveSpeed = 0;
                 break;
         }
+    }
+
+    public int GetArmorType()
+    {
+        if (ElementFireLevel > 0)
+        {
+            if (rarity == 0) return 0;
+            else return 1;
+        }
+        else if (ElementWindLevel > 0)
+        {
+            if (rarity == 0) return 2;
+            else return 3;
+        }
+        else if (ElementGroundLevel > 0)
+        {
+            if (rarity == 0) return 4;
+            else return 5;
+        }
+        else if (ElementIceLevel > 0)
+        {
+            if (rarity == 0) return 4;
+            else return 5;
+        }
+        return 0;
     }
 }

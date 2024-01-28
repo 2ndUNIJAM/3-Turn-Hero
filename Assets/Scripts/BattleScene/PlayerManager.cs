@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] private Animator weaponAnim;
 
+    [SerializeField] private Animator armorAnim;
+
     [SerializeField] private Player player;
     public Player Player => player;
 
@@ -51,6 +53,9 @@ public class PlayerManager : MonoBehaviour
         collider = gameObject.GetOrAddComponent<BoxCollider2D>();
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
+
+        //armorAnim.SetInteger("Type", player.inven.armor.GetArmorType());
+        armorAnim.SetInteger("Type", 0);
 
         jumpPower = 14f;
         jumpMaxCount = Player.inven.armor.multiJump;
@@ -91,6 +96,7 @@ public class PlayerManager : MonoBehaviour
             Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.GetRealMoveSpeed * Time.deltaTime;
             rigidbody.position = movePos;
             animator.SetBool("isWalk", true);
+            armorAnim.SetBool("isWalk", true);
 
             if (horizontal > 0f)
                 this.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -100,6 +106,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             animator.SetBool("isWalk", false);
+            armorAnim.SetBool("isWalk", false);
         }
     }
 
