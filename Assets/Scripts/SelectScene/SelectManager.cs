@@ -108,7 +108,7 @@ public class SelectManager : MonoBehaviour
 
             blockKeyboardInput = false;
 
-            GameManager.Scene.GoToScene(Scene.BattleScene, "TestBGM");
+            GameManager.Scene.GoToScene(Scene.BattleScene, "Combat_BGM");
         }
         // 선택이 끝나지 않은 경우 다음 선택 시작. 
         else

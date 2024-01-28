@@ -45,7 +45,7 @@ public class Movement_Reward : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             UpgradeManager.Instance.UpdateStat(characterPositionIndex);
-            GameManager.Scene.GoToScene(Scene.MapSelectScene, "TestBGM");
+            GameManager.Scene.GoToScene(Scene.MapSelectScene, "Combat_MR");
         }
     }
 }

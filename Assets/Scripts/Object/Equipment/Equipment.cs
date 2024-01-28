@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Equipment : MonoBehaviour
+public class Equipment
 {
     public string englishName;
     public string koreanName;

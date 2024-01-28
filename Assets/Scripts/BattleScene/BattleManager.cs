@@ -53,5 +53,5 @@ public class BattleManager : MonoBehaviour
         Invoke("GoToMainScene", 1f);
     }
 
-    private void GoToMainScene() => GameManager.Scene.GoToScene(Scene.MainScene, "TestBGM");
+    private void GoToMainScene() => GameManager.Scene.GoToScene(Scene.MainScene, "Town_Loop_BGM");
 }
