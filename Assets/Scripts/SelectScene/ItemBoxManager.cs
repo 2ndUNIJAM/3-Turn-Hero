@@ -113,6 +113,7 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.weapon.englishName = selectedWeaponData.EngName;
         DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
         DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
+        DataManager.playerInven.weapon.icon = selectedWeaponData.Icon;
 
         switch (selectedWeaponData.ElementType)
         {
@@ -227,6 +228,7 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.armor.englishName = selectedArmorData.EngName;
         DataManager.playerInven.armor.koreanName = selectedArmorData.KorName;
         DataManager.playerInven.armor.description = selectedArmorData.Descript;
+        DataManager.playerInven.armor.icon = selectedArmorData.Icon;
 
         switch (selectedArmorData.ElementType)
         {
@@ -327,6 +329,7 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.colleague.englishName = selectedColleagueData.EngName;
         DataManager.playerInven.colleague.koreanName = selectedColleagueData.KorName;
         DataManager.playerInven.colleague.description = selectedColleagueData.Descript;
+        DataManager.playerInven.colleague.icon = selectedColleagueData.Icon;
 
         DataManager.playerInven.colleague.count = selectedColleagueData.Count;
 

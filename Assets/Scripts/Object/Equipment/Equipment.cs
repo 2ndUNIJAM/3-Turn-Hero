@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Equipment : MonoBehaviour
 {
     public string englishName;
     public string koreanName;
     public string description;
+
+    public Image icon;
 
     protected int _elementFireLevel = 0;
     protected int _elementGroundLevel = 0;
