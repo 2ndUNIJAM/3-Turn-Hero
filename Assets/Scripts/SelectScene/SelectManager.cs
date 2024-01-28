@@ -84,11 +84,6 @@ public class SelectManager : MonoBehaviour
 
         TutorialText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
 
-        Debug.Log("ItemBoxManager: " + ItemBoxManager.Instance);
-        Debug.Log("ItemBox1: " + ItemBox1);
-        Debug.Log("ItemBox2: " + ItemBox2);
-        Debug.Log("ItemBox3: " + ItemBox3);
-
         if (count == 3)
         {
             ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
@@ -153,9 +148,6 @@ public class SelectManager : MonoBehaviour
     // 용사 퇴장하는 코드.
     IEnumerator CharacterExit()
     {
-        Debug.Log("weapon ATK: " + DataManager.playerInven.weapon.basicStat.ATK);
-        Debug.Log("weapon AttackSpeed: " + DataManager.playerInven.weapon.basicStat.AttackSpeed);
-
         blockKeyboardInput = true;
 
         Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 3.0f);
@@ -174,7 +166,7 @@ public class SelectManager : MonoBehaviour
     private void Update()
     {
         // 오른쪽 버튼을 누르면 용사가 오른쪽으로 이동. 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && blockKeyboardInput == false)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && blockKeyboardInput == false)
         {
             if (characterPositionIndex == 0)
             {
@@ -189,7 +181,7 @@ public class SelectManager : MonoBehaviour
         }
 
         // 왼쪽 버튼을 누르면 용사가 왼쪽으로 이동. 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && blockKeyboardInput == false)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && blockKeyboardInput == false)
         {
             if (characterPositionIndex == 2)
             {
