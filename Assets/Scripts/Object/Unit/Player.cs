@@ -8,7 +8,6 @@ public class Player : Unit
 
     public Inventory inven;
     public Stat upgradedStat; // 누적(변화된) 능력치
-
     public new Stat Stat => base.Stat + upgradedStat;
 
     private void Start()
@@ -24,6 +23,12 @@ public class Player : Unit
         upgradedStat += inven.weapon.basicStat;
         upgradedStat += inven.armor.basicStat;
         upgradedStat += inven.colleague.basicStat;
+
+        Debug.Log("CurrentHP:" + Stat.CurrentHP);
+        Debug.Log("ATK: " + Stat.ATK);
+        Debug.Log("DEF: " + Stat.DEF);
+        Debug.Log("AttackSpeed: " + Stat.AttackSpeed);
+        Debug.Log("MoveSpeed: " + Stat.MoveSpeed);
     }
 
 
