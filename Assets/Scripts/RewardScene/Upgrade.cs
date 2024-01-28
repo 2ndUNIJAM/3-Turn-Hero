@@ -8,7 +8,7 @@ public class Upgrade
     public string description;
     public Sprite sprite;
 
-    public virtual Stat GetStat() { return new Stat(); }
+    public virtual Stat UpdateStat(int index) { return new Stat(); }
 }
 
 public class PlayerUpgrade : Upgrade
@@ -38,15 +38,23 @@ public class PlayerUpgrade : Upgrade
         sprites = GameManager.Resource.LoadAll<Sprite>("Images/Upgrade/Player");
     }
 
-    public override Stat GetStat()
+    public override Stat UpdateStat(int index)
     {
         Stat stat = new Stat();
 
-        switch (code)
+        switch (index)
         {
-            case 0: stat.MaxHP += 20; stat.CurrentHP += 20; break;
-            case 1: stat.ATK += 5; break;
-            case 2: stat.DEF += 5; break;
+
+            case 0:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.MaxHP += 20;
+                PlayerManager.Instance.Player.inven.weapon.basicStat.CurrentHP += 20;
+                break;
+            case 1:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.ATK += 5;
+                break;
+            case 2:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.DEF += 5;
+                break;
 
         }
 
@@ -85,13 +93,15 @@ public class WeaponUpgrade : Upgrade
         sprites = GameManager.Resource.LoadAll<Sprite>("Images/Upgrade/Player");
     }
 
-    public override Stat GetStat()
+    public override Stat UpdateStat(int index)
     {
         Stat stat = new Stat();
 
-        switch (code)
+        switch (index)
         {
-            case 2: stat.AttackSpeed += 5; break;
+            case 2:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.AttackSpeed += 5;
+                break;
         }
 
         return stat;
@@ -128,13 +138,15 @@ public class ArmorUpgrade : Upgrade
         sprites = GameManager.Resource.LoadAll<Sprite>("Images/Upgrade/Player");
     }
 
-    public override Stat GetStat()
+    public override Stat UpdateStat(int index)
     {
         Stat stat = new Stat();
 
-        switch (code)
+        switch (index)
         {
-            case 2: stat.MoveSpeed += 5; break;
+            case 2:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.MoveSpeed += 5;
+                break;
         }
 
         return stat;
@@ -189,7 +201,21 @@ public class EctUpgrade : Upgrade
         code = _code;
         description = descriptions[_code];
         sprite = sprites[_code];
+    }
 
+    public override Stat UpdateStat(int index)
+    {
+        Stat stat = new Stat();
+
+        switch (index)
+        {
+            case 0:
+                PlayerManager.Instance.Player.inven.weapon.basicStat.CurrentHP
+                    += (int)(PlayerManager.Instance.Player.upgradedStat.MaxHP * 0.3f);
+                break;
+        }
+
+        return stat;
     }
 
     public static void Init()
