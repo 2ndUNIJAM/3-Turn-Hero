@@ -144,10 +144,9 @@ public class Monster : Unit
             Unit unit = hit.transform.GetComponent<Unit>();
             int realDamage = Stat.ATK - unit.Stat.DEF;
             realDamage = Mathf.Clamp(realDamage, 1, realDamage);
+
+            PlayerManager.Instance.Player.inven.armor.InvokeAttackEffect(unit, this);
             unit.ReduceHP(realDamage);
-            
-            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, $"-{realDamage}", PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
         }
     }
 

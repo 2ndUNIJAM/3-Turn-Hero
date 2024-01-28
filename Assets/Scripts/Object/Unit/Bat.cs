@@ -36,9 +36,6 @@ public class Bat : Monster
             realDamage = Mathf.Clamp(realDamage, 0, realDamage);
             unit.ReduceHP(realDamage);
 
-            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, $"-{realDamage}", PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
-
             ReduceHP(999);
         }
         else

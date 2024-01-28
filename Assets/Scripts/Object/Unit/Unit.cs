@@ -61,8 +61,6 @@ public class Unit : MonoBehaviour
     {
         ChangedStat.CurrentHP += hp;
 
-        Debug.Log(hp);
-
         FloatingDamage HealUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
         HealUI.Init(gameObject, $"+{hp}", UpPos, new Color(0.4f, 1f, 0.4f));
     }
@@ -72,6 +70,9 @@ public class Unit : MonoBehaviour
         if (isDead) return;
         ChangedStat.CurrentHP -= damage;
         CheckDead();
+
+        FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+        damageUI.Init(gameObject, $"-{damage}", UpPos, new Color(1f, 0.4f, 0.4f));
     }
 
     public virtual void ReduceHPPercent(float percent)

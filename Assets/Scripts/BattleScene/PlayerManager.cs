@@ -134,11 +134,8 @@ public class PlayerManager : MonoBehaviour
     public void CheckAttackDamage()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
-        int maxCount = 1;
+        int maxCount = Player.inven.armor.multiJump;
         int currentCount = 0;
-
-        if (true)
-            maxCount = 2;
 
         foreach (var hit in hits)
         {
@@ -146,11 +143,8 @@ public class PlayerManager : MonoBehaviour
             int realDamage = player.Stat.ATK - unit.Stat.DEF;
             realDamage = Mathf.Clamp(realDamage, 1, realDamage);
 
-            unit.ReduceHP(realDamage);
             player.inven.weapon.InvokeAttackEffect(player, unit);
-
-            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, $"-{realDamage}", unit.UpPos, new Color(1f, 0.4f, 0.4f));
+            unit.ReduceHP(realDamage);
 
             currentCount++;
             if (currentCount == maxCount)
