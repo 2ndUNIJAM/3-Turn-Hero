@@ -17,9 +17,10 @@ public class WeaponDataSO : ScriptableObject
     [SerializeField] private string descript;
     public string Descript => descript;
 
-    [SerializeField] private Image icon;
-    public Image Icon => icon;
-
+    [SerializeField] private Sprite largeIcon;
+    public Sprite LargeIcon => largeIcon;
+    [SerializeField] private Sprite smallIcon;
+    public Sprite SmallIcon => smallIcon;
     [SerializeField] private string weaponType;
     public string WeaponType => weaponType;
 
