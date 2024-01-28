@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
 
     private int jumpCurrentCount, jumpMaxCount;
     private bool isCanAttack;
-    private bool isCanMove;
+    private bool isCanMove, isCanJump;
 
 
     private void Awake()
@@ -52,10 +52,12 @@ public class PlayerManager : MonoBehaviour
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
 
-        jumpPower = 12f;
-        jumpMaxCount = 2;
+        jumpPower = 14f;
+        jumpMaxCount = Player.inven.armor.multiJump;
+
         isCanAttack = true;
         isCanMove = true;
+        isCanJump = true;
     }
 
     void FixedUpdate()
@@ -67,14 +69,17 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isJumping)
-            CheckCanJump();
-
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && isCanJump)
             Jump();
 
         if (Input.GetMouseButtonDown(0) && isCanAttack)
             Attack();
+    }
+
+    private void LateUpdate()
+    {
+        if (isJumping && isCanJump)
+            CheckCanJump();
     }
 
     private void Move()
@@ -100,14 +105,27 @@ public class PlayerManager : MonoBehaviour
 
     private void Jump()
     {
-        if (isJumping && jumpCurrentCount <= jumpMaxCount)
+        Debug.Log($"���� {jumpCurrentCount} / {jumpMaxCount}");
+
+        if (isJumping && jumpCurrentCount >= jumpMaxCount)
             return;
 
         isJumping = true;
         jumpCurrentCount++;
         rigidbody.velocity = Vector2.zero;
         rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-        GameManager.Sound.PlaySE("Jump");
+
+        StopCoroutine("CoolTimeJump");
+        StartCoroutine("CoolTimeJump");
+
+        Debug.Log($"���� {jumpCurrentCount} / {jumpMaxCount}");
+    }
+
+    IEnumerator CoolTimeJump()
+    {
+        isCanJump = false;
+        yield return new WaitForSeconds(0.1f);
+        isCanJump = true;
     }
 
     private void CheckCanJump()
@@ -136,7 +154,7 @@ public class PlayerManager : MonoBehaviour
     public void CheckAttackDamage()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
-        int maxCount = Player.inven.armor.multiJump;
+        int maxCount = 1;
         int currentCount = 0;
 
         foreach (var hit in hits)
