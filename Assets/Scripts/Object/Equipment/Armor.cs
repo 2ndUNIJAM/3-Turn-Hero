@@ -75,7 +75,7 @@ public class Armor : Equipment
             effect += ActiveElementIceEffect;
         }
 
-        // °æÁ÷ È¿°ú´Â ³Ã±â ·¹º§ÀÌ 0ÀÌ´õ¶óµµ ¹ßµ¿
+        // ê²½ì§ íš¨ê³¼ëŠ” ëƒ‰ê¸° ë ˆë²¨ì´ 0ì´ë”ë¼ë„ ë°œë™
         effect += ActiveElementIceEffect;
 
         if (effect != null)
