@@ -31,11 +31,13 @@ public class GameStartMenu : MonoBehaviour
             {
                 SetSelectedButton(ContinueButton);
                 _selectedButtonIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (_selectedButtonIndex == 1)
             {
                 SetSelectedButton(QuitButton);
                 _selectedButtonIndex = 2;
+                GameManager.Sound.PlaySE("Move");
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
@@ -44,11 +46,13 @@ public class GameStartMenu : MonoBehaviour
             {
                 SetSelectedButton(ContinueButton);
                 _selectedButtonIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (_selectedButtonIndex == 1)
             {
                 SetSelectedButton(GameStartButton);
                 _selectedButtonIndex = 0;
+                GameManager.Sound.PlaySE("Move");
             }
         }
 

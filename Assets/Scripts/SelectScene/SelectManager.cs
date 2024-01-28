@@ -178,16 +178,19 @@ public class SelectManager : MonoBehaviour
                 characterPositionIndex = 0;
                 ScriptBallon.enabled = false;
                 RerollExplain.enabled = false;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 0)
             {
                 Character.transform.DOMove(new Vector3(0, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 1)
             {
                 Character.transform.DOMove(new Vector3(4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 2;
+                GameManager.Sound.PlaySE("Move");
             }
             Debug.Log(characterPositionIndex);
         }
@@ -199,11 +202,13 @@ public class SelectManager : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(0.0f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 1)
             {
                 Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 0;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 0)
             {
@@ -211,6 +216,7 @@ public class SelectManager : MonoBehaviour
                 characterPositionIndex = -1;
                 ScriptBallon.enabled = true;
                 RerollExplain.enabled = true;
+                GameManager.Sound.PlaySE("Move");
             }
             Debug.Log(characterPositionIndex);
         }
@@ -220,14 +226,17 @@ public class SelectManager : MonoBehaviour
             if (count == 3)
             {
                 ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
+                GameManager.Sound.PlaySE("Reroll");
             }
             else if (count == 2)
             {
                 ItemBoxManager.Instance.SetArmorBox(ItemBox1, ItemBox2, ItemBox3);
+                GameManager.Sound.PlaySE("Reroll");
             }
             else if (count == 1)
             {
                 ItemBoxManager.Instance.SetColleagueBox(ItemBox1, ItemBox2, ItemBox3);
+                GameManager.Sound.PlaySE("Reroll");
             }
         }
 

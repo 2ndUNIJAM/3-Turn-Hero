@@ -155,7 +155,7 @@ public class SoundManager : MonoBehaviour
         BGM_audio.clip = BGM_clip;
         BGM_audio.Play();
 
-        while (BGM_audio.volume < 1f)
+        while (BGM_audio.volume < 0.75f)
         {
             BGM_audio.volume += Time.deltaTime / fadeTime;
             yield return null;
