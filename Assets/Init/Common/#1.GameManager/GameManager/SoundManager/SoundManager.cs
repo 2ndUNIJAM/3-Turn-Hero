@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// °ÔÀÓ BGM ¹× SE Ãâ·ÂÀ» ´ã´çÇÕ´Ï´Ù.
-/// Ãâ·ÂÀ» À§ÇÑ AudioSource°¡ µ¿ÀûÀ¸·Î »ı¼ºµÇ¹Ç·Î °³¹ßÀÚ´Â AudioSourceÀ» °ü¸®ÇÏÁö ¾Ê¾Æµµ µË´Ï´Ù.
+/// ê²Œì„ BGM ë° SE ì¶œë ¥ì„ ë‹´ë‹¹í•©ë‹ˆë‹¤.
+/// ì¶œë ¥ì„ ìœ„í•œ AudioSourceê°€ ë™ì ìœ¼ë¡œ ìƒì„±ë˜ë¯€ë¡œ ê°œë°œìëŠ” AudioSourceì„ ê´€ë¦¬í•˜ì§€ ì•Šì•„ë„ ë©ë‹ˆë‹¤.
 /// </summary>
 public class SoundManager : MonoBehaviour
 {
@@ -16,6 +16,9 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioSource BGM_audio;
+
+    [SerializeField]
+    private List<AudioClip> BGM_audioClipList;
 
 
     public void Init()
@@ -34,15 +37,15 @@ public class SoundManager : MonoBehaviour
         BGM_audio.volume = 0f;
         BGM_audio.loop = true;
 
-        PlayBGM("TestBGM", SceneController.FADE_INIT_TIME);
+        PlayBGM("Town_Loop_BGM", SceneController.FADE_INIT_TIME);
     }
 
 
     /// <summary>
-    /// BGM ¿Àµğ¿À¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// BGM ì˜¤ë””ì˜¤ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="BGM_name">Ãâ·ÂÇÒ BGM ÀÌ¸§ </param>
-    /// <param name="fadeTime">Fade ÀüÈ¯ ½Ã°£</param>
+    /// <param name="BGM_name">ì¶œë ¥í•  BGM ì´ë¦„ </param>
+    /// <param name="fadeTime">Fade ì „í™˜ ì‹œê°„</param>
     public void PlayBGM(string BGM_name, float fadeTime)
     {
         AudioClip BGM_clip = GameManager.Resource.Load<AudioClip>($"Audios/BGM/{BGM_name}");
@@ -51,15 +54,15 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// BGM ¿Àµğ¿À¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// BGM ì˜¤ë””ì˜¤ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="BGM_clip">Ãâ·ÂÇÒ BGM ¿Àµğ¿À Å¬¸³ </param>
-    /// <param name="fadeTime">Fade ÀüÈ¯ ½Ã°£</param>
+    /// <param name="BGM_clip">ì¶œë ¥í•  BGM ì˜¤ë””ì˜¤ í´ë¦½ </param>
+    /// <param name="fadeTime">Fade ì „í™˜ ì‹œê°„</param>
     public void PlayBGM(AudioClip BGM_clip, float fadeTime)
     {
         if (BGM_clip == null)
         {
-            Debug.LogError("BGM ¿Àµğ¿À Å¬¸³ÀÌ NULLÀÔ´Ï´Ù!");
+            Debug.LogError("BGM ì˜¤ë””ì˜¤ í´ë¦½ì´ NULLì…ë‹ˆë‹¤!");
             return;
         }
 
@@ -68,9 +71,9 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// SE ¿Àµğ¿À¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// SE ì˜¤ë””ì˜¤ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="SE_name">Ãâ·ÂÇÒ SE ÀÌ¸§</param>
+    /// <param name="SE_name">ì¶œë ¥í•  SE ì´ë¦„</param>
     public void PlaySE(string SE_name)
     {
         AudioClip SE_clip = GameManager.Resource.Load<AudioClip>($"Audios/SE/{SE_name}");
@@ -79,21 +82,21 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// SE ¿Àµğ¿À¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// SE ì˜¤ë””ì˜¤ë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="SE_clip">Ãâ·ÂÇÒ SE ¿Àµğ¿À Å¬¸³</param>
+    /// <param name="SE_clip">ì¶œë ¥í•  SE ì˜¤ë””ì˜¤ í´ë¦½</param>
     public void PlaySE(AudioClip SE_clip)
     {
         if (SE_clip == null)
         {
-            Debug.LogError("SE ¿Àµğ¿À Å¬¸³ÀÌ NULLÀÔ´Ï´Ù!");
+            Debug.LogError("SE ì˜¤ë””ì˜¤ í´ë¦½ì´ NULLì…ë‹ˆë‹¤!");
             return;
         }
 
         AudioSource audio = FindIdleAudio();
         if (audio == null)
         {
-            Debug.LogError("¿Àµğ¿À ¼Ò½º°¡ NULLÀÔ´Ï´Ù!");
+            Debug.LogError("ì˜¤ë””ì˜¤ ì†ŒìŠ¤ê°€ NULLì…ë‹ˆë‹¤!");
             return;
         }
 
@@ -103,7 +106,7 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// ÇöÀç »ç¿ë °¡´ÉÇÑ ¿Àµğ¿À ¼Ò½º¸¦ Å½»öÇÏ¿© ¹İÈ¯ÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// í˜„ì¬ ì‚¬ìš© ê°€ëŠ¥í•œ ì˜¤ë””ì˜¤ ì†ŒìŠ¤ë¥¼ íƒìƒ‰í•˜ì—¬ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
     private AudioSource FindIdleAudio()
     {
@@ -115,7 +118,7 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// »õ·Î¿î ¿Àµğ¿À ¼Ò½º¸¦ »ı¼ºÇÏ°í ¹İÈ¯ÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// ìƒˆë¡œìš´ ì˜¤ë””ì˜¤ ì†ŒìŠ¤ë¥¼ ìƒì„±í•˜ê³  ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
     private AudioSource CreateAudio()
     {
@@ -132,10 +135,10 @@ public class SoundManager : MonoBehaviour
 
 
     /// <summary>
-    /// ¿Àµğ¿À º¼·ıÀ» ¼­¼­È÷ ÀüÈ¯½ÃÅ°´Â ÄÚ·çÆ¾ ÇÔ¼öÀÌ´Ù.
+    /// ì˜¤ë””ì˜¤ ë³¼ë¥¨ì„ ì„œì„œíˆ ì „í™˜ì‹œí‚¤ëŠ” ì½”ë£¨í‹´ í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="BGM_clip">Ãâ·ÂÇÒ BGM ¿Àµğ¿À Å¬¸³ </param>
-    /// <param name="fadeTime">Fade ÀüÈ¯ ½Ã°£</param>
+    /// <param name="BGM_clip">ì¶œë ¥í•  BGM ì˜¤ë””ì˜¤ í´ë¦½ </param>
+    /// <param name="fadeTime">Fade ì „í™˜ ì‹œê°„</param>
     IEnumerator BGMFade(AudioClip BGM_clip, float fadeTime)
     {
         while (BGM_audio.volume > 0f)
@@ -144,7 +147,7 @@ public class SoundManager : MonoBehaviour
             yield return null;
         }
 
-        // ¾ÆÁ÷ ÀüÈ¯ÀÌ µÇÁö ¾Ê¾Ò´Ù¸é ´ë±â
+        // ì•„ì§ ì „í™˜ì´ ë˜ì§€ ì•Šì•˜ë‹¤ë©´ ëŒ€ê¸°
         while (GameManager.Scene.IsChanging)
             yield return null;
 

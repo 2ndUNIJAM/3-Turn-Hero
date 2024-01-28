@@ -130,7 +130,7 @@ public class Weapon : Equipment
                 break;
             default: return;
         }
-        StartCoroutine(subject.DottedDamage(damageAmount));
+        subject.ApplyDottedDamage(damageAmount);
     }
 
     /// <summary>

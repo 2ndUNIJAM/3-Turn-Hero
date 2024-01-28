@@ -14,7 +14,7 @@ public class Movement_Reward : MonoBehaviour
 
     private void Update()
     {
-        // ¿À¸¥ÂÊ ¹öÆ°À» ´©¸£¸é ¿ë»ç°¡ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿. 
+        // ì˜¤ë¥¸ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ìš©ì‚¬ê°€ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™. 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (characterPositionIndex == 0)
@@ -29,7 +29,7 @@ public class Movement_Reward : MonoBehaviour
             }
         }
 
-        // ¿ŞÂÊ ¹öÆ°À» ´©¸£¸é ¿ë»ç°¡ ¿ŞÂÊÀ¸·Î ÀÌµ¿. 
+        // ì™¼ìª½ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ìš©ì‚¬ê°€ ì™¼ìª½ìœ¼ë¡œ ì´ë™. 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (characterPositionIndex == 2)
@@ -46,7 +46,7 @@ public class Movement_Reward : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
-            GameManager.Scene.GoToScene(Scene.MapSelectScene, "TestBGM");
+            GameManager.Scene.GoToScene(Scene.MapSelectScene, "Combat_MR");
         }
     }
 }
