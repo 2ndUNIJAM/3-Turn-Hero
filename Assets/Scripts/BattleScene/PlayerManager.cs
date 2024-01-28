@@ -107,6 +107,7 @@ public class PlayerManager : MonoBehaviour
         jumpCurrentCount++;
         rigidbody.velocity = Vector2.zero;
         rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+        GameManager.Sound.PlaySE("Jump");
     }
 
     private void CheckCanJump()
