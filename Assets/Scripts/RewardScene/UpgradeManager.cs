@@ -161,7 +161,6 @@ public class UpgradeManager : MonoBehaviour
         {
             switch (index)
             {
-
                 case 0:
                     PlayerManager.Instance.Player.inven.weapon.basicStat.MaxHP += 20;
                     PlayerManager.Instance.Player.inven.weapon.basicStat.CurrentHP += 20;
@@ -172,7 +171,8 @@ public class UpgradeManager : MonoBehaviour
                 case 2:
                     PlayerManager.Instance.Player.inven.weapon.basicStat.DEF += 5;
                     break;
-
+                case 3:
+                    break;
             }
         }
         else if (type == 1)
@@ -180,9 +180,31 @@ public class UpgradeManager : MonoBehaviour
             switch (index)
             {
                 case 0:
-
+                    List<int> typeList = new List<int>();
+                    if (PlayerManager.Instance.Player.inven.weapon.ElementFireLevel == 0) typeList.Add(0);
+                    if (PlayerManager.Instance.Player.inven.weapon.ElementGroundLevel == 0) typeList.Add(1);
+                    if (PlayerManager.Instance.Player.inven.weapon.ElementWindLevel == 0) typeList.Add(2);
+                    if (PlayerManager.Instance.Player.inven.weapon.ElementIceLevel == 0) typeList.Add(3);
+                    int typeIndex = Random.Range(0, typeList.Count);
+                    if (typeList[typeIndex] == 0) PlayerManager.Instance.Player.inven.weapon.ElementFireLevel = 1;
+                    else if (typeList[typeIndex] == 1) PlayerManager.Instance.Player.inven.weapon.ElementGroundLevel = 1;
+                    else if (typeList[typeIndex] == 2) PlayerManager.Instance.Player.inven.weapon.ElementWindLevel = 1;
+                    else if (typeList[typeIndex] == 3) PlayerManager.Instance.Player.inven.weapon.ElementIceLevel = 1;
+                    break;
+                case 1:
+                    if (PlayerManager.Instance.Player.inven.weapon.ElementFireLevel > 0) PlayerManager.Instance.Player.inven.weapon.ElementFireLevel++;
+                    else if (PlayerManager.Instance.Player.inven.weapon.ElementGroundLevel > 0) PlayerManager.Instance.Player.inven.weapon.ElementGroundLevel++;
+                    else if (PlayerManager.Instance.Player.inven.weapon.ElementWindLevel > 0) PlayerManager.Instance.Player.inven.weapon.ElementWindLevel++;
+                    else if (PlayerManager.Instance.Player.inven.weapon.ElementIceLevel > 0) PlayerManager.Instance.Player.inven.weapon.ElementIceLevel++;
+                    break;
                 case 2:
                     PlayerManager.Instance.Player.inven.weapon.basicStat.AttackSpeed += 5;
+                    break;
+                case 3:
+                    if (PlayerManager.Instance.Player.inven.weapon.SpecialWeaponLevel >= 1)
+                    {
+                        PlayerManager.Instance.Player.inven.weapon.SpecialWeaponLevel++;
+                    }
                     break;
             }
         }
@@ -190,14 +212,44 @@ public class UpgradeManager : MonoBehaviour
         {
             switch (index)
             {
+                case 0:
+                    List<int> typeList = new List<int>();
+                    if (PlayerManager.Instance.Player.inven.armor.ElementFireLevel == 0) typeList.Add(0);
+                    if (PlayerManager.Instance.Player.inven.armor.ElementGroundLevel == 0) typeList.Add(1);
+                    if (PlayerManager.Instance.Player.inven.armor.ElementWindLevel == 0) typeList.Add(2);
+                    if (PlayerManager.Instance.Player.inven.armor.ElementIceLevel == 0) typeList.Add(3);
+                    int typeIndex = Random.Range(0, typeList.Count);
+                    if (typeList[typeIndex] == 0) PlayerManager.Instance.Player.inven.armor.ElementFireLevel = 1;
+                    else if (typeList[typeIndex] == 1) PlayerManager.Instance.Player.inven.armor.ElementGroundLevel = 1;
+                    else if (typeList[typeIndex] == 2) PlayerManager.Instance.Player.inven.armor.ElementWindLevel = 1;
+                    else if (typeList[typeIndex] == 3) PlayerManager.Instance.Player.inven.armor.ElementIceLevel = 1;
+                    break;
+                case 1:
+                    if (PlayerManager.Instance.Player.inven.armor.ElementFireLevel > 0) PlayerManager.Instance.Player.inven.armor.ElementFireLevel++;
+                    else if (PlayerManager.Instance.Player.inven.armor.ElementGroundLevel > 0) PlayerManager.Instance.Player.inven.armor.ElementGroundLevel++;
+                    else if (PlayerManager.Instance.Player.inven.armor.ElementWindLevel > 0) PlayerManager.Instance.Player.inven.armor.ElementWindLevel++;
+                    else if (PlayerManager.Instance.Player.inven.armor.ElementIceLevel > 0) PlayerManager.Instance.Player.inven.armor.ElementIceLevel++;
+                    break;
                 case 2:
-                    PlayerManager.Instance.Player.inven.weapon.basicStat.MoveSpeed += 5;
+                    PlayerManager.Instance.Player.inven.armor.basicStat.MoveSpeed += 5;
+                    break;
+                case 3:
+                    if (PlayerManager.Instance.Player.inven.armor.SpecialArmorLevel >= 1)
+                    {
+                        PlayerManager.Instance.Player.inven.armor.SpecialArmorLevel++;
+                    }
                     break;
             }
         }
         else if (type == 3)
         {
-
+            switch (index)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+            }
         }
         else if (type == 4)
         {
