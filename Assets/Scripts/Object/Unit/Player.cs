@@ -37,6 +37,7 @@ public class Player : Unit
 
         if (Stat.CurrentHP <= 0f)
         {
+            GameManager.Sound.PlaySE("KO");
             BattleManager.Instance.GameLose();
             animator.enabled = false;
         }
