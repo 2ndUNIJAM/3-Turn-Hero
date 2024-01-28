@@ -9,7 +9,8 @@ public class Equipment
     public string koreanName;
     public string description;
 
-    public Image icon;
+    public Sprite LargeIcon;
+    public Sprite SmallIcon;
 
     protected int _elementFireLevel = 0;
     protected int _elementGroundLevel = 0;

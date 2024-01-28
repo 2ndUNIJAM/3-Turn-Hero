@@ -77,7 +77,7 @@ public class ItemBoxManager : MonoBehaviour
 
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedWeaponData.KorName;
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedWeaponData.Descript.Replace("/", "\n\n");
-            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedWeaponData.LargeIcon;
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).transform.position
                 = new Vector3(itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
@@ -119,7 +119,8 @@ public class ItemBoxManager : MonoBehaviour
 
         DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
         DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
-        DataManager.playerInven.weapon.icon = selectedWeaponData.Icon;
+        DataManager.playerInven.weapon.SmallIcon = selectedWeaponData.SmallIcon;
+        DataManager.playerInven.weapon.LargeIcon = selectedWeaponData.LargeIcon;
 
         switch (selectedWeaponData.ElementType)
         {
@@ -199,7 +200,7 @@ public class ItemBoxManager : MonoBehaviour
 
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedArmorData.KorName;
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedArmorData.Descript.Replace("/", "\n\n");
-            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedArmorData.LargeIcon;
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).transform.position
                 = new Vector3(itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
@@ -236,7 +237,8 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.armor.englishName = selectedArmorData.EngName;
         DataManager.playerInven.armor.koreanName = selectedArmorData.KorName;
         DataManager.playerInven.armor.description = selectedArmorData.Descript;
-        DataManager.playerInven.armor.icon = selectedArmorData.Icon;
+        DataManager.playerInven.armor.LargeIcon = selectedArmorData.LargeIcon;
+        DataManager.playerInven.armor.SmallIcon = selectedArmorData.SmallIcon;
 
         switch (selectedArmorData.ElementType)
         {
@@ -305,7 +307,7 @@ public class ItemBoxManager : MonoBehaviour
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = PanelSpriteList[6];
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedColleagueData.KorName;
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedColleagueData.Descript.Replace("/", "\n\n");
-            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedColleagueData.LargeIcon;
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).transform.position
                 = new Vector3(itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
@@ -339,7 +341,8 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.colleague.englishName = selectedColleagueData.EngName;
         DataManager.playerInven.colleague.koreanName = selectedColleagueData.KorName;
         DataManager.playerInven.colleague.description = selectedColleagueData.Descript;
-        DataManager.playerInven.colleague.icon = selectedColleagueData.Icon;
+        DataManager.playerInven.colleague.LargeIcon = selectedColleagueData.LargeIcon;
+        DataManager.playerInven.colleague.SmallIcon = selectedColleagueData.SmallIcon;
 
         DataManager.playerInven.colleague.count = selectedColleagueData.Count;
 
