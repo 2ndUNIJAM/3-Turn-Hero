@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour
     [SerializeField]
     protected new Rigidbody2D rigidbody;
 
-    public virtual void CheckDead() 
+    public virtual void CheckDead()
     {
         if (Stat.CurrentHP <= 0f)
         {
@@ -94,8 +94,7 @@ public class Unit : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        //GameManager.Resource.Destroy(this.gameObject);
-        gameObject.SetActive(false);
+        GameManager.Resource.Destroy(this.gameObject);
     }
 
     protected virtual void StartHitAnim(float endTime)

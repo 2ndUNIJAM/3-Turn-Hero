@@ -39,6 +39,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        weaponIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -160,6 +162,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        armorIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -275,6 +279,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox1);
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
+
+        colleagueIndexList.Clear();
 
         for (int i = 0; i < 3; i++)
         {
