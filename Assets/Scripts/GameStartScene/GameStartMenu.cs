@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,6 +57,7 @@ public class GameStartMenu : MonoBehaviour
         {
             if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
+                GameManager.Sound.PlaySE("Select");
                 GameManager.Scene.GoToScene(Scene.SelectScene, "Town_Loop_BGM");
             }
             else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
