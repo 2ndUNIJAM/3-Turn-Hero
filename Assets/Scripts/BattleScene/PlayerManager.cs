@@ -125,6 +125,7 @@ public class PlayerManager : MonoBehaviour
         //isCanMove = false;
         weaponAnim.speed = player.Stat.AttackSpeed;
         weaponAnim.SetBool("isAttack", true);
+        GameManager.Sound.PlaySE("Sword");
 
         Invoke("CheckAttackDamage", 0.25f / player.Stat.AttackSpeed);
         StartCoroutine(EndAttack());
