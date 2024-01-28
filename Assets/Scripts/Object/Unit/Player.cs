@@ -20,9 +20,8 @@ public class Player : Unit
         inven = DataManager.playerInven;
         upgradedStat = DataManager.playerUpgradeStat;
 
-        upgradedStat += inven.weapon.basicStat;
-        upgradedStat += inven.armor.basicStat;
-        upgradedStat += inven.colleague.basicStat;
+        upgradedStat += inven.weapon.Stat;
+        upgradedStat += inven.armor.Stat;
 
         Debug.Log("CurrentHP:" + Stat.CurrentHP);
         Debug.Log("ATK: " + Stat.ATK);
@@ -47,8 +46,20 @@ public class Player : Unit
     {
         if (isDead) return;
 
+        if (Armor.IsCanMiss)
+        {
+            Armor.IsCanMiss = false;
+
+            FloatingDamage MissUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+            MissUI.Init(gameObject, "(MISS)", UpPos, Color.white);
+            return;
+        }
+
         ChangedStat.CurrentHP -= damage;
         CheckDead();
         StartHitAnim(DEFAULT_FAINT_TIME);
+
+        FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
+        damageUI.Init(gameObject, $"-{damage}", UpPos, new Color(1f, 0.4f, 0.4f));
     }
 }
