@@ -93,7 +93,8 @@ public class Unit : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        GameManager.Resource.Destroy(this.gameObject);
+        //GameManager.Resource.Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     protected virtual void StartHitAnim(float endTime)
@@ -138,6 +139,18 @@ public class Unit : MonoBehaviour
     public void SetDotDamage(int damage) => StartCoroutine(DottedDamage(damage));
 
     protected IEnumerator DottedDamage(int damage)
+        if (rigidbody.bodyType != RigidbodyType2D.Static)
+        {
+            rigidbody.velocity = Vector2.zero;
+        }
+    }
+
+    public void ApplyDottedDamage(int damage)
+    {
+        StartCoroutine(DottedDamage(damage));
+    }
+
+    IEnumerator DottedDamage(int damage)
     {
         if (dottedDamageAmount >= damage) yield break;
 

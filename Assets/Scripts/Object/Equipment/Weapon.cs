@@ -132,8 +132,7 @@ public class Weapon : Equipment
                 break;
             default: return;
         }
-
-        subject.SetDotDamage(damageAmount);
+        subject.ApplyDottedDamage(damageAmount);
     }
 
     /// <summary>

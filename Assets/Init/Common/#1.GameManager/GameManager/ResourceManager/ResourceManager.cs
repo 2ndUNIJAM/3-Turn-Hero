@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// °ÔÀÓÀ» ±¸¼ºÇÏ´Â ÀÌ¹ÌÁö ¹× ¿Àµğ¿À ¸®¼Ò½º¸¦ °ü¸®ÇÕ´Ï´Ù.
+/// ê²Œì„ì„ êµ¬ì„±í•˜ëŠ” ì´ë¯¸ì§€ ë° ì˜¤ë””ì˜¤ ë¦¬ì†ŒìŠ¤ë¥¼ ê´€ë¦¬í•©ë‹ˆë‹¤.
 /// </summary>
 public class ResourceManager : MonoBehaviour
 {
     public void Init()
     {
         /*
-         ÃÊ±âÈ­ °ü·Ã ÄÚµå ±¸Çö
+         ì´ˆê¸°í™” ê´€ë ¨ ì½”ë“œ êµ¬í˜„
          */
     }
 
 
     /// <summary>
-    /// ¸®¼Ò½º¸¦ ÇÑ¹ø¿¡ ºÒ·¯¿À´Â ÇÔ¼öÀÌ´Ù.
+    /// ë¦¬ì†ŒìŠ¤ë¥¼ í•œë²ˆì— ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <typeparam name="T">µ¥ÀÌÅÍ Å¸ÀÔ</typeparam>
-    /// <param name="path">¸®¼Ò½º Æú´õ °æ·Î</param>
+    /// <typeparam name="T">ë°ì´í„° íƒ€ì…</typeparam>
+    /// <param name="path">ë¦¬ì†ŒìŠ¤ í´ë” ê²½ë¡œ</param>
     public T[] LoadAll<T>(string path) where T : Object
     {
         T[] resource = Resources.LoadAll<T>(path);
@@ -36,10 +36,10 @@ public class ResourceManager : MonoBehaviour
 
 
     /// <summary>
-    /// ¸®¼Ò½º¸¦ ÇÏ³ª¸¸ ºÒ·¯¿À´Â ÇÔ¼öÀÌ´Ù.
+    /// ë¦¬ì†ŒìŠ¤ë¥¼ í•˜ë‚˜ë§Œ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <typeparam name="T">µ¥ÀÌÅÍ Å¸ÀÔ</typeparam>
-    /// <param name="path">¸®¼Ò½º ÆÄÀÏ °æ·Î</param>
+    /// <typeparam name="T">ë°ì´í„° íƒ€ì…</typeparam>
+    /// <param name="path">ë¦¬ì†ŒìŠ¤ íŒŒì¼ ê²½ë¡œ</param>
     public T Load<T>(string path) where T : Object
     {
         T resource = Resources.Load<T>(path);
@@ -55,9 +55,9 @@ public class ResourceManager : MonoBehaviour
 
 
     /// <summary>
-    /// ÇÁ¸®ÆÕ¿¡¼­ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ ºÒ·¯¿Í »ı¼ºÇÏ´Â ÇÔ¼öÀÌ´Ù.
+    /// í”„ë¦¬íŒ¹ì—ì„œ ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ ë¶ˆëŸ¬ì™€ ìƒì„±í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤.
     /// </summary>
-    /// <param name="path">ÇÁ¸®ÆÕÀ» Á¦¿ÜÇÑ ¸®¼Ò½º ÆÄÀÏ °æ·Î</param>
+    /// <param name="path">í”„ë¦¬íŒ¹ì„ ì œì™¸í•œ ë¦¬ì†ŒìŠ¤ íŒŒì¼ ê²½ë¡œ</param>
     public GameObject Instantiate(string path, Transform parent)
     {
         GameObject prefab = Load<GameObject>($"Prefabs/{path}");
