@@ -12,5 +12,5 @@ public class Portal : MonoBehaviour
         }
     }
 
-    private void GoToRewardScene() => GameManager.Scene.GoToScene(Scene.RewardScene, "TestBGM");
+    private void GoToRewardScene() => GameManager.Scene.GoToScene(Scene.RewardScene, "Combat_MR");
 }
