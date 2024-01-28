@@ -23,6 +23,10 @@ public class BattleUICanvas : MonoBehaviour
     {
         stat = PlayerManager.Instance.Player.Stat;
 
+        Weapon.sprite = PlayerManager.Instance.Player.inven.weapon.SmallIcon;
+        Armor.sprite = PlayerManager.Instance.Player.inven.armor.SmallIcon;
+        Colleague.sprite = PlayerManager.Instance.Player.inven.colleague.SmallIcon;
+
         HPText.SetText("HP: " + stat.CurrentHP.ToString());
         ATKText.SetText("ATK: " + stat.ATK.ToString());
         DEFText.SetText("DEF: " + stat.DEF.ToString());

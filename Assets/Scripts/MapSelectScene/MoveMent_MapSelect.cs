@@ -69,7 +69,7 @@ public class Movement_MapSelect : MonoBehaviour
 
             GameManager.Data.currentStage++;
 
-            GameManager.Scene.GoToScene(Scene.BattleScene, "TestBGM");
+            GameManager.Scene.GoToScene(Scene.BattleScene, "Combat_BGM");
         }
     }
 }

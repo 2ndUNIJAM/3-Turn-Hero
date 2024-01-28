@@ -19,6 +19,8 @@ MonoBehaviour:
     / \uACF5\uACA9\uB825: 10, \uBAAC\uC2A4\uD130\uB97C 1\uD68C \uD0C0\uACA9\uD560
     \uB54C\uB9C8\uB2E4 \uC801\uC744 3\uCD08\uB3D9\uC548 \uACBD\uC9C1\uC2DC\uD0A8\uB2E4.
     (\uCFE8\uD0C0\uC784 5\uCD08)"
+  largeIcon: {fileID: -1122723910, guid: 37190e9c65320914f9c8ada3507a67d1, type: 3}
+  smallIcon: {fileID: -399238057, guid: 0f334d2130eda5542959bac390573ad9, type: 3}
   weaponType: "\uAC80"
   elementType: "\uB0C9\uAE30"
   atk: 10
