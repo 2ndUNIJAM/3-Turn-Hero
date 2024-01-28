@@ -6643,7 +6643,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10720,8 +10720,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 754428202, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -35117081, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 1829462240, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
   - m_RefCount: 0
@@ -10730,8 +10730,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1651727472, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -35117081, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
   - m_RefCount: 28
     m_Data: {fileID: -81279731, guid: e765ad55df8a2174c944a44f35e4e456, type: 3}
   - m_RefCount: 3
@@ -64502,18 +64502,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2112232694}
     m_Modifications:
-    - target: {fileID: 1618647161345689708, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.237
-      objectReference: {fileID: 0}
-    - target: {fileID: 1618647161345689708, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.064
-      objectReference: {fileID: 0}
-    - target: {fileID: 3192799367272447468, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3275406358276120557, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.82
@@ -64558,10 +64546,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9145357319624185194, guid: a575befbaff775b469ad93d9716b0f15, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 15b027c512188e74296b642252866f3b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
