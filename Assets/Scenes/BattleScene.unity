@@ -44422,6 +44422,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6532320831612367718, guid: f0980cdaaf53ee249870bf365eb51302, type: 3}
   m_PrefabInstance: {fileID: 834758426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &892156542
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1967467397}
+    m_Modifications:
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.216687
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.722518
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499323726513702530, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+      propertyPath: m_Name
+      value: Monster_Golem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+--- !u!4 &892156543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1004393267286578331, guid: efc3958c3dba52c468dacc0ec91975ce, type: 3}
+  m_PrefabInstance: {fileID: 892156542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &906800114
 GameObject:
   m_ObjectHideFlags: 0
@@ -44989,7 +45051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &969704845
 Transform:
   m_ObjectHideFlags: 0
@@ -62828,7 +62890,153 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1872562992}
+    m_ColliderPaths:
+    - - X: 210000000
+        Y: 210000000
+      - X: 90000000
+        Y: 210000000
+      - X: 90000000
+        Y: 110000000
+      - X: 30000000
+        Y: 110000000
+      - X: 30000000
+        Y: 100000000
+      - X: 39062500
+        Y: 100000000
+      - X: 40000000
+        Y: 100625000
+      - X: 40000000
+        Y: 100000000
+      - X: 80000000
+        Y: 100000000
+      - X: 80000000
+        Y: 100312496
+      - X: 80625000
+        Y: 100000000
+      - X: 90000000
+        Y: 100000000
+      - X: 90000000
+        Y: 10000000
+      - X: 140000000
+        Y: 10000000
+      - X: 140000000
+        Y: -10000000
+      - X: -210000000
+        Y: -10000000
+      - X: -210000000
+        Y: 10000000
+      - X: -160000000
+        Y: 10000000
+      - X: -160000000
+        Y: 210000000
+      - X: -280000000
+        Y: 210000000
+      - X: -280000000
+        Y: -70000000
+      - X: 210000000
+        Y: -70000000
+    - - X: -70000000
+        Y: 110625000
+      - X: -70000000
+        Y: 110000000
+      - X: -30000000
+        Y: 110000000
+      - X: -30000000
+        Y: 110312496
+      - X: -29375000
+        Y: 110000000
+      - X: -20000000
+        Y: 110000000
+      - X: -20000000
+        Y: 120000000
+      - X: -80000000
+        Y: 120000000
+      - X: -80000000
+        Y: 110000000
+      - X: -70937504
+        Y: 110000000
+    - - X: -20000000
+        Y: 60625000
+      - X: -20000000
+        Y: 60000000
+      - X: 20000000
+        Y: 60000000
+      - X: 20000000
+        Y: 60312500
+      - X: 20625000
+        Y: 60000000
+      - X: 30000000
+        Y: 60000000
+      - X: 30000000
+        Y: 70000000
+      - X: -30000000
+        Y: 70000000
+      - X: -30000000
+        Y: 60000000
+      - X: -20937500
+        Y: 60000000
+    - - X: -120000000
+        Y: 60625000
+      - X: -120000000
+        Y: 60000000
+      - X: -80000000
+        Y: 60000000
+      - X: -80000000
+        Y: 60312500
+      - X: -79375000
+        Y: 60000000
+      - X: -70000000
+        Y: 60000000
+      - X: -70000000
+        Y: 70000000
+      - X: -130000000
+        Y: 70000000
+      - X: -130000000
+        Y: 60000000
+      - X: -120937504
+        Y: 60000000
+    - - X: 30000000
+        Y: 20625000
+      - X: 30000000
+        Y: 20000000
+      - X: 70000000
+        Y: 20000000
+      - X: 70000000
+        Y: 20312500
+      - X: 70625000
+        Y: 20000000
+      - X: 80000000
+        Y: 20000000
+      - X: 80000000
+        Y: 30000000
+      - X: 20000000
+        Y: 30000000
+      - X: 20000000
+        Y: 20000000
+      - X: 29062500
+        Y: 20000000
+    - - X: -90000000
+        Y: 20625000
+      - X: -90000000
+        Y: 20000000
+      - X: -30000000
+        Y: 20000000
+      - X: -30000000
+        Y: 20312500
+      - X: -29375000
+        Y: 20000000
+      - X: -20000000
+        Y: 20000000
+      - X: -20000000
+        Y: 30000000
+      - X: -100000000
+        Y: 30000000
+      - X: -100000000
+        Y: 20000000
+      - X: -90937504
+        Y: 20000000
   m_CompositePaths:
     m_Paths:
     - - {x: 20.999971, y: -7}
@@ -63826,6 +64034,7 @@ Transform:
   - {fileID: 1175758398877566097}
   - {fileID: 1175758397809338374}
   - {fileID: 1581268986}
+  - {fileID: 892156543}
   m_Father: {fileID: 969704845}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1977442981
@@ -64445,6 +64654,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1967467397}
     m_Modifications:
+    - target: {fileID: 792269580493099084, guid: 957f19c97e26a0e488ffe184297a2d1d, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1096518183292386754, guid: 957f19c97e26a0e488ffe184297a2d1d, type: 3}
       propertyPath: m_Name
       value: Monster_Goblin

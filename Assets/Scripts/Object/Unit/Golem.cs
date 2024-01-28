@@ -9,13 +9,13 @@ public class Golem : Monster
     // Start is called before the first frame update
     void Start()
     {
-        recognizeDis = 2f;
+        recognizeDis = 3f;
         outofDis = 5f;
-        attackDis = 2f;
+        attackDis = 1f;
         knockBackPower = 0f;
-        hpbarHeight = 2f;
-        attackTiming = 0.7f;
-        upPos = Vector3.up * 2.25f;
+        hpbarHeight = 2.25f;
+        attackTiming = 0.75f;
+        upPos = Vector3.up * 2.5f;
 
         isCanAttack = true;
     }

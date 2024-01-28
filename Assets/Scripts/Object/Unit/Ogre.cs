@@ -13,7 +13,7 @@ public class Ogre : Monster
         attackDis = 1.5f;
         knockBackPower = 0.5f;
         hpbarHeight = 1.5f;
-        attackTiming = 0.7f;
+        attackTiming = 0.85f;
         upPos = Vector3.up * 1.75f;
 
         isCanAttack = true;

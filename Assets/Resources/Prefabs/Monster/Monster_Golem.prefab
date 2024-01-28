@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6271925580573479264}
   - component: {fileID: 5776264824472953106}
   - component: {fileID: 8799012352309104303}
-  - component: {fileID: 1929950427448552970}
   - component: {fileID: 2761685572384409078}
+  - component: {fileID: 1847937223684708667}
   m_Layer: 8
   m_Name: Monster_Golem
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 574697006, guid: 09b93c53f3db6994984f12078e5f0ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 4.03125, y: 4.03125}
@@ -147,10 +147,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041058004, y: 0.002131343}
+  m_Offset: {x: 0.13741255, y: 0.61714983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 3, y: 3}
     newSize: {x: 4.03125, y: 4.03125}
     adaptiveTilingThreshold: 0.5
@@ -158,33 +158,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 1.9748716, y: 2.7772589}
   m_EdgeRadius: 0
---- !u!114 &1929950427448552970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3499323726513702530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5fb75e6cbe600347a49010a2a81de80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 760fee1b98353da49ace0df91c814cf6, type: 2}
-  ChangedStat:
-    MaxHP: 0
-    CurrentHP: 0
-    ATK: 0
-    DEF: 0
-    AttackSpeed: 0
-    MoveSpeed: 0
-  animator: {fileID: 2761685572384409078}
-  spriteRenderer: {fileID: 6271925580573479264}
-  collider: {fileID: 8799012352309104303}
-  rigidbody: {fileID: 5776264824472953106}
-  hpBar: {fileID: 0}
 --- !u!95 &2761685572384409078
 Animator:
   serializedVersion: 5
@@ -206,3 +181,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1847937223684708667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499323726513702530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937a1b5038dbf514390a6aa358fca699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 760fee1b98353da49ace0df91c814cf6, type: 2}
+  ChangedStat:
+    MaxHP: 0
+    CurrentHP: 0
+    ATK: 0
+    DEF: 0
+    AttackSpeed: 0
+    MoveSpeed: 0
+  animator: {fileID: 2761685572384409078}
+  spriteRenderer: {fileID: 6271925580573479264}
+  collider: {fileID: 8799012352309104303}
+  rigidbody: {fileID: 5776264824472953106}
+  hpBar: {fileID: 0}
