@@ -115,10 +115,18 @@ public class Unit : MonoBehaviour
         
         isFaint = false;
 
-        rigidbody.velocity = Vector2.zero;
+        if (rigidbody.bodyType != RigidbodyType2D.Static)
+        {
+            rigidbody.velocity = Vector2.zero;
+        }
     }
 
-    public IEnumerator DottedDamage(int damage)
+    public void ApplyDottedDamage(int damage)
+    {
+        StartCoroutine(DottedDamage(damage));
+    }
+
+    IEnumerator DottedDamage(int damage)
     {
         if (dottedDamageAmount >= damage) yield break;
 
