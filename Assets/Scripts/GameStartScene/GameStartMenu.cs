@@ -13,13 +13,21 @@ public class GameStartMenu : MonoBehaviour
     [SerializeField] public Button ContinueButton;
     [SerializeField] public Button QuitButton;
     [SerializeField] public GameObject highlight;
+    [SerializeField] public GameObject logo;
+    [SerializeField] public GameObject creditSpeech;
+    [SerializeField] public TMP_Text creditButtonText;
 
     private int _selectedButtonIndex = 0; // 현재 선택된 버튼의 인덱스
+    private bool isLogoActivated = true;
 
     private void Start()
     {
         // 초기에 시작 버튼이 선택되어 있도록 설정
         SetSelectedButton(GameStartButton);
+        logo.SetActive(true);
+        creditSpeech.SetActive(false);
+        creditButtonText.text = "Credit";
+        isLogoActivated = true;
     }
 
     private void Update()
@@ -66,6 +74,21 @@ public class GameStartMenu : MonoBehaviour
             }
             else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
+                GameManager.Sound.PlaySE("Reroll");
+                if (isLogoActivated)
+                {
+                    logo.SetActive(false);
+                    creditSpeech.SetActive(true);
+                    creditButtonText.text = "Show Logo";
+                    isLogoActivated = false;
+                }
+                else
+                {
+                    logo.SetActive(true);
+                    creditSpeech.SetActive(false);
+                    creditButtonText.text = "Credit";
+                    isLogoActivated = true;
+                }
                 // 이어하기 버튼 동작
                 Debug.Log("이어하기");
             }
