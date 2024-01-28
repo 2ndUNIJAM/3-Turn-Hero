@@ -52,8 +52,9 @@ public class PlayerManager : MonoBehaviour
         rigidbody = gameObject.GetOrAddComponent<Rigidbody2D>();
         animator = gameObject.GetOrAddComponent<Animator>();
 
-        jumpPower = 12f;
-        jumpMaxCount = 2;
+        jumpPower = 14f;
+        jumpMaxCount = Player.inven.armor.multiJump;
+
         isCanAttack = true;
         isCanMove = true;
     }
@@ -111,7 +112,7 @@ public class PlayerManager : MonoBehaviour
 
     private void CheckCanJump()
     {
-        float distance = collider.bounds.size.y * 0.5f - collider.offset.y + 0.05f;
+        float distance = collider.bounds.size.y * 0.5f - collider.offset.y;
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, distance, obstacleMask);
         if (hit)
         {
@@ -135,7 +136,7 @@ public class PlayerManager : MonoBehaviour
     public void CheckAttackDamage()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
-        int maxCount = Player.inven.armor.multiJump;
+        int maxCount = 1;
         int currentCount = 0;
 
         foreach (var hit in hits)

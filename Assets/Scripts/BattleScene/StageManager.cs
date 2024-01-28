@@ -12,6 +12,40 @@ public class StageManager : MonoBehaviour
 
     public List<Monster> enemyUnits;
 
+    private float faintCoolTime;
+
+    private bool hasDragonLeatherArmor;
+
+    private bool isFaintAll;
+
+    private void Start()
+    {
+        hasDragonLeatherArmor = PlayerManager.Instance.Player.inven.armor.englishName == "DragonLeatherArmor";
+        isFaintAll = false;
+        faintCoolTime = 5f;
+
+        switch (PlayerManager.Instance.Player.inven.armor.SpecialArmorLevel)
+        {
+            case 1:
+                faintCoolTime = 5f;
+                break;
+            case 2:
+                faintCoolTime = 4f;
+                break;
+            case 3:
+                faintCoolTime = 3f;
+                break;
+            case 0:
+            default:
+                break;
+        }
+
+        if (hasDragonLeatherArmor)
+        {
+            StartCoroutine(FaintAllEnemies(faintCoolTime));
+        }
+    }
+
     public void SetStage(int stageID)
     {
         foreach (var stage in stageList)
@@ -35,4 +69,16 @@ public class StageManager : MonoBehaviour
             BattleManager.Instance.GameWin();
     }
     
+    IEnumerator FaintAllEnemies(float faintCoolTime)
+    {
+        if (RandomManager.GetFlag(0.5f))
+        {
+            foreach (var unit in enemyUnits)
+                unit.SetFaint(2f);
+        }
+
+        yield return new WaitForSeconds(faintCoolTime);
+
+        StartCoroutine(FaintAllEnemies(faintCoolTime));
+    }
 }

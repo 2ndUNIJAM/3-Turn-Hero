@@ -75,6 +75,9 @@ public class Armor : Equipment
             effect += ActiveElementIceEffect;
         }
 
+        // 경직 효과는 냉기 레벨이 0이더라도 발동
+        effect += ActiveElementIceEffect;
+
         if (effect != null)
         {
             effect.Invoke(user, subject);
