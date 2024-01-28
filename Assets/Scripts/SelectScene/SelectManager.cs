@@ -198,6 +198,7 @@ public class SelectManager : MonoBehaviour
         // 스페이스바나 엔터를 누르면 다음 용사가 퇴장하고 다음 선택으로 넘어간다. 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && blockKeyboardInput == false)
         {
+            GameManager.Sound.PlaySE("Coins");
             if (count == 3)
             {
                 ItemBoxManager.Instance.SetWeapon(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);

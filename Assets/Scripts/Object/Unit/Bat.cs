@@ -27,10 +27,11 @@ public class Bat : Monster
     private void FixedUpdate()
     {
         if (isAttacking || isDead)
-            return; // °ø°İ Áß¿£ ¾Æ·¡ ±â´ÉÀ» ¼öÇàÇÏÁö ¾ÊÀ½
+            return; // ê³µê²© ì¤‘ì—” ì•„ë˜ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•˜ì§€ ì•ŠìŒ
 
         if (RecognizePlayer())
         {
+            GameManager.Sound.PlaySE("Suicide");
             Player unit = PlayerManager.Instance.Player;
             unit.ReduceHP(Stat.ATK);
 

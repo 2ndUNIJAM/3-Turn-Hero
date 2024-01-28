@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
         BGM_audio.volume = 0f;
         BGM_audio.loop = true;
 
-        PlayBGM("Town_Loop_BGM", SceneController.FADE_INIT_TIME);
+        PlayBGM("Town_Loop_MR", 0);
     }
 
 
