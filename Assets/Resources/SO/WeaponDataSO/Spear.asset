@@ -17,8 +17,8 @@ MonoBehaviour:
   descript: "\uB0A0\uCE74\uB85C\uC6B4 \uCC3D\uC774\uB2E4. \uBB34\uAC70\uC6CC\uC11C
     \uB290\uB9AC\uC9C0\uB9CC \uAF64 \uC544\uD50C \uAC83 \uAC19\uB2E4. \uC5ED\uC2DC
     \uBAA8\uD5D8\uC740 \uCC3D\uC774\uC9C0! / \uACF5\uACA9\uB825: 25"
-  largeIcon: {fileID: -871435336, guid: 37190e9c65320914f9c8ada3507a67d1, type: 3}
-  smallIcon: {fileID: 757915995, guid: 0f334d2130eda5542959bac390573ad9, type: 3}
+  largeIcon: {fileID: -1122723910, guid: 37190e9c65320914f9c8ada3507a67d1, type: 3}
+  smallIcon: {fileID: -399238057, guid: 0f334d2130eda5542959bac390573ad9, type: 3}
   weaponType: "\uCC3D"
   elementType: 
   atk: 25

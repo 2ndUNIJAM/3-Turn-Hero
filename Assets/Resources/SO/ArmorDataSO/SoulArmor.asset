@@ -18,6 +18,8 @@ MonoBehaviour:
     \uC800\uC911\uB825, \uB2E8\uC810: \uC800\uC911\uB825 / \uBC29\uC5B4\uB825: 15,
     \uACF5\uACA9 \uC18D\uB3C4\uAC00 \uB2E4\uB978 \uAC11\uC637\uC5D0 \uBE44\uD574
     \uAC00\uC7A5 \uB290\uB9AC\uB2E4."
+  largeIcon: {fileID: -2082892400, guid: ad77adf1f2002df49a2716722cd20119, type: 3}
+  smallIcon: {fileID: -1193382994, guid: f0908d285759be347943f02b21053e44, type: 3}
   armorType: "\uC815\uB839 \uAC11\uC637"
   elementType: 
   def: 15

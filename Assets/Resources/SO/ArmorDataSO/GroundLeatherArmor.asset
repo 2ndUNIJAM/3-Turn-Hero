@@ -17,6 +17,8 @@ MonoBehaviour:
   descript: "\uB300\uC9C0\uC758 \uAE30\uC6B4\uC774 \uAE43\uB4E0 \uAC00\uC8FD \uAC11\uC637\uC774\uB2E4.
     \uD759\uC5D0\uC11C \uB4B9\uAD74\uC5B4\uB3C4 \uD2F0\uAC00 \uC548 \uB098\uC694.
     / \uBC29\uC5B4\uB825: 5, \uBC29\uC5B4\uB825\uC774 5 \uC99D\uAC00\uD55C\uB2E4."
+  largeIcon: {fileID: 1599173033, guid: ad77adf1f2002df49a2716722cd20119, type: 3}
+  smallIcon: {fileID: 1040165187, guid: f0908d285759be347943f02b21053e44, type: 3}
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: "\uB300\uC9C0"
   def: 10

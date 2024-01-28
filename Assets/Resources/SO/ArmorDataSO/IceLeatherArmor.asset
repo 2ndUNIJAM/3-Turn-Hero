@@ -18,6 +18,8 @@ MonoBehaviour:
     \uD56B\uD329\uC744 \uB123\uACE0 \uB2E4\uB2C8\uB294\uAC78 \uCD94\uCC9C\uD569\uB2C8\uB2E4.
     / \uBC29\uC5B4\uB825: 5, 5%\uC758 \uD655\uB960\uB85C \uC801\uC758 \uACF5\uACA9\uC744
     \uD68C\uD53C\uD55C\uB2E4."
+  largeIcon: {fileID: 464329141, guid: ad77adf1f2002df49a2716722cd20119, type: 3}
+  smallIcon: {fileID: 460205325, guid: f0908d285759be347943f02b21053e44, type: 3}
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: "\uB0C9\uAE30"
   def: 5

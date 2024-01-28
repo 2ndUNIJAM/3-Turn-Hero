@@ -18,6 +18,8 @@ MonoBehaviour:
     \uC774\uAC70 \uC548 \uD0C0\uB294\uAC70 \uB9DE\uC9C0? / \uBC29\uC5B4\uB825: 5,
     \uC801\uC5D0\uAC8C \uACF5\uACA9\uC744 \uBC1B\uC73C\uBA74 \uC801\uC5D0\uAC8C 5
     \uB370\uBBF8\uC9C0\uB97C \uAC00\uD55C\uB2E4."
+  largeIcon: {fileID: 553425080, guid: ad77adf1f2002df49a2716722cd20119, type: 3}
+  smallIcon: {fileID: -635487291, guid: f0908d285759be347943f02b21053e44, type: 3}
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: "\uD654\uC5FC"
   def: 5

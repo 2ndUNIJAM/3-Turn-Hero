@@ -16,6 +16,8 @@ MonoBehaviour:
   korName: "\uB3C4\uC801"
   descript: "\uC8FC\uBA38\uB2C8\uB97C \uC870\uC2EC\uD558\uC138\uC694. / 5\uCD08 \uB3D9\uC548
     \uD50C\uB808\uC774\uC5B4\uC758 \uC774\uB3D9\uC18D\uB3C4\uB97C 20 \uC0C1\uC2B9\uC2DC\uD0B5\uB2C8\uB2E4."
+  largeIcon: {fileID: 555003426, guid: 9dc67b9d798cac04ab56880e5062424a, type: 3}
+  smallIcon: {fileID: -156581712, guid: 877d4f4e6626c4243b513b3bbb52505d, type: 3}
   count: 3
   gender: "\uB0A8\uC790"
   possibility: 16.6
