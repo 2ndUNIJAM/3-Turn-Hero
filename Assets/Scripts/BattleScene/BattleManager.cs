@@ -42,7 +42,8 @@ public class BattleManager : MonoBehaviour
 
     public void GameWin()
     {
-        Debug.Log("Stage Clear!");
+        Debug.Log("Stage  Clear!");
+        PlayerManager.Instance.Player.upgradedStat.CurrentHP = PlayerManager.Instance.Player.upgradedStat.CurrentHP - PlayerManager.Instance.Player.upgradedStat.MaxHP;
         Stage.ClearWallCol.enabled = false;
     }
 
@@ -52,5 +53,5 @@ public class BattleManager : MonoBehaviour
         Invoke("GoToMainScene", 1f);
     }
 
-    private void GoToMainScene() => GameManager.Scene.GoToScene(Scene.MainScene, "TestBGM");
+    private void GoToMainScene() => GameManager.Scene.GoToScene(Scene.MainScene, "Town_Loop_BGM");
 }

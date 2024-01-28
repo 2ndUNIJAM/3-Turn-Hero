@@ -39,6 +39,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        weaponIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -75,7 +77,9 @@ public class ItemBoxManager : MonoBehaviour
 
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedWeaponData.KorName;
             itemBoxList[weaponIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedWeaponData.Descript.Replace("/", "\n\n");
-            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedWeaponData.LargeIcon;
+            itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).transform.position
+                = new Vector3(itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
             Color currentColor = itemBoxList[weaponIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
             Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
@@ -95,8 +99,8 @@ public class ItemBoxManager : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         sequence
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.5f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.5f, 0.5f).SetEase(Ease.OutQuad))
             .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
             .Play();
 
@@ -109,8 +113,14 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.weapon.basicStat.AttackSpeed = selectedWeaponData.ATKSpeed;
 
         DataManager.playerInven.weapon.englishName = selectedWeaponData.EngName;
+
+        if (selectedWeaponData.EngName == "HolyLance" || selectedWeaponData.EngName == "GreedSword")
+            DataManager.playerInven.weapon.SpecialWeaponLevel = 1;
+
         DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
         DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
+        DataManager.playerInven.weapon.SmallIcon = selectedWeaponData.SmallIcon;
+        DataManager.playerInven.weapon.LargeIcon = selectedWeaponData.LargeIcon;
 
         switch (selectedWeaponData.ElementType)
         {
@@ -153,6 +163,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        armorIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -188,7 +200,9 @@ public class ItemBoxManager : MonoBehaviour
 
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedArmorData.KorName;
             itemBoxList[armorIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedArmorData.Descript.Replace("/", "\n\n");
-            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedArmorData.LargeIcon;
+            itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).transform.position
+                = new Vector3(itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
             Color currentColor = itemBoxList[armorIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
             Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
@@ -206,8 +220,8 @@ public class ItemBoxManager : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         sequence
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.5f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.5f, 0.5f).SetEase(Ease.OutQuad))
             .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
             .Play();
 
@@ -223,6 +237,8 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.armor.englishName = selectedArmorData.EngName;
         DataManager.playerInven.armor.koreanName = selectedArmorData.KorName;
         DataManager.playerInven.armor.description = selectedArmorData.Descript;
+        DataManager.playerInven.armor.LargeIcon = selectedArmorData.LargeIcon;
+        DataManager.playerInven.armor.SmallIcon = selectedArmorData.SmallIcon;
 
         switch (selectedArmorData.ElementType)
         {
@@ -266,6 +282,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        colleagueIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -289,7 +307,9 @@ public class ItemBoxManager : MonoBehaviour
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = PanelSpriteList[6];
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(1).GetComponent<TextMeshPro>().text = selectedColleagueData.KorName;
             itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(2).GetComponent<TextMeshPro>().text = selectedColleagueData.Descript.Replace("/", "\n\n");
-            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = WeaponSprite;
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = selectedColleagueData.LargeIcon;
+            itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).transform.position
+                = new Vector3(itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).transform.position.x, -2.0f, 0);
 
             Color currentColor = itemBoxList[colleagueIndexList.Count - 1].transform.GetChild(3).GetComponent<SpriteRenderer>().color;
             Color newColor = new Color(currentColor.r, currentColor.g, currentColor.b, 1.0f);
@@ -307,8 +327,8 @@ public class ItemBoxManager : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         sequence
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.9f, 0.5f).SetEase(Ease.OutQuad))
-            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.8f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-1.5f, 0.5f).SetEase(Ease.OutQuad))
+            .Append(itemBoxList[selectedIndex].transform.GetChild(3).DOLocalMoveY(-2.5f, 0.5f).SetEase(Ease.OutQuad))
             .Append(itemBoxList[selectedIndex].transform.GetChild(3).GetComponent<SpriteRenderer>().DOFade(0, 0.5f).SetEase(Ease.OutQuad))
             .Play();
 
@@ -321,6 +341,8 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.colleague.englishName = selectedColleagueData.EngName;
         DataManager.playerInven.colleague.koreanName = selectedColleagueData.KorName;
         DataManager.playerInven.colleague.description = selectedColleagueData.Descript;
+        DataManager.playerInven.colleague.LargeIcon = selectedColleagueData.LargeIcon;
+        DataManager.playerInven.colleague.SmallIcon = selectedColleagueData.SmallIcon;
 
         DataManager.playerInven.colleague.count = selectedColleagueData.Count;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// �����ʹ� Scriptable Object�� �����˴ϴ�.
@@ -36,6 +37,8 @@ public class DataManager : MonoBehaviour
 
     public int stageID;
 
+    public int currentStage;
+
     public void Init()
     {
         unitDataSODic = new Dictionary<string, UnitDataSO>();
@@ -44,6 +47,8 @@ public class DataManager : MonoBehaviour
         playerUpgradeStat = new Stat();
 
         stageID = 0;
+
+        currentStage = 1;
 
         var unitDataSOList = GameManager.Resource.LoadAll<UnitDataSO>("SO/UnitDataSO");
 

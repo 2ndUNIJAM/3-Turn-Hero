@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
@@ -19,6 +19,8 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private GameObject TutorialText;
     [SerializeField] private GameObject ItemBox;
     [SerializeField] private GameObject Character;
+    [SerializeField] private Image ScriptBallon;
+    [SerializeField] private TextMeshProUGUI RerollExplain;
 
     private GameObject ItemBox1, ItemBox2, ItemBox3;
 
@@ -42,9 +44,9 @@ public class SelectManager : MonoBehaviour
 
     public void Init()
     {
-        ItemBox1 = Instantiate(ItemBox, new Vector3(0, 0, 0), Quaternion.identity);
+        ItemBox1 = Instantiate(ItemBox, new Vector3(-0.3f, 0, 0), Quaternion.identity);
         ItemBox2 = Instantiate(ItemBox, new Vector3(4.0f, 0, 0), Quaternion.identity);
-        ItemBox3 = Instantiate(ItemBox, new Vector3(8.0f, 0, 0), Quaternion.identity);
+        ItemBox3 = Instantiate(ItemBox, new Vector3(8.3f, 0, 0), Quaternion.identity);
 
         ItemBox1.transform.SetParent(SceneGO.transform);
         ItemBox2.transform.SetParent(SceneGO.transform);
@@ -84,11 +86,6 @@ public class SelectManager : MonoBehaviour
 
         TutorialText.GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
 
-        Debug.Log("ItemBoxManager: " + ItemBoxManager.Instance);
-        Debug.Log("ItemBox1: " + ItemBox1);
-        Debug.Log("ItemBox2: " + ItemBox2);
-        Debug.Log("ItemBox3: " + ItemBox3);
-
         if (count == 3)
         {
             ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
@@ -113,7 +110,7 @@ public class SelectManager : MonoBehaviour
 
             blockKeyboardInput = false;
 
-            GameManager.Scene.GoToScene(Scene.BattleScene, "TestBGM");
+            GameManager.Scene.GoToScene(Scene.BattleScene, "Combat_BGM");
         }
         // 선택이 끝나지 않은 경우 다음 선택 시작. 
         else
@@ -141,9 +138,13 @@ public class SelectManager : MonoBehaviour
 
         Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
 
-        Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 3.0f);
+        Character.transform.DOMove(new Vector3(-6.5f, -3.0f, 0), 2.0f);
 
         yield return new WaitForSeconds(3.0f);
+
+        characterPositionIndex = -1;
+        ScriptBallon.enabled = true;
+        RerollExplain.enabled = true;
 
         blockKeyboardInput = false;
     }
@@ -151,9 +152,6 @@ public class SelectManager : MonoBehaviour
     // 용사 퇴장하는 코드.
     IEnumerator CharacterExit()
     {
-        Debug.Log("weapon ATK: " + DataManager.playerInven.weapon.basicStat.ATK);
-        Debug.Log("weapon AttackSpeed: " + DataManager.playerInven.weapon.basicStat.AttackSpeed);
-
         blockKeyboardInput = true;
 
         Character.transform.DOMove(new Vector3(12.0f, -3.0f, 0), 3.0f);
@@ -172,22 +170,30 @@ public class SelectManager : MonoBehaviour
     private void Update()
     {
         // 오른쪽 버튼을 누르면 용사가 오른쪽으로 이동. 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && blockKeyboardInput == false)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && blockKeyboardInput == false)
         {
-            if (characterPositionIndex == 0)
+            if (characterPositionIndex == -1)
+            {
+                Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
+                characterPositionIndex = 0;
+                ScriptBallon.enabled = false;
+                RerollExplain.enabled = false;
+            }
+            else if (characterPositionIndex == 0)
             {
                 Character.transform.DOMove(new Vector3(0, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(4.0f, -3.0f, 0), 0.5f);
+                Character.transform.DOMove(new Vector3(4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 2;
             }
+            Debug.Log(characterPositionIndex);
         }
 
         // 왼쪽 버튼을 누르면 용사가 왼쪽으로 이동. 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && blockKeyboardInput == false)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && blockKeyboardInput == false)
         {
             if (characterPositionIndex == 2)
             {
@@ -196,14 +202,39 @@ public class SelectManager : MonoBehaviour
             }
             else if (characterPositionIndex == 1)
             {
-                Character.transform.DOMove(new Vector3(-4.0f, -3.0f, 0), 0.5f);
+                Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 0;
+            }
+            else if (characterPositionIndex == 0)
+            {
+                Character.transform.DOMove(new Vector3(-6.5f, -3.0f, 0), 0.5f);
+                characterPositionIndex = -1;
+                ScriptBallon.enabled = true;
+                RerollExplain.enabled = true;
+            }
+            Debug.Log(characterPositionIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && characterPositionIndex == -1)
+        {
+            if (count == 3)
+            {
+                ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
+            }
+            else if (count == 2)
+            {
+                ItemBoxManager.Instance.SetArmorBox(ItemBox1, ItemBox2, ItemBox3);
+            }
+            else if (count == 1)
+            {
+                ItemBoxManager.Instance.SetColleagueBox(ItemBox1, ItemBox2, ItemBox3);
             }
         }
 
         // 스페이스바나 엔터를 누르면 다음 용사가 퇴장하고 다음 선택으로 넘어간다. 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && blockKeyboardInput == false)
         {
+            GameManager.Sound.PlaySE("Coins");
             if (count == 3)
             {
                 ItemBoxManager.Instance.SetWeapon(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
@@ -217,21 +248,6 @@ public class SelectManager : MonoBehaviour
                 ItemBoxManager.Instance.SetColleague(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
             }
             StartCoroutine(CharacterExit());
-        }
-
-        // f1을 누르면 도움말이 나온다. 
-        if (Input.GetKeyDown(KeyCode.F1) && blockKeyboardInput == false)
-        {
-            if (helpCanvasPopup == false)
-            {
-                helpCanvasPopup = true;
-                GameManager.UI.ShowPopup<HelpCanvas>("HelpCanvas");
-            }
-            else if (helpCanvasPopup == true)
-            {
-                helpCanvasPopup = false;
-                GameManager.UI.ClosePopup();
-            }
         }
     }
 }

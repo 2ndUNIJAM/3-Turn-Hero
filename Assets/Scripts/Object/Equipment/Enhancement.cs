@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enhancement : MonoBehaviour
+public class Enhancement
 {
     public string name;
     public string description;

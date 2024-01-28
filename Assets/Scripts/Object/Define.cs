@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,8 +26,8 @@ public struct Stat
         DEF = 0;
         //MPower = 0;
         //MArmor = 0;
-        AttackSpeed = 0;
-        MoveSpeed = 0;
+        AttackSpeed = 1;
+        MoveSpeed = 1;
     }
 
     public static Stat operator +(Stat lhs, Stat rhs)
@@ -39,8 +39,8 @@ public struct Stat
         result.DEF = lhs.DEF + rhs.DEF;
         //result.MPower = lhs.MPower + rhs.MPower;
         //result.MArmor = lhs.MArmor + rhs.MArmor;
-        result.AttackSpeed = lhs.AttackSpeed + rhs.AttackSpeed;
-        result.MoveSpeed = lhs.MoveSpeed + rhs.MoveSpeed;
+        result.AttackSpeed = Mathf.Max(lhs.AttackSpeed + rhs.AttackSpeed, 1);
+        result.MoveSpeed = Mathf.Max(lhs.MoveSpeed + rhs.MoveSpeed, 1);
 
         return result;
     }
@@ -54,11 +54,15 @@ public struct Stat
         result.DEF = lhs.DEF - rhs.DEF;
         //result.MPower = lhs.MPower - rhs.MPower;
         //result.MArmor = lhs.MArmor - rhs.MArmor;
-        result.AttackSpeed = lhs.AttackSpeed - rhs.AttackSpeed;
-        result.MoveSpeed = lhs.MoveSpeed - rhs.MoveSpeed;
+        result.AttackSpeed = Mathf.Max(lhs.AttackSpeed - rhs.AttackSpeed, 1);
+        result.MoveSpeed = Mathf.Max(lhs.MoveSpeed - rhs.MoveSpeed, 1);
 
         return result;
     }
+
+    public float GetRealAttackSpeed => Mathf.Clamp(1f + AttackSpeed * 0.2f, 1f, 5f);
+
+    public float GetRealMoveSpeed => Mathf.Clamp(1f + MoveSpeed * 0.2f, 3f, 12f);
 
     public void ClearStat()
     {
@@ -68,8 +72,8 @@ public struct Stat
         DEF = 0;
         //MPower = 0;
         //MArmor = 0;
-        AttackSpeed = 0;
-        MoveSpeed = 0;
+        AttackSpeed = 1;
+        MoveSpeed = 1;
     }
 
     public Stat Clone()

@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList.Element_Adder_Menu;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "WeaponDataSO", menuName = "Scriptable Object/WeaponDataSO")]
 public class WeaponDataSO : ScriptableObject
@@ -18,6 +17,10 @@ public class WeaponDataSO : ScriptableObject
     [SerializeField] private string descript;
     public string Descript => descript;
 
+    [SerializeField] private Sprite largeIcon;
+    public Sprite LargeIcon => largeIcon;
+    [SerializeField] private Sprite smallIcon;
+    public Sprite SmallIcon => smallIcon;
     [SerializeField] private string weaponType;
     public string WeaponType => weaponType;
 

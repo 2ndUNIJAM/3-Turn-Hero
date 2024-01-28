@@ -83,7 +83,7 @@ public class PlayerManager : MonoBehaviour
 
         if (horizontal != 0f)
         {
-            Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.MoveSpeed * Time.deltaTime;
+            Vector2 movePos = (Vector2)this.gameObject.transform.position + Vector2.right * horizontal * player.Stat.GetRealMoveSpeed * Time.deltaTime;
             rigidbody.position = movePos;
             animator.SetBool("isWalk", true);
 
@@ -123,10 +123,11 @@ public class PlayerManager : MonoBehaviour
     private void Attack()
     {
         //isCanMove = false;
-        weaponAnim.speed = player.Stat.AttackSpeed;
+        weaponAnim.speed = player.Stat.GetRealAttackSpeed;
         weaponAnim.SetBool("isAttack", true);
+        GameManager.Sound.PlaySE("Sword");
 
-        Invoke("CheckAttackDamage", 0.25f / player.Stat.AttackSpeed);
+        Invoke("CheckAttackDamage", 0.25f / player.Stat.GetRealAttackSpeed);
         StartCoroutine(EndAttack());
         StartCoroutine(AttackCoolTime());
     }
@@ -134,19 +135,17 @@ public class PlayerManager : MonoBehaviour
     public void CheckAttackDamage()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, Vector2.one * 2, 0f, Vector2.right * Mathf.Sign(transform.localScale.x), ATTACK_DISTANCE, enemyMask);
-        int maxCount = 1;
+        int maxCount = Player.inven.armor.multiJump;
         int currentCount = 0;
-
-        if (true)
-            maxCount = 2;
 
         foreach (var hit in hits)
         {
             Unit unit = hit.transform.GetComponent<Unit>();
-            unit.ReduceHP(player.Stat.ATK);
+            int realDamage = player.Stat.ATK - unit.Stat.DEF;
+            realDamage = Mathf.Clamp(realDamage, 1, realDamage);
 
-            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, player.Stat.ATK, unit.UpPos, new Color(1f, 0.4f, 0.4f));
+            player.inven.weapon.InvokeAttackEffect(player, unit);
+            unit.ReduceHP(realDamage);
 
             currentCount++;
             if (currentCount == maxCount)
@@ -156,7 +155,7 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator EndAttack()
     {
-        yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
+        yield return new WaitForSeconds(1f / player.Stat.GetRealAttackSpeed);
 
         isCanMove = true;
         weaponAnim.speed = 1f;
@@ -166,7 +165,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator AttackCoolTime()
     {
         isCanAttack = false;
-        yield return new WaitForSeconds(1f / player.Stat.AttackSpeed);
+        yield return new WaitForSeconds(1f / player.Stat.GetRealAttackSpeed);
         isCanAttack = true;
     }
 }

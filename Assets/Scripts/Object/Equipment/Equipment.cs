@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Equipment : MonoBehaviour
+public class Equipment
 {
     public string englishName;
     public string koreanName;
     public string description;
+
+    public Sprite LargeIcon;
+    public Sprite SmallIcon;
 
     protected int _elementFireLevel = 0;
     protected int _elementGroundLevel = 0;

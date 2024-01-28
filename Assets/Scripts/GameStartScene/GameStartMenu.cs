@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,11 +53,12 @@ public class GameStartMenu : MonoBehaviour
         }
 
         // 엔터 키 입력에 따라 선택된 버튼 동작 수행
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
         {
             if (GameStartButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {
-                SceneManager.LoadScene("SelectScene");
+                GameManager.Sound.PlaySE("Select");
+                GameManager.Scene.GoToScene(Scene.SelectScene, "Town_Loop_BGM");
             }
             else if (ContinueButton.GetComponentInChildren<TextMeshProUGUI>().fontSize == 56)
             {

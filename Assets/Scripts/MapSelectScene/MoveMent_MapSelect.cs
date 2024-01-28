@@ -14,7 +14,6 @@ public class Movement_MapSelect : MonoBehaviour
 
     private void Update()
     {
-        // 오른쪽 버튼을 누르면 용사가 오른쪽으로 이동. 
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             if (characterPositionIndex == 0)
@@ -24,7 +23,6 @@ public class Movement_MapSelect : MonoBehaviour
             }
         }
 
-        // 왼쪽 버튼을 누르면 용사가 왼쪽으로 이동. 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             if (characterPositionIndex == 1)
@@ -36,7 +34,42 @@ public class Movement_MapSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
-            GameManager.Scene.GoToScene(Scene.BattleScene, "TestBGM");
+            if (GameManager.Data.currentStage == 1 && characterPositionIndex == 0)
+            {
+                GameManager.Data.stageID = 2;
+            }
+            else if (GameManager.Data.currentStage == 1 && characterPositionIndex == 1)
+            {
+                GameManager.Data.stageID = 3;
+            }
+            else if (GameManager.Data.currentStage == 2 && characterPositionIndex == 0)
+            {
+                GameManager.Data.stageID = 4;
+            }
+            else if (GameManager.Data.currentStage == 2 && characterPositionIndex == 1)
+            {
+                GameManager.Data.stageID = 5;
+            }
+            else if (GameManager.Data.currentStage == 3 && characterPositionIndex == 0)
+            {
+                GameManager.Data.stageID = 6;
+            }
+            else if (GameManager.Data.currentStage == 3 && characterPositionIndex == 1)
+            {
+                GameManager.Data.stageID = 7;
+            }
+            else if (GameManager.Data.currentStage == 4 && characterPositionIndex == 0)
+            {
+                GameManager.Data.stageID = 8;
+            }
+            else if (GameManager.Data.currentStage == 4 && characterPositionIndex == 1)
+            {
+                GameManager.Data.stageID = 9;
+            }
+
+            GameManager.Data.currentStage++;
+
+            GameManager.Scene.GoToScene(Scene.BattleScene, "Combat_BGM");
         }
     }
 }

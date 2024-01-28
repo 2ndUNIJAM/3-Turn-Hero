@@ -27,15 +27,15 @@ public class Bat : Monster
     private void FixedUpdate()
     {
         if (isAttacking || isDead)
-            return; // °ø°İ Áß¿£ ¾Æ·¡ ±â´ÉÀ» ¼öÇàÇÏÁö ¾ÊÀ½
+            return; // ê³µê²© ì¤‘ì—” ì•„ë˜ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•˜ì§€ ì•ŠìŒ
 
         if (RecognizePlayer())
         {
+            GameManager.Sound.PlaySE("Suicide");
             Player unit = PlayerManager.Instance.Player;
-            unit.ReduceHP(Stat.ATK);
-
-            FloatingDamage damageUI = BattleManager.Instance.BattleUI.CreateFloatingDamage();
-            damageUI.Init(unit.gameObject, Stat.ATK, PlayerManager.Instance.Player.UpPos, new Color(1f, 0.4f, 0.4f));
+            int realDamage = unit.Stat.DEF - Stat.DEF;
+            realDamage = Mathf.Clamp(realDamage, 0, realDamage);
+            unit.ReduceHP(realDamage);
 
             ReduceHP(999);
         }
@@ -58,23 +58,22 @@ public class Bat : Monster
         CheckDead();
 
         StartHitAnim(DEFAULT_FAINT_TIME);
-        StartCoroutine(StartFaint(DEFAULT_FAINT_TIME));
     }
 
     public void Fly()
     {
         float gap_x = Mathf.Abs(PlayerManager.Instance.transform.position.x - transform.position.x);
-        if (gap_x < 2f) gap_x = 2f;
+        gap_x = Mathf.Clamp(gap_x, 2f, 4f);
 
         if (isGotoRight)
         {
-            Move(Vector3.right, gap_x * Stat.MoveSpeed);
+            Move(Vector3.right, gap_x * Stat.GetRealMoveSpeed);
             if (transform.position.x >= PlayerManager.Instance.transform.position.x + TURN_DISTANCE)
                 isGotoRight = false;
         }
         else
         {
-            Move(Vector3.left, gap_x * Stat.MoveSpeed);
+            Move(Vector3.left, gap_x * Stat.GetRealMoveSpeed);
             if (transform.position.x + TURN_DISTANCE <= PlayerManager.Instance.transform.position.x)
                 isGotoRight = true;
         }
