@@ -51,7 +51,7 @@ public class Weapon : Equipment
                     haveCount++;
 
                 // 모자란 속성 개수만큼 랜덤으로 속성 획득
-                while (haveCount < _specialWeaponLevel)
+                while (haveCount < value + 1)
                 {
                     string gainedElement = notHaveYet[Random.Range(0, notHaveYet.Count)];
                     switch (gainedElement)

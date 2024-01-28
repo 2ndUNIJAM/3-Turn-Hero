@@ -136,15 +136,6 @@ public class Unit : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
     }
 
-    public void SetDotDamage(int damage) => StartCoroutine(DottedDamage(damage));
-
-    protected IEnumerator DottedDamage(int damage)
-        if (rigidbody.bodyType != RigidbodyType2D.Static)
-        {
-            rigidbody.velocity = Vector2.zero;
-        }
-    }
-
     public void ApplyDottedDamage(int damage)
     {
         StartCoroutine(DottedDamage(damage));
