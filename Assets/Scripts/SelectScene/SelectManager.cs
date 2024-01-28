@@ -62,11 +62,11 @@ public class SelectManager : MonoBehaviour
     {
         blockKeyboardInput = true;
 
-        TutorialImage.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 540.0f, 0), 1f);
+        TutorialImage.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 540.0f, 0), 15f);
 
-        TutorialText.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 1080.0f, 0), 1f);
+        TutorialText.GetComponent<RectTransform>().DOLocalMove(new Vector3(0, 1080.0f, 0), 15f);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(15f);
 
         // 이후에 이미지, 텍스트는 꺼준다. 그리고 장비 선택 화면. 
         TutorialImage.GetComponent<UnityEngine.UI.Image>().enabled = false;
