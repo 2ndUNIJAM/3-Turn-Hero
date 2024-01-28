@@ -19,6 +19,8 @@ MonoBehaviour:
     \uBC29\uD328\uB97C \uB9CC\uB4E0 \uC0AC\uB78C\uC774 \uC788\uB2E4\uACE0? / \uCCA0\uC81C
     \uAC11\uC637\uC758 \uC774\uB3D9\uC18D\uB3C4, \uACF5\uACA9 \uC18D\uB3C4\uC758
     \uD328\uB110\uD2F0\uAC00 \uC0AC\uB77C\uC9C4\uB2E4."
+  largeIcon: {fileID: 0}
+  smallIcon: {fileID: 0}
   armorType: "\uCCA0\uC81C \uAC11\uC637"
   elementType: 
   def: 20

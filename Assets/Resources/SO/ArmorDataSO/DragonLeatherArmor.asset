@@ -20,6 +20,8 @@ MonoBehaviour:
     \uC2A4\uD14C\uC774\uC9C0\uC758 \uBAA8\uB4E0 \uBAAC\uC2A4\uD130\uB97C 2\uCD08
     \uB3D9\uC548 \uACBD\uC9C1\uC2DC\uD0A8\uB2E4. (\uB2E8, \uBCF4\uC2A4 \uBAAC\uC2A4\uD130\uC5D0\uAC90
     \uD1B5\uD558\uC9C0 \uC54A\uB294\uB2E4.)"
+  largeIcon: {fileID: 0}
+  smallIcon: {fileID: 0}
   armorType: "\uAC00\uC8FD \uAC11\uC637"
   elementType: 
   def: 10

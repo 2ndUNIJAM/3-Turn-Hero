@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
 
     private int jumpCurrentCount, jumpMaxCount;
     private bool isCanAttack;
-    private bool isCanMove;
+    private bool isCanMove, isCanJump;
 
 
     private void Awake()
@@ -57,6 +57,7 @@ public class PlayerManager : MonoBehaviour
 
         isCanAttack = true;
         isCanMove = true;
+        isCanJump = true;
     }
 
     void FixedUpdate()
@@ -68,14 +69,17 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isJumping)
-            CheckCanJump();
-
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && isCanJump)
             Jump();
 
         if (Input.GetMouseButtonDown(0) && isCanAttack)
             Attack();
+    }
+
+    private void LateUpdate()
+    {
+        if (isJumping && isCanJump)
+            CheckCanJump();
     }
 
     private void Move()
@@ -101,18 +105,32 @@ public class PlayerManager : MonoBehaviour
 
     private void Jump()
     {
-        if (isJumping && jumpCurrentCount <= jumpMaxCount)
+        Debug.Log($"이전 {jumpCurrentCount} / {jumpMaxCount}");
+
+        if (isJumping && jumpCurrentCount >= jumpMaxCount)
             return;
 
         isJumping = true;
         jumpCurrentCount++;
         rigidbody.velocity = Vector2.zero;
         rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+        StopCoroutine("CoolTimeJump");
+        StartCoroutine("CoolTimeJump");
+
+        Debug.Log($"이후 {jumpCurrentCount} / {jumpMaxCount}");
+    }
+
+    IEnumerator CoolTimeJump()
+    {
+        isCanJump = false;
+        yield return new WaitForSeconds(0.1f);
+        isCanJump = true;
     }
 
     private void CheckCanJump()
     {
-        float distance = collider.bounds.size.y * 0.5f - collider.offset.y;
+        float distance = collider.bounds.size.y * 0.5f - collider.offset.y + 0.05f;
         RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.down, distance, obstacleMask);
         if (hit)
         {
