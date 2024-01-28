@@ -24,8 +24,8 @@ public class Ogre : Monster
         if (isCanAttack && CheckAttack())
             Attack();
 
-        if (isAttacking)
-            return; // 공격 중엔 아래 기능을 수행하지 않음
+        if (isAttacking || isFaint)
+            return; // 아래 기능을 수행하지 않음
 
         if (isChasing)
         {
