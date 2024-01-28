@@ -18,6 +18,8 @@ MonoBehaviour:
     \uD654\uC0C1\uC5D0 \uC8FC\uC758. / \uACF5\uACA9\uB825: 10, \uBAAC\uC2A4\uD130\uB97C
     1\uD68C \uD0C0\uACA9\uD560 \uB54C\uB9C8\uB2E4 3\uCD08\uB3D9\uC548 1\uCD08\uC5D0
     2HP\uB9CC\uD07C \uB370\uBBF8\uC9C0\uB97C \uC900\uB2E4."
+  largeIcon: {fileID: -803573445, guid: 37190e9c65320914f9c8ada3507a67d1, type: 3}
+  smallIcon: {fileID: -1921442399, guid: 0f334d2130eda5542959bac390573ad9, type: 3}
   weaponType: "\uAC80"
   elementType: "\uD654\uC5FC"
   atk: 10

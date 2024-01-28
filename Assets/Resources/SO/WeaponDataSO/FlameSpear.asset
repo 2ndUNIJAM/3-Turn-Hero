@@ -18,6 +18,8 @@ MonoBehaviour:
     \uC774\uAC70 \uB0A0\uB9AC\uBA74 \uBD88\uD654\uC0B4 \uC544\uB0D0? / \uACF5\uACA9\uB825:
     20, \uBAAC\uC2A4\uD130\uB97C 1\uD68C \uD0C0\uACA9\uD560 \uB54C\uB9C8\uB2E4 3\uCD08\uB3D9\uC548
     1\uCD08\uC5D0 2HP\uB9CC\uD07C \uB370\uBBF8\uC9C0\uB97C \uC900\uB2E4."
+  largeIcon: {fileID: -454169837, guid: 37190e9c65320914f9c8ada3507a67d1, type: 3}
+  smallIcon: {fileID: 732874693, guid: 0f334d2130eda5542959bac390573ad9, type: 3}
   weaponType: "\uCC3D"
   elementType: "\uD654\uC5FC"
   atk: 20
