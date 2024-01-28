@@ -17,6 +17,8 @@ MonoBehaviour:
   descript: "\uC2E0\uC131\uD55C \uAE30\uC6B4\uC774 \uC548\uC88B\uC740 \uAE30\uC6B4\uC744
     \uBB3C\uB9AC\uCE5C\uB2E4. / \uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC744
     \uC804\uCCB4 \uCCB4\uB825\uC758 30%\uB9CC\uD07C\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  largeIcon: {fileID: -1616440659, guid: 9dc67b9d798cac04ab56880e5062424a, type: 3}
+  smallIcon: {fileID: -876080242, guid: 877d4f4e6626c4243b513b3bbb52505d, type: 3}
   count: 3
   gender: "\uC5EC\uC790"
   possibility: 16.6
