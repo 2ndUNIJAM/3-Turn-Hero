@@ -85,7 +85,8 @@ public class Unit : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        GameManager.Resource.Destroy(this.gameObject);
+        //GameManager.Resource.Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     protected virtual void StartHitAnim(float endTime)
