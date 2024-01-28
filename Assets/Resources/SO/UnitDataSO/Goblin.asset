@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Goblin
   stat:
-    MaxHP: 20
-    CurrentHP: 20
+    MaxHP: 30
+    CurrentHP: 30
     ATK: 10
     DEF: 10
     AttackSpeed: 1
-    MoveSpeed: 1
+    MoveSpeed: 8

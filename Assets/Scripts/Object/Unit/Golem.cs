@@ -11,7 +11,7 @@ public class Golem : Monster
     {
         recognizeDis = 3f;
         outofDis = 5f;
-        attackDis = 1f;
+        attackDis = 1.25f;
         knockBackPower = 0f;
         hpbarHeight = 2.25f;
         attackTiming = 0.75f;
@@ -25,7 +25,7 @@ public class Golem : Monster
         if (isCanAttack && CheckAttack())
             Attack();
 
-        if (isAttacking)
+        if (isAttacking || isFaint)
             return;
 
         if (isChasing)

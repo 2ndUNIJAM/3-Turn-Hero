@@ -106,11 +106,12 @@ public class Unit : MonoBehaviour
 
     protected virtual void EndHitAnim()
     {
+        isHit = false;
+
         if (isDead || isFaint)
             return;
 
         animator.SetBool("isHit", false);
-        isHit = false;
     }
 
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   stat:
     MaxHP: 100
     CurrentHP: 100
-    ATK: 10
+    ATK: 15
     DEF: 0
     AttackSpeed: 1
-    MoveSpeed: 1
+    MoveSpeed: 4

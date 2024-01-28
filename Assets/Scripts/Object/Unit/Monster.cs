@@ -69,11 +69,14 @@ public class Monster : Unit
     }
 
     protected virtual bool CheckAttack()
-        => Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
+    {
+        //Debug.DrawRay(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), Color.red, 2f);
+        return Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
+    }
 
     protected virtual void GotoPlayer()
     {
-        if (isDead || isFaint)
+        if (isDead || isHit || isFaint)
             return; // �װų� ������ ���
 
         if (isGotoRight)
@@ -101,6 +104,12 @@ public class Monster : Unit
 
         while (Mathf.Abs(moveDistance) > 0.01f)
         {
+            if (isFaint)
+            {
+                StopPatrol();
+                yield break;
+            }
+
             float speed = Stat.MoveSpeed * 0.5f;
             Move(Vector3.right * moveDir, speed);
             moveDistance -= speed * Time.deltaTime;
@@ -128,13 +137,13 @@ public class Monster : Unit
         animator.speed = Stat.GetRealAttackSpeed;
         animator.SetBool("isAttack", true);
 
-        Invoke("CheckAttackDamage", 0.5f / Stat.GetRealAttackSpeed);
+        Invoke("CheckAttackDamage", attackTiming / Stat.GetRealAttackSpeed);
         StartCoroutine(EndAttack());
     }
 
     protected virtual void CheckAttackDamage()
     {
-        if (isDead) return;
+        if (isDead || isHit || isFaint) return;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * Mathf.Sign(transform.localScale.x), attackDis, 128);
 

@@ -26,8 +26,8 @@ public class Player : Unit
         Debug.Log("CurrentHP:" + Stat.CurrentHP);
         Debug.Log("ATK: " + Stat.ATK);
         Debug.Log("DEF: " + Stat.DEF);
-        Debug.Log("AttackSpeed: " + Stat.AttackSpeed);
-        Debug.Log("MoveSpeed: " + Stat.MoveSpeed);
+        Debug.Log("AttackSpeed: " + Stat.GetRealAttackSpeed);
+        Debug.Log("MoveSpeed: " + Stat.GetRealMoveSpeed);
     }
 
 

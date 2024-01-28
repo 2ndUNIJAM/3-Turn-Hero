@@ -59,14 +59,12 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //Scene.GoToScene(global::Scene.BattleScene, "TestBGM");
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            //Scene.GoToScene(global::Scene.BattleScene, "TestBGM");
-            Time.timeScale = 3f;
+            //Time.timeScale = 3f;
         }
     }
 }

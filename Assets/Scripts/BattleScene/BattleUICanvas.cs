@@ -30,7 +30,7 @@ public class BattleUICanvas : MonoBehaviour
         HPText.SetText("HP: " + stat.CurrentHP.ToString());
         ATKText.SetText("ATK: " + stat.ATK.ToString());
         DEFText.SetText("DEF: " + stat.DEF.ToString());
-        ATKSpeedText.SetText("ATKSpeed: " + stat.AttackSpeed.ToString());
-        MoveSpeedText.SetText("MoveSpeed: " + stat.MoveSpeed.ToString());
+        ATKSpeedText.SetText("ATKSpeed: " + stat.GetRealAttackSpeed.ToString());
+        MoveSpeedText.SetText("MoveSpeed: " + stat.GetRealMoveSpeed.ToString());
     }
 }

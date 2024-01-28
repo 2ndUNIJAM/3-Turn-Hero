@@ -19,4 +19,4 @@ MonoBehaviour:
     ATK: 10
     DEF: 0
     AttackSpeed: 2
-    MoveSpeed: 8
+    MoveSpeed: 10
