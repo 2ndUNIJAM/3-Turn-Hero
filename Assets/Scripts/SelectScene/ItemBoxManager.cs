@@ -39,6 +39,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
 
+        weaponIndexList.Clear();
+
         for (int i = 0; i < 3; i++)
         {
             // 만약 인덱스를 뽑아왔는데 기존이랑 겹치는게 있다면 다시 뽑는다. 
@@ -111,6 +113,10 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.weapon.basicStat.AttackSpeed = selectedWeaponData.ATKSpeed;
 
         DataManager.playerInven.weapon.englishName = selectedWeaponData.EngName;
+
+        if (selectedWeaponData.EngName == "HolyLance" || selectedWeaponData.EngName == "GreedSword")
+            DataManager.playerInven.weapon.SpecialWeaponLevel = 1;
+
         DataManager.playerInven.weapon.koreanName = selectedWeaponData.KorName;
         DataManager.playerInven.weapon.description = selectedWeaponData.Descript;
         DataManager.playerInven.weapon.icon = selectedWeaponData.Icon;
@@ -155,6 +161,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox1);
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
+
+        armorIndexList.Clear();
 
         for (int i = 0; i < 3; i++)
         {
@@ -271,6 +279,8 @@ public class ItemBoxManager : MonoBehaviour
         itemBoxList.Add(itemBox1);
         itemBoxList.Add(itemBox2);
         itemBoxList.Add(itemBox3);
+
+        colleagueIndexList.Clear();
 
         for (int i = 0; i < 3; i++)
         {

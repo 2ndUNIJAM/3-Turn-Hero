@@ -17,12 +17,12 @@ public class FloatingDamage : MonoBehaviour
     private bool isStart;
 
     // Start is called before the first frame update
-    public void Init(GameObject target, int damage, Vector3 upPos, Color color)
+    public void Init(GameObject target, string text, Vector3 upPos, Color color)
     {
         this.target = target;
-        this.text.SetText($"-{damage}");
+        this.text.SetText(text);
         this.color = color;
-        text.color = color;
+        this.text.color = color;
         this.upPos = upPos;
 
         this.transform.position = Camera.main.WorldToScreenPoint(target.transform.position + upPos);

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
@@ -19,6 +19,8 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private GameObject TutorialText;
     [SerializeField] private GameObject ItemBox;
     [SerializeField] private GameObject Character;
+    [SerializeField] private Image ScriptBallon;
+    [SerializeField] private TextMeshProUGUI RerollExplain;
 
     private GameObject ItemBox1, ItemBox2, ItemBox3;
 
@@ -136,11 +138,13 @@ public class SelectManager : MonoBehaviour
 
         Character.transform.position = new Vector3(-12.0f, -3.0f, 0);
 
-        Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 3.0f);
+        Character.transform.DOMove(new Vector3(-6.5f, -3.0f, 0), 2.0f);
 
         yield return new WaitForSeconds(3.0f);
 
-        characterPositionIndex = 0;
+        characterPositionIndex = -1;
+        ScriptBallon.enabled = true;
+        RerollExplain.enabled = true;
 
         blockKeyboardInput = false;
     }
@@ -168,7 +172,14 @@ public class SelectManager : MonoBehaviour
         // 오른쪽 버튼을 누르면 용사가 오른쪽으로 이동. 
         if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && blockKeyboardInput == false)
         {
-            if (characterPositionIndex == 0)
+            if (characterPositionIndex == -1)
+            {
+                Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
+                characterPositionIndex = 0;
+                ScriptBallon.enabled = false;
+                RerollExplain.enabled = false;
+            }
+            else if (characterPositionIndex == 0)
             {
                 Character.transform.DOMove(new Vector3(0, -3.0f, 0), 0.5f);
                 characterPositionIndex = 1;
@@ -178,6 +189,7 @@ public class SelectManager : MonoBehaviour
                 Character.transform.DOMove(new Vector3(4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 2;
             }
+            Debug.Log(characterPositionIndex);
         }
 
         // 왼쪽 버튼을 누르면 용사가 왼쪽으로 이동. 
@@ -192,6 +204,30 @@ public class SelectManager : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(-4.3f, -3.0f, 0), 0.5f);
                 characterPositionIndex = 0;
+            }
+            else if (characterPositionIndex == 0)
+            {
+                Character.transform.DOMove(new Vector3(-6.5f, -3.0f, 0), 0.5f);
+                characterPositionIndex = -1;
+                ScriptBallon.enabled = true;
+                RerollExplain.enabled = true;
+            }
+            Debug.Log(characterPositionIndex);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && characterPositionIndex == -1)
+        {
+            if (count == 3)
+            {
+                ItemBoxManager.Instance.SetWeaponBox(ItemBox1, ItemBox2, ItemBox3);
+            }
+            else if (count == 2)
+            {
+                ItemBoxManager.Instance.SetArmorBox(ItemBox1, ItemBox2, ItemBox3);
+            }
+            else if (count == 1)
+            {
+                ItemBoxManager.Instance.SetColleagueBox(ItemBox1, ItemBox2, ItemBox3);
             }
         }
 
@@ -212,21 +248,6 @@ public class SelectManager : MonoBehaviour
                 ItemBoxManager.Instance.SetColleague(characterPositionIndex, ItemBox1, ItemBox2, ItemBox3);
             }
             StartCoroutine(CharacterExit());
-        }
-
-        // f1을 누르면 도움말이 나온다. 
-        if (Input.GetKeyDown(KeyCode.F1) && blockKeyboardInput == false)
-        {
-            if (helpCanvasPopup == false)
-            {
-                helpCanvasPopup = true;
-                GameManager.UI.ShowPopup<HelpCanvas>("HelpCanvas");
-            }
-            else if (helpCanvasPopup == true)
-            {
-                helpCanvasPopup = false;
-                GameManager.UI.ClosePopup();
-            }
         }
     }
 }
