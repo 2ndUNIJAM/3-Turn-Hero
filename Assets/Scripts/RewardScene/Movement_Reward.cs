@@ -20,11 +20,13 @@ public class Movement_Reward : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(0.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 1)
             {
                 Character.transform.DOMove(new Vector3(5.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 2;
+                GameManager.Sound.PlaySE("Move");
             }
         }
 
@@ -34,17 +36,20 @@ public class Movement_Reward : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(0.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
             else if (characterPositionIndex == 1)
             {
                 Character.transform.DOMove(new Vector3(-5.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 0;
+                GameManager.Sound.PlaySE("Move");
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             UpgradeManager.Instance.UpdateStat(characterPositionIndex);
+            GameManager.Sound.PlaySE("Coins");
             GameManager.Scene.GoToScene(Scene.MapSelectScene, "Combat_MR");
         }
     }

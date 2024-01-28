@@ -105,7 +105,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log($"ÀÌÀü {jumpCurrentCount} / {jumpMaxCount}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ {jumpCurrentCount} / {jumpMaxCount}");
 
         if (isJumping && jumpCurrentCount >= jumpMaxCount)
             return;
@@ -118,7 +118,7 @@ public class PlayerManager : MonoBehaviour
         StopCoroutine("CoolTimeJump");
         StartCoroutine("CoolTimeJump");
 
-        Debug.Log($"ÀÌÈÄ {jumpCurrentCount} / {jumpMaxCount}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ {jumpCurrentCount} / {jumpMaxCount}");
     }
 
     IEnumerator CoolTimeJump()

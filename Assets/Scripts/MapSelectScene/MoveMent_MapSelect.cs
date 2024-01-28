@@ -20,6 +20,7 @@ public class Movement_MapSelect : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(3.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 1;
+                GameManager.Sound.PlaySE("Move");
             }
         }
 
@@ -29,6 +30,7 @@ public class Movement_MapSelect : MonoBehaviour
             {
                 Character.transform.DOMove(new Vector3(-3.0f, -2.0f, 0), 0.5f);
                 characterPositionIndex = 0;
+                GameManager.Sound.PlaySE("Move");
             }
         }
 
@@ -68,6 +70,7 @@ public class Movement_MapSelect : MonoBehaviour
             }
 
             GameManager.Data.currentStage++;
+            GameManager.Sound.PlaySE("Select");
 
             GameManager.Scene.GoToScene(Scene.BattleScene, "Combat_BGM");
         }

@@ -18,6 +18,8 @@ MonoBehaviour:
     \u2026\uC544\uB9C8\uB3C4\uC694. / 20\uCD08 \uB3D9\uC548, \uC2A4\uD14C\uC774\uB2C8\uC758
     \uBB34\uC791\uC704 \uC801\uC5D0\uAC8C 4\uCD08\uC5D0 \uD55C \uBC88\uC529 20 \uB370\uBBF8\uC9C0\uB97C
     \uAC00\uD558\uB294 \uD65C\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
+  largeIcon: {fileID: 2018026883, guid: 9dc67b9d798cac04ab56880e5062424a, type: 3}
+  smallIcon: {fileID: 1416085904, guid: 877d4f4e6626c4243b513b3bbb52505d, type: 3}
   count: 2
   gender: "\uB0A8\uC790"
   possibility: 16.6
