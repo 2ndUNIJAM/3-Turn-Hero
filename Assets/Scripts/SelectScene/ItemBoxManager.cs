@@ -234,6 +234,10 @@ public class ItemBoxManager : MonoBehaviour
         DataManager.playerInven.armor.basicStat.AttackSpeed = selectedArmorData.AttackSpeed;
 
         DataManager.playerInven.armor.englishName = selectedArmorData.EngName;
+
+        if (selectedArmorData.EngName == "AdamantiumArmor" || selectedArmorData.EngName == "SylphArmor")
+            DataManager.playerInven.armor.SpecialArmorLevel = 1;
+
         DataManager.playerInven.armor.koreanName = selectedArmorData.KorName;
         DataManager.playerInven.armor.description = selectedArmorData.Descript;
         DataManager.playerInven.armor.icon = selectedArmorData.Icon;
